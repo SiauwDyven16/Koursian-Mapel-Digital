@@ -100,6 +100,12 @@ body {
     color: #704FE6;
 }
 
+.nav-item:not(.active):hover svg {
+    opacity: 1;
+    fill: #704FE6;
+    color: #704FE6;
+ }
+
 /* Main Content */
 .main-content {
     flex: 1;
