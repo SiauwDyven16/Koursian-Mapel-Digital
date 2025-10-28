@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koursian - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/browse.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo">
+                    <svg viewBox="0 0 49 48" fill="none">
+                        <path d="M24.5 12.75C24.5 18.9632 19.4632 24 13.25 24H2V12.75C2 6.53679 7.03679 1.5 13.25 1.5C19.4632 1.5 24.5 6.53679 24.5 12.75Z" fill="#704FE6"/>
+                        <path d="M24.5 35.25C24.5 29.0368 29.5368 24 35.75 24H47V35.25C47 41.4632 41.9632 46.5 35.75 46.5C29.5368 46.5 24.5 41.4632 24.5 35.25Z" fill="#704FE6"/>
+                        <path d="M2 35.25C2 41.4632 7.03679 46.5 13.25 46.5H24.5V35.25C24.5 29.0368 19.4632 24 13.25 24C7.03679 24 2 29.0368 2 35.25Z" fill="#704FE6"/>
+                        <path d="M47 12.75C47 6.53679 41.9632 1.5 35.75 1.5H24.5V12.75C24.5 18.9632 29.5368 24 35.75 24C41.9632 24 47 18.9632 47 12.75Z" fill="#FFD25D"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Koursian</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M17.4747 29.3333H14.5253C9.92933 29.3333 7.632 29.3333 6.06533 27.984C4.49867 26.6347 4.17333 24.3773 3.524 19.86L3.152 17.2773C2.64533 13.7613 2.392 12.0027 3.11333 10.5C3.83467 8.99733 5.368 8.08267 8.436 6.256L10.2827 5.156C13.0667 3.496 14.4613 2.66667 16 2.66667C17.5387 2.66667 18.932 3.496 21.7173 5.156L23.564 6.256C26.6307 8.08267 28.1653 8.99733 28.8867 10.5C29.608 12.0027 29.3533 13.7613 28.8467 17.2773L28.476 19.86C27.8267 24.3773 27.5013 26.6347 25.9347 27.984C24.368 29.3333 22.0707 29.3333 17.4747 29.3333Z" fill="#704FE6" opacity="0.5"/>
+                        <path d="M11 24C11 23.7348 11.1054 23.4804 11.2929 23.2929C11.4804 23.1054 11.7348 23 12 23H20C20.2652 23 20.5196 23.1054 20.7071 23.2929C20.8946 23.4804 21 23.7348 21 24C21 24.2652 20.8946 24.5196 20.7071 24.7071C20.5196 24.8946 20.2652 25 20 25H12C11.7348 25 11.4804 24.8946 11.2929 24.7071C11.1054 24.5196 11 24.2652 11 24Z" fill="#704FE6"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M16 29.3333C23.364 29.3333 29.3333 23.364 29.3333 16C29.3333 8.636 23.364 2.66667 16 2.66667C8.636 2.66667 2.66667 8.636 2.66667 16C2.66667 23.364 8.636 29.3333 16 29.3333Z" fill="#25252B" opacity="0.5"/>
+                        <path d="M17.3653 19.4133C18.0227 19.1507 18.3507 19.0187 18.608 18.7933C18.6747 18.7356 18.7364 18.6738 18.7933 18.608C19.02 18.3507 19.1507 18.0213 19.4133 17.3653C20.6453 14.2853 21.2613 12.7453 20.664 11.8667C20.5222 11.6579 20.3421 11.4778 20.1333 11.336C19.2533 10.7387 17.7147 11.3547 14.6347 12.5867C13.9773 12.8493 13.648 12.98 13.3907 13.2067C13.3249 13.2644 13.2636 13.3262 13.2067 13.392C12.98 13.6493 12.8493 13.9787 12.5867 14.6347C11.3547 17.7147 10.7387 19.2533 11.336 20.1333C11.4778 20.3421 11.6579 20.5222 11.8667 20.664C12.7467 21.2613 14.2853 20.6453 17.3653 19.4133Z" fill="#25252B"/>
+                    </svg>
+                    <span>Browse</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path clip-rule="evenodd" d="M2.66667 21.5253V6.664C2.66667 5.2 3.848 4.01067 5.30933 4.1C6.612 4.18 8.15067 4.33867 9.33333 4.65067C10.7333 5.01867 12.3947 5.80533 13.7093 6.50133C14.415 6.8713 15.2035 7.05445 16 7.03333V27.3C15.243 27.3004 14.4975 27.1145 13.8293 26.7587C12.496 26.0493 10.776 25.2253 9.33333 24.8453C8.164 24.536 6.64533 24.3787 5.35333 24.2973C3.87467 24.204 2.66667 23.008 2.66667 21.5253Z" fill="#25252B" fill-rule="evenodd" opacity="0.5"/>
+                        <path d="M29.3333 21.5253V6.57867C29.3333 5.148 28.2053 3.97467 26.776 4.024C25.2707 4.07733 23.396 4.232 22 4.65067C20.7893 5.012 19.38 5.73867 18.232 6.404C17.5528 6.79824 16.7851 7.0147 16 7.03333V27.3C16.7467 27.3 17.4947 27.1187 18.1707 26.7587C19.504 26.0493 21.224 25.2253 22.6667 24.8453C23.836 24.536 25.3547 24.3787 26.6467 24.2973C28.1253 24.204 29.3333 23.008 29.3333 21.5253Z" fill="#25252B"/>
+                    </svg>
+                    <span>My Bootcamp</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M24.476 1.81867C24.6125 1.5913 24.8337 1.42746 25.091 1.3632C25.3483 1.29894 25.6206 1.33952 25.848 1.476L25.852 1.47867L25.856 1.48133L25.8693 1.48933C25.9211 1.52137 25.9718 1.55516 26.0213 1.59067C26.1164 1.65644 26.2396 1.75067 26.3907 1.87333C26.6867 2.12 27.0733 2.48933 27.46 2.99067C28.236 4.00133 29 5.54267 29 7.66667C29 9.79067 28.236 11.3333 27.46 12.3427C27.0733 12.844 26.6867 13.2133 26.3907 13.46C26.2301 13.5942 26.0618 13.7189 25.8867 13.8333L25.8693 13.844L25.856 13.852L25.852 13.8547L25.8493 13.856C25.8493 13.856 25.848 13.8573 25.3333 13L25.848 13.8573C25.6215 13.9859 25.3538 14.021 25.1019 13.9552C24.8499 13.8894 24.6335 13.728 24.4988 13.5052C24.364 13.2823 24.3215 13.0157 24.3802 12.762C24.439 12.5083 24.5943 12.2876 24.8133 12.1467L24.82 12.1413L24.8733 12.1053C24.9276 12.068 25.0062 12.0076 25.1093 11.924C25.3133 11.7533 25.5933 11.4893 25.8733 11.124C26.4307 10.4013 27 9.276 27 7.66667C27 6.05733 26.4307 4.93333 25.8747 4.20933C25.6495 3.91551 25.3929 3.64724 25.1093 3.40933C25.0162 3.33256 24.9197 3.26004 24.82 3.192L24.8133 3.188C24.5876 3.05064 24.4254 2.8295 24.3622 2.57292C24.299 2.31634 24.3399 2.04517 24.476 1.81867ZM13.3333 13C14.7478 13 16.1044 12.4381 17.1046 11.4379C18.1048 10.4377 18.6667 9.08115 18.6667 7.66667C18.6667 6.25218 18.1048 4.89562 17.1046 3.89543C16.1044 2.89524 14.7478 2.33333 13.3333 2.33333C11.9188 2.33333 10.5623 2.89524 9.5621 3.89543C8.5619 4.89562 8 6.25218 8 7.66667C8 9.08115 8.5619 10.4377 9.5621 11.4379C10.5623 12.4381 11.9188 13 13.3333 13Z" fill="black"/>
+                        <path d="M23.1813 4.14267C23.0687 4.07488 22.9438 4.02997 22.8138 4.0105C22.6837 3.99103 22.5512 3.9974 22.4236 4.02922C22.2961 4.06105 22.176 4.11772 22.0704 4.19598C21.9648 4.27425 21.8756 4.37257 21.808 4.48533L22.1413 5.85067L22.1507 5.85733L22.2347 5.92267C22.3147 5.98933 22.4267 6.09467 22.5413 6.24267C22.851 6.65175 23.0127 7.15377 23 7.66667C23.0127 8.17956 22.851 8.68159 22.5413 9.09067C22.4295 9.23692 22.2981 9.36704 22.1507 9.47733L22.14 9.48267C21.9183 9.62284 21.7605 9.8445 21.7007 10.0999C21.6409 10.3553 21.6839 10.6239 21.8203 10.848C21.9567 11.072 22.1757 11.2335 22.43 11.2976C22.6844 11.3617 22.9537 11.3233 23.18 11.1907H23.1827L23.1853 11.1893L23.1893 11.1867L23.1987 11.18L23.2253 11.164C23.3265 11.0986 23.4232 11.0265 23.5147 10.948C23.6867 10.8053 23.9067 10.5947 24.1267 10.3093C24.705 9.55083 25.0125 8.62041 25 7.66667C25.0125 6.71292 24.705 5.78251 24.1267 5.024C23.8907 4.71681 23.6113 4.44554 23.2973 4.21867L23.2253 4.16933L23.1987 4.15333L23.1893 4.148L23.1853 4.14533L23.1827 4.144C23.1827 4.144 23.1813 4.14267 22.6667 5L23.1813 4.14267Z" fill="black"/>
+                        <path d="M2.66667 23C2.66667 26.3133 2.66667 29 13.3333 29C24 29 24 26.3133 24 23C24 19.6867 19.224 17 13.3333 17C7.44267 17 2.66667 19.6867 2.66667 23Z" fill="black" opacity="0.5"/>
+                    </svg>
+                    <span>Mentor</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M29.3333 16C29.3333 23.364 23.364 29.3333 16 29.3333C8.636 29.3333 2.66667 23.364 2.66667 16C2.66667 8.636 8.636 2.66667 16 2.66667C23.364 2.66667 29.3333 8.636 29.3333 16Z" fill="black" opacity="0.5"/>
+                        <path d="M16 10.3333C15.172 10.3333 14.5 11.0053 14.5 11.8333C14.5 12.0985 14.3946 12.3529 14.2071 12.5404C14.0196 12.728 13.7652 12.8333 13.5 12.8333C13.2348 12.8333 12.9804 12.728 12.7929 12.5404C12.6054 12.3529 12.5 12.0985 12.5 11.8333C12.5 11.2599 12.6409 10.6953 12.9103 10.1891C13.1797 9.6829 13.5694 9.25065 14.045 8.93036C14.5206 8.61006 15.0676 8.41153 15.638 8.35222C16.2083 8.29291 16.7845 8.37464 17.3159 8.59022C17.8472 8.8058 18.3174 9.14863 18.6852 9.58856C19.053 10.0285 19.3071 10.552 19.4251 11.1132C19.5431 11.6743 19.5214 12.2559 19.362 12.8067C19.2025 13.3575 18.9102 13.8607 18.5107 14.272C18.388 14.3982 18.2707 14.5169 18.1587 14.628C17.8886 14.8867 17.6344 15.1614 17.3973 15.4507C17.104 15.8267 17 16.1027 17 16.3333V17.3333C17 17.5985 16.8946 17.8529 16.7071 18.0404C16.5196 18.228 16.2652 18.3333 16 18.3333C15.7348 18.3333 15.4804 18.228 15.2929 18.0404C15.1054 17.8529 15 17.5985 15 17.3333V16.3333C15 15.46 15.4067 14.752 15.8187 14.2227C16.124 13.8307 16.5067 13.4493 16.8187 13.1373C16.9129 13.044 16.9987 12.9578 17.076 12.8787C17.2815 12.6672 17.4201 12.3999 17.4745 12.1101C17.5289 11.8203 17.4967 11.5209 17.3819 11.2493C17.267 10.9777 17.0747 10.746 16.829 10.5831C16.5832 10.4201 16.2949 10.3333 16 10.3333ZM16 22.6667C16.3536 22.6667 16.6928 22.5262 16.9428 22.2761C17.1929 22.0261 17.3333 21.687 17.3333 21.3333C17.3333 20.9797 17.1929 20.6406 16.9428 20.3905C16.6928 20.1405 16.3536 20 16 20C15.6464 20 15.3072 20.1405 15.0572 20.3905C14.8071 20.6406 14.6667 20.9797 14.6667 21.3333C14.6667 21.687 14.8071 22.0261 15.0572 22.2761C15.3072 22.5262 15.6464 22.6667 16 22.6667Z" fill="black"/>
+                    </svg>
+                    <span>Question</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <h1 class="page-title">Browse</h1>
+                
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <g fill="none" stroke="#25252b70" stroke-width="1.5">
+                            <circle cx="11.5" cy="11.5" r="9.5" />
+                            <path stroke-linecap="round" d="M18.5 18.5L22 22" />
+                        </g>
+                    </svg>
+                    <input type="text" placeholder="Search bootcamp, mentor, question">
+                </div>
+
+                <div class="nav-actions">
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <path d="M18.172 27.296L17.4493 28.5173C16.8053 29.6053 15.196 29.6053 14.5507 28.5173L13.828 27.296C13.268 26.3493 12.988 25.8747 12.5373 25.6133C12.0867 25.3507 11.52 25.3413 10.3867 25.3213C8.712 25.2933 7.66267 25.1907 6.78267 24.8253C5.97382 24.4903 5.23889 23.9992 4.61983 23.3802C4.00076 22.7611 3.5097 22.0262 3.17467 21.2173C2.66667 19.9933 2.66667 18.44 2.66667 15.3333V14C2.66667 9.636 2.66667 7.45333 3.64933 5.85067C4.19872 4.9536 4.9526 4.19927 5.84933 3.64933C7.45333 2.66667 9.63733 2.66667 14 2.66667H18C22.364 2.66667 24.5467 2.66667 26.1507 3.64933C27.0473 4.19889 27.8011 4.95275 28.3507 5.84933C29.3333 7.45333 29.3333 9.63733 29.3333 14V15.3333C29.3333 18.44 29.3333 19.9933 28.8267 21.2173C28.4915 22.0263 28.0002 22.7613 27.3809 23.3804C26.7616 23.9994 26.0264 24.4904 25.2173 24.8253C24.3373 25.1907 23.288 25.292 21.6133 25.3213C20.48 25.3413 19.9133 25.3507 19.4627 25.6133C19.012 25.8747 18.732 26.348 18.172 27.296Z" fill="#704FE6" opacity="0.5"/>
+                            <path d="M9.66667 12C9.66667 11.7348 9.77202 11.4804 9.95956 11.2929C10.1471 11.1054 10.4014 11 10.6667 11H21.3333C21.5985 11 21.8529 11.1054 22.0404 11.2929C22.228 11.4804 22.3333 11.7348 22.3333 12C22.3333 12.2652 22.228 12.5196 22.0404 12.7071C21.8529 12.8946 21.5985 13 21.3333 13H10.6667C10.4014 13 10.1471 12.8946 9.95956 12.7071C9.77202 12.5196 9.66667 12.2652 9.66667 12ZM9.66667 16.6667C9.66667 16.4015 9.77202 16.1471 9.95956 15.9596C10.1471 15.772 10.4014 15.6667 10.6667 15.6667H18C18.2652 15.6667 18.5196 15.772 18.7071 15.9596C18.8946 16.1471 19 16.4015 19 16.6667C19 16.9319 18.8946 17.1862 18.7071 17.3738C18.5196 17.5613 18.2652 17.6667 18 17.6667H10.6667C10.4014 17.6667 10.1471 17.5613 9.95956 17.3738C9.77202 17.1862 9.66667 16.9319 9.66667 16.6667Z" fill="#704FE6"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <path d="M28 14.7973V21.4547C28 25.5827 28 27.648 27.0213 28.5493C26.5547 28.98 25.9653 29.2507 25.3373 29.3227C24.0213 29.4733 22.484 28.1133 19.4107 25.3947C18.0507 24.1933 17.372 23.592 16.5867 23.4347C16.1995 23.3556 15.8005 23.3556 15.4133 23.4347C14.6267 23.592 13.948 24.1933 12.5893 25.3947C9.516 28.1133 7.97867 29.4733 6.66267 29.3213C6.0337 29.249 5.44399 28.9787 4.97867 28.5493C4 27.648 4 25.584 4 21.4547V14.796C4 9.08 4 6.22133 5.75733 4.444C7.51467 2.66667 10.344 2.66667 16 2.66667C21.656 2.66667 24.4853 2.66667 26.2427 4.44267C28 6.21867 28 9.08 28 14.7973Z" fill="#704FE6" opacity="0.5"/>
+                            <path d="M12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8C11 8.26522 11.1054 8.51957 11.2929 8.70711C11.4804 8.89464 11.7348 9 12 9H20C20.2652 9 20.5196 8.89464 20.7071 8.70711C20.8946 8.51957 21 8.26522 21 8C21 7.73478 20.8946 7.48043 20.7071 7.29289C20.5196 7.10536 20.2652 7 20 7H12Z" fill="#704FE6"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <path d="M25 12V12.9387C25 14.0653 25.32 15.1667 25.9227 16.104L27.4 18.4013C28.748 20.5 27.7187 23.352 25.3733 24.0147C19.245 25.7502 12.7551 25.7502 6.62667 24.0147C4.28133 23.352 3.252 20.5 4.6 18.4013L6.07733 16.104C6.68162 15.1589 7.00229 14.0604 7.00133 12.9387V12C7.00133 6.84533 11.0307 2.66667 16 2.66667C20.9693 2.66667 25 6.84533 25 12Z" fill="#704FE6" opacity="0.5"/>
+                            <path d="M9.65733 24.7267C10.093 26.0655 10.9412 27.2321 12.0804 28.0594C13.2196 28.8867 14.5914 29.3323 15.9993 29.3323C17.4073 29.3323 18.7791 28.8867 19.9183 28.0594C21.0575 27.2321 21.9057 26.0655 22.3413 24.7267C18.148 25.5133 13.852 25.5133 9.65733 24.7267Z" fill="#704FE6"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" id="task">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path fill="#704FE6" fill-rule="evenodd" d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919" clip-rule="evenodd" />
+                            <path fill="#704FE6" d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73" opacity="0.5" />
+                        </svg>
+                    </button>
+                    <div class="avatar">
+                        <img src="src/assets/image/Mentor-Image-1.jpg" alt="Profile">
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Category Filters -->
+            <section class="category-filters">
+                <button class="category-btn">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path fill="#704FE6" fill-rule="evenodd" d="M5 3h14L8.816 13.184a2.7 2.7 0 0 0-.778-1.086c-.228-.198-.547-.377-1.183-.736l-2.913-1.64c-.949-.533-1.423-.8-1.682-1.23C2 8.061 2 7.541 2 6.503v-.69c0-1.326 0-1.99.44-2.402C2.878 3 3.585 3 5 3" clip-rule="evenodd" />
+                            <path fill="#704FE6" d="M22 6.504v-.69c0-1.326 0-1.99-.44-2.402C21.122 3 20.415 3 19 3L8.815 13.184q.075.193.121.403c.064.285.064.619.064 1.286v2.67c0 .909 0 1.364.252 1.718c.252.355.7.53 1.594.88c1.879.734 2.818 1.101 3.486.683S15 19.452 15 17.542v-2.67c0-.666 0-1 .063-1.285a2.68 2.68 0 0 1 .9-1.49c.227-.197.545-.376 1.182-.735l2.913-1.64c.948-.533 1.423-.8 1.682-1.23c.26-.43.26-.95.26-1.988" opacity="0.5" />
+                        </svg>
+                    </span>
+                </button>
+                <button class="category-btn">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M2 16.144V4.998c0-1.098.886-1.99 1.982-1.923c.977.06 2.131.179 3.018.413c1.05.276 2.296.866 3.282 1.388A3.5 3.5 0 0 0 12 5.275v15.2a3.46 3.46 0 0 1-1.628-.406c-1-.532-2.29-1.15-3.372-1.435c-.877-.232-2.016-.35-2.985-.411C2.906 18.153 2 17.255 2 16.143" clip-rule="evenodd" opacity="0.5" />
+                        <path d="M22 16.144V4.934c0-1.073-.846-1.953-1.918-1.916c-1.129.04-2.535.156-3.582.47c-.908.271-1.965.816-2.826 1.315A3.5 3.5 0 0 1 12 5.275v15.2c.56 0 1.121-.136 1.628-.406c1-.532 2.29-1.15 3.372-1.435c.877-.232 2.016-.35 2.985-.411c1.109-.07 2.015-.968 2.015-2.08" />
+                    </svg>
+                    <span>Class</span>
+                </button>
+                <button class="category-btn">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M7.426 18H20c-.003.93-.022 1.623-.113 2.17c-.11.653-.31.998-.616 1.244c-.307.246-.737.407-1.55.494c-.837.09-1.946.092-3.536.092h-4.43c-1.59 0-2.7-.001-3.536-.092c-.813-.087-1.243-.248-1.55-.494s-.506-.591-.616-1.243l-.022-.151c-.04-.291-.06-.437.066-.78c.127-.344.181-.397.291-.505a2.6 2.6 0 0 1 1.285-.667c.29-.062.67-.068 1.753-.068" />
+                        <path d="M4.727 2.733c.306-.308.734-.508 1.544-.618C7.105 2.002 8.209 2 9.793 2h4.414c1.584 0 2.688.002 3.522.115c.81.11 1.238.31 1.544.618c.305.308.504.74.613 1.557c.112.84.114 1.955.114 3.552V18H7.426c-1.084 0-1.462.006-1.753.068c-.513.11-.96.347-1.285.667c-.11.108-.164.161-.291.505A1.3 1.3 0 0 0 4 19.7V7.842c0-1.597.002-2.711.114-3.552c.109-.816.308-1.249.613-1.557" opacity="0.5" />
+                        <path d="M7.25 7A.75.75 0 0 1 8 6.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 7M8 9.75a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5z" />
+                    </svg>
+                    <span>Course</span>
+                </button>
+                <button class="category-btn">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                        d="M20 17c1.105 0 2-.933 2-2.083c0-.72-.783-1.68-1.37-2.3a.86.86 0 0 0-1.26 0c-.587.62-1.37 1.58-1.37 2.3c0 1.15.895 2.083 2 2.083m-3.722-6.432l1.505-2.598l-8.41-4.826L2.65 14.746a4.827 4.827 0 0 0 1.776 6.606a4.86 4.86 0 0 0 6.629-1.77l1.12-1.932z"
+                        opacity="0.5"
+                        />
+                        <path
+                        d="M9.294 1.354a.75.75 0 0 0-.763 1.292l.835.494l.006.003l8.41 4.827l.844.484a.75.75 0 1 0 .747-1.3l-9.247-5.308zm3.633 14.998l-.002-.002l-2.612-1.503a.75.75 0 0 0-.748 1.3l2.61 1.503zm1.638-2.827l-.002-.001l-4.203-2.418a.75.75 0 0 0-.748 1.3l4.2 2.417zm1.711-2.958l-2.558-1.472a.75.75 0 0 0-.748 1.3l2.556 1.47z"
+                        />
+                    </svg>
+                    </span>
+                    <span>Teacher</span>
+                </button>
+                <button class="category-btn">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="" fill-rule="evenodd" d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919" clip-rule="evenodd" />
+                        <path fill="" d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73" opacity="0.5" />
+                    </svg>
+                    <span>Task</span>
+                </button>
+                
+            </section>
+
+            <!-- On Going Bootcamp -->
+            <section class="content-section">
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/1f8b3827b56f0627e268663d1c8fe2df67b7b7ed.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Next.js Super Bootcamp Creating 5 Real Real-World Project</h4>
+                            <div class="course-meta">
+                                <span>Ronaldo Davinci</span>
+                                <span class="dot">•</span>
+                                <span>128 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Top Seller</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/612a6ede2c624fec92f35eaad82ec01672b0a1c7.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>React Native Complete Guide to App Development</h4>
+                            <div class="course-meta">
+                                <span>Sophie Smith</span>
+                                <span class="dot">•</span>
+                                <span>92 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Most Student</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/1fe9a63fc748d547c0d49b2cb0add233c60dbee3.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Python Data Science Bootcamp</h4>
+                            <div class="course-meta">
+                                <span>Alex Johnson</span>
+                                <span class="dot">•</span>
+                                <span>105 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Highest Rating</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/6b344c72939153163c3ca4c4d52cbcff1437c8b5.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>UI/UX Design Fundamentals</h4>
+                            <div class="course-meta">
+                                <span>Emily White</span>
+                                <span class="dot">•</span>
+                                <span>40 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Top Seller</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/f1f4bfb28ca651296a1674404567a62a1f694cc9.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>JavaScript Algorithms and Data Structures Masterclass</h4>
+                            <div class="course-meta">
+                                <span>Michael Brown</span>
+                                <span class="dot">•</span>
+                                <span>75 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Value to Money</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/34faf8a16fd3833ea8e0da51a3d97adddce35438.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Web Development Bootcamp with HTML, CSS, and JavaScript</h4>
+                            <div class="course-meta">
+                                <span>Jessica Garcia</span>
+                                <span class="dot">•</span>
+                                <span>70 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Highest Rating</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Bootcamp -->
+            <section class="content-section">
+                <!-- <h2>Popular Bootcamp</h2> -->
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/1f8b3827b56f0627e268663d1c8fe2df67b7b7ed.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Next.js Super Bootcamp Creating 5 Real Real-World Project</h4>
+                            <div class="course-meta">
+                                <span>Ronaldo Davinci</span>
+                                <span class="dot">•</span>
+                                <span>128 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Top Seller</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/612a6ede2c624fec92f35eaad82ec01672b0a1c7.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>React Native Complete Guide to App Development</h4>
+                            <div class="course-meta">
+                                <span>Sophie Smith</span>
+                                <span class="dot">•</span>
+                                <span>92 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Most Student</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/1fe9a63fc748d547c0d49b2cb0add233c60dbee3.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Python Data Science Bootcamp</h4>
+                            <div class="course-meta">
+                                <span>Alex Johnson</span>
+                                <span class="dot">•</span>
+                                <span>105 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Highest Rating</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/6b344c72939153163c3ca4c4d52cbcff1437c8b5.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>UI/UX Design Fundamentals</h4>
+                            <div class="course-meta">
+                                <span>Emily White</span>
+                                <span class="dot">•</span>
+                                <span>40 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Top Seller</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/f1f4bfb28ca651296a1674404567a62a1f694cc9.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>JavaScript Algorithms and Data Structures Masterclass</h4>
+                            <div class="course-meta">
+                                <span>Michael Brown</span>
+                                <span class="dot">•</span>
+                                <span>75 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Value to Money</div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/34faf8a16fd3833ea8e0da51a3d97adddce35438.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Web Development Bootcamp with HTML, CSS, and JavaScript</h4>
+                            <div class="course-meta">
+                                <span>Jessica Garcia</span>
+                                <span class="dot">•</span>
+                                <span>70 hours</span>
+                            </div>
+                        </div>
+                        <div class="badge">Highest Rating</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommended For You -->
+            <section class="content-section">
+                <!-- <h2>Recommended For You</h2> -->
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Vue.js Advanced Concepts and Best Practices</h4>
+                            <div class="course-meta">
+                                <span>Alex Johnson</span>
+                                <span class="dot">•</span>
+                                <span>75 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/1f8b3827b56f0627e268663d1c8fe2df67b7b7ed.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Next.js Super Bootcamp Creating 5 Real Real-World Project</h4>
+                            <div class="course-meta">
+                                <span>Ronaldo Davinci</span>
+                                <span class="dot">•</span>
+                                <span>128 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/4055f2dfc89a2f986473e174e463017c1ddeafd5.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Angular Masterclass - Build Real-World Applications</h4>
+                            <div class="course-meta">
+                                <span>Emma Brown</span>
+                                <span class="dot">•</span>
+                                <span>110 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/453036efe2b6222ba876210f13987f5299049b3d.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>Node.js Total Guide for Backend Development</h4>
+                            <div class="course-meta">
+                                <span>Maximilian Miller</span>
+                                <span class="dot">•</span>
+                                <span>85 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/612a6ede2c624fec92f35eaad82ec01672b0a1c7.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>React Native Complete Guide to App Development</h4>
+                            <div class="course-meta">
+                                <span>Sophie Smith</span>
+                                <span class="dot">•</span>
+                                <span>92 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://raw.githubusercontent.com/figma/code-connect/main/examples/assets/1fe9a63fc748d547c0d49b2cb0add233c60dbee3.png" alt="Course">
+                        </div>
+                        <div class="course-details">
+                            <h4>UI/UX Design Principles for Mobile Apps</h4>
+                            <div class="course-meta">
+                                <span>Luna Garcia</span>
+                                <span class="dot">•</span>
+                                <span>60 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="task-list">
+            <div class="task-title">
+                <div class="task-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="" fill-rule="evenodd" d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919" clip-rule="evenodd" />
+                        <path fill="" d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73" opacity="0.5" />
+                    </svg>
+                </div>
+                <h2 class="task-text">Assignment</h2>
+            </div>
+            <div class="tasks">
+                <!-- Task 1 -->
+                <div class="task-content">
+                    <div class="task-info">
+                        <div class="task-name">
+                            <h2>Membuat Website Ujian Akhir</h2><span>• RPL</span>
+                        </div>
+                        <span>Deadline on • 29-10-2025</span>
+                    </div>
+                    <button class="task-working-btn">
+                        <span class="task-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="" fill-rule="evenodd" d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z" clip-rule="evenodd" />
+                                <path fill="" d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648" opacity="0.5" />
+                            </svg>
+                        </span>
+                        <span>Start Working</span>
+                    </button>
+                </div>
+                <!-- Task 2 -->
+                <div class="task-content">
+                    <div class="task-info">
+                        <div class="task-name">
+                            <h2>Membuat Website Ujian Akhir</h2><span>• RPL</span>
+                        </div>
+                        <span>Deadline on • 29-10-2025</span>
+                    </div>
+                    <button class="task-working-btn">
+                        <span class="task-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="" fill-rule="evenodd" d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z" clip-rule="evenodd" />
+                                <path fill="" d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648" opacity="0.5" />
+                            </svg>
+                        </span>
+                        <span>Start Working</span>
+                    </button>
+                </div>
+                <!-- Task 3 -->
+                <div class="task-content">
+                    <div class="task-info">
+                        <div class="task-name">
+                            <h2>Membuat Website Ujian Akhir</h2><span>• RPL</span>
+                        </div>
+                        <span>Deadline on • 29-10-2025</span>
+                    </div>
+                    <button class="task-working-btn">
+                        <span class="task-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="" fill-rule="evenodd" d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z" clip-rule="evenodd" />
+                                <path fill="" d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648" opacity="0.5" />
+                            </svg>
+                        </span>
+                        <span>Start Working</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/dashboard.js"></script>
+</body>
+</html>

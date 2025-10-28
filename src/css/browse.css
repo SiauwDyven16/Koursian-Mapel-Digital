@@ -1,0 +1,882 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lufga', sans-serif;
+    transition: all 300ms ease-in-out;
+    scrollbar-width: none;
+
+}
+
+body {
+    background: #fafafa;
+    color: #25252B;
+    overflow-x: hidden;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: #fafafa;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background: white;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 32px 24px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.logo {
+    width: 49px;
+    height: 48px;
+}
+
+.logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #25252B;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 64px;
+    text-decoration: none;
+    color: #25252B;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+    transition: all 0.3s;
+    opacity: 0.6;
+}
+
+.nav-item svg {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-item.active {
+    background: #DEC8FE;
+    color: #704FE6;
+    opacity: 1;
+}
+
+.nav-item.active svg path {
+    fill: #704FE6;
+}
+
+.nav-item:not(.active):hover {
+    opacity: 1;
+    background: #F5F5F5;
+    fill: #704FE6;
+    color: #704FE6;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 300px;
+    background: #fafafa;
+}
+
+/* Navbar */
+.navbar {
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -1.28px;
+    white-space: nowrap;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 560px;
+    height: 60px;
+    position: relative;
+    background: rgba(37, 37, 43, 0.05);
+    border-radius: 64px;
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    gap: 8px;
+}
+
+.search-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+    outline: none;
+    color: #25252B;
+}
+
+.search-container input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn svg {
+    width: 32px;
+    height: 32px;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Promotions Section */
+.promotions-section {
+    padding: 24px;
+    display: flex;
+    gap: 20px;
+}
+
+.promotion-card {
+    flex: 1;
+    height: 200px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.promotion-card.yellow {
+    background: #FFD25D;
+    background-image: url(/src/assets/image/promotions-background-yellow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.promotion-card.purple {
+    background: #704FE6;
+    background-image: url(/src/assets/image/promotions-background-purple.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.promotion-decoration {
+    width: 145px;
+    height: 27px;
+}
+
+.promotion-content h3 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -1.28px;
+    line-height: normal;
+}
+
+.promotion-card.yellow h3 {
+    color: #25252B;
+}
+
+.promotion-card.purple h3 {
+    color: white;
+}
+
+.promotion-pattern {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+/* Category Filters */
+.category-filters {
+    padding: 24px 24px 24px;
+    display: flex;
+    gap: 12px;
+    max-height: 144px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.category-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.category-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px 12px 12px;
+    border-radius: 64px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    width: 170px;
+    background-color: #fff;
+    color: #25252B60;
+    border: 1px solid #00000015;
+}
+
+.category-btn .icon {
+    width: 32px;
+    height: 32px;
+    fill: #25252B60;
+}
+
+.category-btn:hover  {
+    background-color: #f5f5f5;
+    border: 1px solid transparent;
+    /* color: #704FE6; */
+    /* background-color: #DEC8FE; */
+    /* border: 1px solid #704FE6; */
+}
+
+.category-btn:hover svg {
+    fill: #704FE6;
+}
+
+
+.category-btn:first-child {
+    width: fit-content;
+    padding: 12px;
+}
+
+/* Content Sections */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 24px 48px;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.course-image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course-details {
+    /* padding: 16px; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.course-details h4 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+    line-height: 26px;
+    color: #25252B;
+}
+
+.course-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.48px;
+    color: #25252B;
+    opacity: 0.6;
+}
+
+.badge {
+    padding: 4px 12px;
+    background: #FFD25D;
+    color: #25252B;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.browse-card {
+    background: #DEC8FE;
+    color: #704FE6;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 237px;
+    cursor: pointer;
+}
+
+.browse-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.browse-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+    /* color: #704FE6; */
+    line-height: normal;
+}
+
+.task-list {
+    position: fixed;
+    z-index: 999;
+    bottom:24px;
+    right: 24px;
+    /* padding: 40px; */
+    width: 700px;
+    height: 600px;
+    display: none;
+    flex-direction: column;
+    /* gap: 24px; */
+    filter: drop-shadow(5px 5px 8px #00000024);
+    background-color: #fff;
+    border-radius: 36px;
+    overflow-y:hidden ;
+}
+
+.task-title {
+    display: flex;
+    /* justify-content: center; */
+    gap: 12px;
+    padding: 48px 48px 24px;
+    border-bottom: 1px solid #00000020;
+}
+
+.task-icon svg {
+    width: 36px;
+    height: 36px;
+    fill: #704FE6;
+}
+
+.tasks {
+    scrollbar-color: #704fe660 #f0f0f0;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 24px;
+    background-color: #ffffff;
+    border: 1px solid #00000020;
+    border-top: none ;
+}
+
+.task-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    height: 200px;
+    padding: 24px;
+    border: 1px solid #00000020;
+    border-radius: 16px;
+}
+
+.task-name {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.task-info span {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.48px;
+    color: #25252B;
+    opacity: 0.6;
+}
+
+.task-working-btn {
+    width: 185px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background-color: #fff;
+    color: #704FE6;
+    font-weight: 500;
+    border: 1px solid #704FE640;
+    border-radius: 32px;
+}
+
+.task-working-btn .task-icon svg {
+    fill: #704FE6;
+    width: 16px;
+    height: 16px;
+}
+
+
+/* Desktop - 1920x1080 (Default) */
+@media (min-width: 1441px) {
+    .courses-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Laptop - 1440x1024 */
+@media (max-width: 1440px) {
+    .sidebar {
+        width: 260px;
+    }
+
+    .main-content {
+        margin-left: 260px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .promotion-card {
+        height: 180px;
+        padding: 32px 36px;
+    }
+
+    .promotion-content h3 {
+        font-size: 28px;
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .category-btn {
+        min-width: 220px;
+    }
+}
+
+/* Tablet - 768x1133 */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+        padding: 24px 12px;
+    }
+
+    .logo-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 64px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 38px;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .nav-item {
+        padding: 12px;
+        justify-content: center;
+    }
+
+    .nav-item svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .page-title {
+        font-size: 24px;
+        width: 100%;
+        order: 1;
+    }
+
+    .search-container {
+        order: 2;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .nav-actions {
+        order: 3;
+        gap: 16px;
+    }
+
+    .promotions-section {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .promotion-card {
+        height: 160px;
+        padding: 24px 28px;
+    }
+
+    .promotion-content h3 {
+        font-size: 24px;
+    }
+
+    .category-filters {
+        padding: 0 16px 16px;
+        gap: 12px;
+    }
+
+    .category-btn {
+        min-width: 180px;
+        font-size: 14px;
+    }
+
+    .category-btn .icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .content-section {
+        padding: 0 16px 32px;
+    }
+
+    .content-section h2 {
+        font-size: 20px;
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .course-image {
+        height: 120px;
+    }
+
+    .course-details h4 {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .avatar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .icon-btn svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Mobile - 360x932 */
+@media (max-width: 360px) {
+    .sidebar {
+        position: fixed;
+        left: -80px;
+        transition: left 0.3s;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .navbar {
+        padding: 12px;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+
+    .search-container {
+        padding: 10px 16px;
+    }
+
+    .search-container input {
+        font-size: 14px;
+    }
+
+    .nav-actions {
+        gap: 12px;
+    }
+
+    .icon-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .promotions-section {
+        padding: 12px;
+    }
+
+    .promotion-card {
+        height: 140px;
+        padding: 20px 24px;
+    }
+
+    .promotion-decoration {
+        width: 100px;
+        height: 20px;
+    }
+
+    .promotion-content h3 {
+        font-size: 18px;
+    }
+
+    .category-filters {
+        padding: 0 12px 12px;
+        gap: 8px;
+    }
+
+    .category-btn {
+        min-width: 140px;
+        font-size: 13px;
+        padding: 4px;
+        gap: 8px;
+    }
+
+    .category-btn .icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .content-section {
+        padding: 0 12px 24px;
+    }
+
+    .content-section h2 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .course-image {
+        height: 140px;
+    }
+
+    .course-details {
+        padding: 12px;
+    }
+
+    .course-details h4 {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .course-meta {
+        font-size: 11px;
+    }
+
+    .badge {
+        margin: 0 12px 12px;
+        padding: 3px 10px;
+        font-size: 9px;
+    }
+
+    .browse-card {
+        padding: 20px;
+        min-height: 200px;
+    }
+
+    .browse-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .browse-card h4 {
+        font-size: 14px;
+    }
+}
+
+/* Hamburger Menu for Mobile */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 150;
+    background: #704FE6;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+@media (max-width: 360px) {
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Overlay for mobile menu */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+}
+
+@media (max-width: 360px) {
+    .sidebar-overlay.open {
+        display: block;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(112, 79, 230, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(112, 79, 230, 0.5);
+}

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koursian - Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/landing.css">
+  </head>
+  <body>
+    <div class="landing-container">
+      <!-- Header Logo Container -->
+      <div class="header-logo-container" data-aos="fade-right" data-aos-duration="1200">
+        <div class="logo">
+          <svg viewBox="0 0 49 48" fill="none" preserveAspectRatio="none">
+            <path
+              d="M24.5 12.75C24.5 18.9632 19.4632 24 13.25 24H2V12.75C2 6.53679 7.03679 1.5 13.25 1.5C19.4632 1.5 24.5 6.53679 24.5 12.75Z"
+              fill="#704FE6"
+            />
+            <path
+              d="M2 35.25C2 41.4632 7.03679 46.5 13.25 46.5H24.5V35.25C24.5 29.0368 19.4632 24 13.25 24C7.03679 24 2 29.0368 2 35.25Z"
+              fill="#704FE6"
+            />
+            <path
+              d="M24.5 35.25C24.5 29.0368 29.5368 24 35.75 24H47V35.25C47 41.4632 41.9632 46.5 35.75 46.5C29.5368 46.5 24.5 41.4632 24.5 35.25Z"
+              fill="#704FE6"
+            />
+            <path
+              d="M47 12.75C47 6.53679 41.9632 1.5 35.75 1.5H24.5V12.75C24.5 18.9632 29.5368 24 35.75 24C41.9632 24 47 18.9632 47 12.75Z"
+              fill="#FFD25D"
+            />
+          </svg>
+        </div>
+        <p class="logo-text">Koursian</p>
+      </div>
+
+      <!-- Header Links -->
+      <div class="header-links">
+        <div class="nav-link active" data-target="home" data-aos="fade-down" data-aos-duration="1200">Home</div>
+        <div class="nav-link" data-target="class" data-aos="fade-down" data-aos-duration="1400">Class</div>
+        <div class="nav-link" data-target="features" data-aos="fade-down" data-aos-duration="1600">Advantage</div>
+        <div class="nav-link" data-target="testimonials" data-aos="fade-down" data-aos-duration="1800">Testimonials</div>
+      </div>
+
+      <!-- Header Right Links -->
+      <div class="header-links-right" >
+        <div class="sign-up-link" data-aos="fade-left" data-aos-duration="1200">Sign Up</div>
+        <div class="sign-in-link" data-aos="fade-left" data-aos-duration="1600">Sign In</div>
+      </div>
+
+      <!-- Hero Content Container -->
+      <div class="hero-content-container" id="home">
+        <div class="hero-header">
+          <div class="hero-decoration" data-aos="fade-down" data-aos-duration="400">
+            <svg
+              viewBox="0 0 189 43"
+              fill="none"
+              preserveAspectRatio="none"
+              style="
+                position: absolute;
+                inset: -15.15% -2.79%;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <path
+                d="M5.00132 24.0921C7.38198 23.3686 9.20801 14.9165 10.6659 12.2325C13.6278 6.77936 16.1103 5.95749 20.8621 6.01572C35.8447 6.19933 45.6241 27.3953 58.2482 36.8126C65.7133 42.3814 71.7974 26.9648 75.2418 19.5013C79.0863 11.1709 85.7189 8.09678 92.2355 9.65013C102.254 12.0382 109.549 24.5832 119.174 27.1049C124.906 28.6067 128.222 23.6992 132.139 18.1623C134.877 14.2928 137.221 8.05455 140.636 5.63315C141.964 4.69115 144.213 5.01498 145.608 5.25058C152.424 6.40138 159.154 15.515 164.962 20.6012C168.102 23.3511 172.096 28.1977 175.756 29.209C178.368 29.9307 181.348 29.2568 184.001 29.2568"
+                stroke="#FFD25D"
+                stroke-width="10"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="hero-text-container">
+            <p class="hero-title" data-aos="fade-up" data-aos-duration="800">
+              The <span class="yellow">future</span> belongs to those who keep
+              <span class="purple">learning</span>
+            </p>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1200">
+              Every skill you gain brings new opportunities and pushes you
+              closer to your goals. Start today with
+              <span class="purple">Koursian</span>
+            </p>
+          </div>
+        </div>
+        <div class="hero-link-container" data-aos="fade-up" data-aos-duration="1200">
+          <div class="hero-link-content">
+            <p class="hero-link-text">Get Started</p>
+            <div class="hero-link-icon">
+              <svg viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="16" fill="white" />
+                <path
+                  d="M10.6667 21.3333L21.3333 10.6667M21.3333 10.6667H13.3333M21.3333 10.6667V18.6667"
+                  stroke="#704FE6"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Section (Mentor Images) -->
+      <div class="hero-section" data-aos="fade-up" data-aos-duration="1200">
+        <p class="hero-section-title">Meet Future Mentor</p>
+        <div class="hero-content">
+          <!-- Mentor Image 1 -->
+          <div class="mentor-image-wrapper">
+            <div class="mentor-image">
+              <!-- Replace with actual image: 81249166540d824bcfd4c345edccf28f30529052.png -->
+              <img src="src/assets/image/Mentor-Image-1.jpg" alt="Mentor 1" />
+            </div>
+            <div class="mentor-background"></div>
+          </div>
+          <!-- Mentor Image 2 -->
+          <div class="mentor-image-wrapper">
+            <div class="mentor-image">
+              <!-- Replace with actual image: 0f14c71d2bac129286404f35110e306f302eac1f.png -->
+              <img src="src/assets/image/Mentor-Image-2.jpg" alt="Mentor 2" />
+            </div>
+            <div class="mentor-background"></div>
+          </div>
+          <!-- Mentor Image 3 -->
+          <div class="mentor-image-wrapper">
+            <div class="mentor-image">
+              <!-- Replace with actual image: 6d538a4bcf107e3147c779938eb86197d3dcd2d8.png -->
+              <img src="src/assets/image/Mentor-Image-3.jpg" alt="Mentor 3" />
+            </div>
+            <div class="mentor-background"></div>
+          </div>
+          <!-- Mentor Image 4 -->
+          <div class="mentor-image-wrapper">
+            <div class="mentor-image">
+              <!-- Replace with actual image: 61b902da0281f40c7ebe02c1f04b70aa86e0888f.png -->
+              <img src="src/assets/image/Mentor-Image-4.jpg" alt="Mentor 4" />
+            </div>
+            <div class="mentor-background"></div>
+          </div>
+          <!-- Mentor Image 5 -->
+          <div class="mentor-image-wrapper">
+            <div class="mentor-image">
+              <!-- Replace with actual image: 6d6511735f253011f69f3c6fa107ceb30bed7c42.png -->
+              <img src="src/assets/image/Mentor-Image-5.jpg" alt="Mentor 5" />
+            </div>
+            <div class="mentor-background"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="stats-section">
+        <div class="stats-background"></div>
+        <div class="stats-container">
+          <div class="stat-item" style="width: 126px">
+            <p class="stat-value">10+</p>
+            <p class="stat-label">Years of service</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <p class="stat-value">200M+</p>
+            <p class="stat-label">Students</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item" style="width: 126px">
+            <p class="stat-value">40</p>
+            <p class="stat-label">Official Partners</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item" style="width: 126px">
+            <p class="stat-value">500</p>
+            <p class="stat-label">Mentors</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <p class="stat-value">700+</p>
+            <p class="stat-label">Courses</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- class Section -->
+      <div class="class-section" id="class">
+        <div class="class-header">
+          <div class="class-title" data-aos="fade-right" data-aos-duration="1200">
+            <div class="hero-decoration" >
+              <svg
+                viewBox="0 0 189 43"
+                fill="none"
+                preserveAspectRatio="none"
+                style="
+                  position: absolute;
+                  inset: -15.15% -2.79%;
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                <path
+                  d="M5.00132 24.0922C7.38198 23.3686 9.20801 14.9165 10.6659 12.2325C13.6278 6.77937 16.1103 5.9575 20.8621 6.01573C35.8447 6.19934 45.6241 27.3953 58.2482 36.8126C65.7133 42.3815 71.7974 26.9648 75.2418 19.5013C79.0863 11.1709 85.7189 8.09679 92.2355 9.65014C102.254 12.0382 109.549 24.5832 119.174 27.1049C124.906 28.6067 128.222 23.6993 132.139 18.1623C134.877 14.2928 137.221 8.05456 140.636 5.63316C141.964 4.69116 144.213 5.01499 145.608 5.25059C152.424 6.40139 159.154 15.515 164.962 20.6012C168.102 23.3511 172.096 28.1978 175.756 29.209C178.368 29.9307 181.348 29.2569 184.001 29.2569"
+                  stroke="#FFD25D"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <p class="class-title-text">
+              Explore the class Everyone's
+              <span class="purple">Talking</span> About
+            </p>
+          </div>
+          <div class="class-link-container" data-aos="fade-left" data-aos-duration="1200">
+            <p class="class-description">
+              Discover the programs that have helped thousands of learners
+              achieve their goals and transform their careers. These popular
+              courses are designed to teach you the most in-demand skills, with
+              expert guidance and real-world projects that prepare you for
+              success. Join a community of ambitious learners and take the first
+              step toward a brighter future today.
+            </p>
+            <div class="class-link">
+              <div class="class-link-content">
+                <p class="class-link-text">View All class</p>
+                <div class="class-link-icon">
+                  <svg viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="16" fill="#704FE6" />
+                    <path
+                      d="M10.6667 21.3333L21.3333 10.6667M21.3333 10.6667H13.3333M21.3333 10.6667V18.6667"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- class List -->
+        <div class="class-list">
+          <!-- Row 1 -->
+          <div class="class-item" data-aos="fade-up" data-aos-duration="1200">
+            <!-- Frontend Development -->
+            <div class="provide-item purple-row" id="math">
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M3.293 9.293C3 9.586 3 10.057 3 11v6c0 .943 0 1.414.293 1.707S4.057 19 5 19s1.414 0 1.707-.293S7 17.943 7 17v-6c0-.943 0-1.414-.293-1.707S5.943 9 5 9s-1.414 0-1.707.293"
+                    />
+                    <path
+                      d="M17.293 2.293C17 2.586 17 3.057 17 4v13c0 .943 0 1.414.293 1.707S18.057 19 19 19s1.414 0 1.707-.293S21 17.943 21 17V4c0-.943 0-1.414-.293-1.707S19.943 2 19 2s-1.414 0-1.707.293"
+                      opacity="0.4"
+                    />
+                    <path
+                      d="M10 7c0-.943 0-1.414.293-1.707S11.057 5 12 5s1.414 0 1.707.293S14 6.057 14 7v10c0 .943 0 1.414-.293 1.707S12.943 19 12 19s-1.414 0-1.707-.293S10 17.943 10 17z"
+                      opacity="0.7"
+                    />
+                    <path
+                      d="M3 21.25a.75.75 0 0 0 0 1.5h18a.75.75 0 0 0 0-1.5z"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">Mathematics</p>
+                  <p class="provide-description">
+                    Learn how to build dynamic and responsive websites using
+                    HTML, CSS, JavaScript, and modern frameworks like React and
+                    Angular.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend Development -->
+            <div class="provide-item active purple-row" id="chemistry">
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M20 17c1.105 0 2-.933 2-2.083c0-.72-.783-1.68-1.37-2.3a.86.86 0 0 0-1.26 0c-.587.62-1.37 1.58-1.37 2.3c0 1.15.895 2.083 2 2.083m-3.722-6.432l1.505-2.598l-8.41-4.826L2.65 14.746a4.827 4.827 0 0 0 1.776 6.606a4.86 4.86 0 0 0 6.629-1.77l1.12-1.932z"
+                      opacity="0.5"
+                    />
+                    <path
+                      d="M9.294 1.354a.75.75 0 0 0-.763 1.292l.835.494l.006.003l8.41 4.827l.844.484a.75.75 0 1 0 .747-1.3l-9.247-5.308zm3.633 14.998l-.002-.002l-2.612-1.503a.75.75 0 0 0-.748 1.3l2.61 1.503zm1.638-2.827l-.002-.001l-4.203-2.418a.75.75 0 0 0-.748 1.3l4.2 2.417zm1.711-2.958l-2.558-1.472a.75.75 0 0 0-.748 1.3l2.556 1.47z"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">Chemistry</p>
+                  <p class="provide-description">
+                    Dive into server-side programming with languages like
+                    Node.js, Python, Ruby, and databases like MySQL or MongoDB.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- UI/UX Design -->
+            <div class="provide-item purple-row bordered" id="physics">
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M4 9.674C4 5.436 7.358 2 11.5 2S19 5.436 19 9.674a7.74 7.74 0 0 1-2.499 5.72c-.51.467-.889.814-1.157 1.066a15 15 0 0 0-.4.39l-.025.027l-.005.006l-.003.003c-.237.3-.288.376-.318.446s-.053.16-.113.54c-.023.15-.026.406-.026 1.105v.03c0 .409 0 .762-.025 1.051c-.027.306-.087.61-.248.895a2.07 2.07 0 0 1-.75.767c-.278.165-.575.226-.874.254c-.283.026-.628.026-1.028.026h-.058c-.4 0-.745 0-1.028-.026c-.3-.028-.596-.09-.875-.254a2.07 2.07 0 0 1-.749-.767c-.16-.285-.22-.588-.248-.895c-.026-.29-.026-.642-.026-1.051v-.03c0-.699-.002-.955-.026-1.105c-.06-.38-.081-.47-.112-.54c-.03-.07-.081-.147-.318-.446l-.003-.003l-.005-.006l-.025-.027l-.088-.09a15 15 0 0 0-.312-.3c-.268-.252-.647-.599-1.157-1.067A7.74 7.74 0 0 1 4 9.674"
+                      opacity="0.5"
+                    />
+                    <path
+                      d="M10.298 13.625a.75.75 0 1 0-1.299.75a2.76 2.76 0 0 0 1.632 1.271V17a.75.75 0 0 0 1.5 0v-1.353a2.76 2.76 0 0 0 1.632-1.271a.75.75 0 0 0-1.299-.751a1.249 1.249 0 0 1-2.166 0m-.384 6.05h3.17a4 4 0 0 1-.014.258c-.018.209-.05.285-.071.323a.7.7 0 0 1-.25.255c-.037.022-.111.054-.316.073c-.214.02-.496.02-.934.02c-.437 0-.72 0-.934-.02c-.204-.019-.279-.05-.316-.073a.7.7 0 0 1-.25-.255c-.02-.038-.052-.114-.07-.323a5 5 0 0 1-.015-.259"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">Physics</p>
+                  <p class="provide-description">
+                    Master the art of creating intuitive, user-centered designs
+                    with tools like Figma, Sketch, and Adobe XD while learning
+                    user research, wireframing, and prototyping.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Full Stack Development -->
+            <div class="provide-item purple-row" id="engineering">
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 20.24c0-.42.344-.76.767-.76h20.466c.423 0 .767.34.767.76s-.344.76-.767.76H1.767A.764.764 0 0 1 1 20.24"
+                      clip-rule="evenodd"
+                    />
+                    <path
+                      d="M3.69 3.89c-.899.89-.899 2.324-.899 5.19v5.067c0 1.91 0 2.866.6 3.46c.599.593 1.564.593 3.493.593h10.233c1.93 0 2.894 0 3.493-.594c.6-.593.6-1.549.6-3.46V9.08c0-2.866 0-4.3-.9-5.19C19.412 3 17.965 3 15.07 3H8.93c-2.894 0-4.34 0-5.24.89"
+                      opacity="0.5"
+                    />
+                    <path
+                      d="M8.93 14.4a.764.764 0 0 0-.767.76c0 .42.344.76.768.76h6.14c.423 0 .767-.34.767-.76s-.344-.76-.768-.76z"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">Engineering</p>
+                  <p class="provide-description">
+                    Become a versatile developer by combining both frontend and
+                    backend skills, learning how to create end-to-end web
+                    applications.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="class-item" data-aos="fade-up" data-aos-duration="1200">
+            <!-- Mobile App Development -->
+            <div class="provide-item yellow-row bordered" id="history" >
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="10" r="7" opacity="0.5" />
+                    <path
+                      d="M9.602 8.213C9.471 6.754 8.346 5.395 7.8 4.897l-.302-.258A6.97 6.97 0 0 1 12 3c1.55 0 2.98.503 4.14 1.356c.164.497-.148 1.536-.475 2.033c-.12.18-.388.404-.683.616c-.666.478-1.505.715-1.932 1.595a1 1 0 0 0-.058.711c.042.154.069.321.07.485c0 .528-.534.91-1.062.904c-1.375-.015-2.275-1.123-2.398-2.487m3.404 6.181c.691-1.304 2.997-1.304 2.997-1.304c2.402-.025 2.727-1.484 2.944-2.22a7.004 7.004 0 0 1-5.975 6.063c-.226-.475-.493-1.546.034-2.54"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M18.004 1.5a.75.75 0 0 1 1.058-.059a11.04 11.04 0 0 1 3.688 8.246c0 5.751-4.389 10.478-10 11.013v.55H14a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5h1.25v-.509a11.04 11.04 0 0 1-7.809-3.678a.75.75 0 1 1 1.118-1a9.54 9.54 0 0 0 7.128 3.187a9.563 9.563 0 0 0 9.563-9.563a9.54 9.54 0 0 0-3.188-7.128a.75.75 0 0 1-.059-1.06"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">History</p>
+                  <p class="provide-description">
+                    Learn how to build apps for iOS and Android using tools like
+                    Swift, Kotlin, and React Native for cross-platform
+                    development.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="provide-item yellow-row" id="biology">
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M19.5 7.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0m-15 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 0 0-5 0"
+                      opacity="0.4"
+                    />
+                    <path d="M15.5 7.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0" />
+                    <path
+                      d="M18 16.5c0 1.933-2.686 3.5-6 3.5s-6-1.567-6-3.5S8.686 13 12 13s6 1.567 6 3.5"
+                    />
+                    <path
+                      d="M22 16.5c0 1.38-1.79 2.5-4 2.5s-4-1.12-4-2.5s1.79-2.5 4-2.5s4 1.12 4 2.5m-20 0C2 17.88 3.79 19 6 19s4-1.12 4-2.5S8.21 14 6 14s-4 1.12-4 2.5"
+                      opacity="0.4"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">Biology</p>
+                  <p class="provide-description">
+                    Learn to clean, analyze, and visualize data using Python and
+                    R, with hands-on practice in real-world datasets to prepare
+                    for data analysis roles.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Machine Learning -->
+            <div class="provide-item active yellow-row" id="art">
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M4 11h12c1.886 0 2.828 0 3.414.586S20 13.114 20 15v1c0 2.828 0 4.243-.879 5.121C18.243 22 16.828 22 14 22h-4c-2.828 0-4.243 0-5.121-.879C4 20.243 4 18.828 4 16z"
+                      opacity="0.5"
+                    />
+                    <path
+                      d="m13.318 8.2l.6-5.034l-4.71 1.262l-.042.285l-.604 5.064l4.719-1.264zm-9.835-.685c-.208.776.034 1.68.518 3.485L7 10.196l.039-.314l.6-5.034l-.103.028c-1.805.484-2.708.726-3.276 1.294a3 3 0 0 0-.777 1.345m14.765-.333l-3.407.913l.604-5.065l.055-.272a3 3 0 0 1 .344-.048a3 3 0 0 1 2.887 1.666c.13.265.22.602.401 1.275c.06.225.09.337.097.435a1 1 0 0 1-.556.962c-.088.044-.2.074-.425.134"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">Art & Culture</p>
+                  <p class="provide-description">
+                    Master key machine learning algorithms and model-building
+                    techniques to solve problems and make data-driven
+                    predictions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cybersecurity -->
+            <div class="provide-item yellow-row">
+              <div class="provide-content">
+                <div class="provide-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.467 4.392a.75.75 0 0 1-.001 1.06A9.22 9.22 0 0 0 2.75 12a9.22 9.22 0 0 0 2.775 6.606a.75.75 0 1 1-1.05 1.071A10.72 10.72 0 0 1 1.25 12c0-2.972 1.207-5.664 3.156-7.609a.75.75 0 0 1 1.06.001m13.15.072a.75.75 0 0 1 1.06.011A10.72 10.72 0 0 1 22.75 12c0 2.964-1.2 5.65-3.141 7.594a.75.75 0 1 1-1.062-1.06A9.22 9.22 0 0 0 21.25 12a9.22 9.22 0 0 0-2.644-6.475a.75.75 0 0 1 .01-1.06M8.308 7.488a.75.75 0 0 1-.035 1.06c-.949.888-1.524 2.102-1.524 3.434c0 1.348.589 2.575 1.558 3.466a.75.75 0 1 1-1.016 1.104c-1.252-1.151-2.042-2.77-2.042-4.57c0-1.779.771-3.38 2-4.53a.75.75 0 0 1 1.06.036m7.434.038a.75.75 0 0 1 1.06-.024c1.197 1.145 1.947 2.727 1.947 4.48c0 1.775-.767 3.373-1.99 4.521a.75.75 0 1 1-1.027-1.093c.945-.887 1.517-2.1 1.517-3.428c0-1.313-.559-2.512-1.484-3.396a.75.75 0 0 1-.023-1.06"
+                      clip-rule="evenodd"
+                      opacity="0.5"
+                    />
+                    <path
+                      d="M13.656 10.451C14.552 11.11 15 11.438 15 12s-.448.891-1.344 1.549a13 13 0 0 1-.718.495a12 12 0 0 1-.653.38c-.894.49-1.34.735-1.741.464s-.437-.838-.51-1.971c-.02-.321-.034-.635-.034-.917s.013-.596.034-.917c.072-1.133.109-1.7.51-1.97c.4-.272.847-.027 1.74.462c.233.127.457.256.654.381c.226.143.471.314.718.495"
+                    />
+                  </svg>
+                </div>
+                <div class="provide-text-container">
+                  <p class="provide-title">Language Learning</p>
+                  <p class="provide-description">
+                    Learn the fundamentals of securing networks, systems, and
+                    applications, including ethical hacking, encryption, and
+                    risk management.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="features-section" id="features">
+        <div class="features-container">
+          <div class="features-image-container" data-aos="fade-right" data-aos-duration="1200">
+            <!-- Replace with actual image: f555ce6f5f0e556379992337dd5c362baf26df85.png -->
+            <img
+              class="features-image"
+              src="src/assets/image/Features-Imagejpg.jpg"
+              alt="Student"
+            />
+          </div>
+          <div class="features-content-container">
+            <div class="features-header">
+              <div class="hero-decoration" data-aos="fade-down" data-aos-duration="1200">
+                <svg
+                  viewBox="0 0 189 43"
+                  fill="none"
+                  preserveAspectRatio="none"
+                  style="
+                    position: absolute;
+                    inset: -15.15% -2.79%;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M5.00132 24.0922C7.38198 23.3686 9.20801 14.9165 10.6659 12.2325C13.6278 6.77937 16.1103 5.9575 20.8621 6.01573C35.8447 6.19934 45.6241 27.3953 58.2482 36.8126C65.7133 42.3815 71.7974 26.9648 75.2418 19.5013C79.0863 11.1709 85.7189 8.09679 92.2355 9.65014C102.254 12.0382 109.549 24.5832 119.174 27.1049C124.906 28.6067 128.222 23.6993 132.139 18.1623C134.877 14.2928 137.221 8.05456 140.636 5.63316C141.964 4.69116 144.213 5.01499 145.608 5.25059C152.424 6.40139 159.154 15.515 164.962 20.6012C168.102 23.3511 172.096 28.1978 175.756 29.209C178.368 29.9307 181.348 29.2569 184.001 29.2569"
+                    stroke="#704FE6"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <p class="features-title" data-aos="fade-up" data-aos-duration="1600">
+                Experience the Benefits of
+                <span class="yellow">Flexible</span> and
+                <span class="yellow">Guided</span> Learning
+              </p>
+            </div>
+            <p class="features-description" data-aos="fade-up" data-aos-duration="1600">
+              Combine the convenience of online learning with the personalized
+              support of expert mentors and nearby classes. Learn at your own
+              pace while staying connected to a supportive community.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-list">
+          <!-- Feature 1 -->
+          <div class="feature-item" data-aos="fade-up" data-aos-duration="1200">
+            <div class="feature-background purple"></div>
+            <div class="feature-content">
+              <div class="feature-icon fi1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill="#704FE6"
+                    fill-rule="evenodd"
+                    d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.94.94 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.96.96 0 0 0 .783-.073a.94.94 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031q.17-.008.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371q.277-.162.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill="#704FE6"
+                    d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8 8 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.1 1.1 0 0 1 .492-.13q.071 0 .138.01c.175.029.315.1.354.12l.009.005l.749.356z"
+                  />
+                  <path
+                    fill="#704FE6"
+                    d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z"
+                    opacity="0.5"
+                  />
+                  <path
+                    fill="#704FE6"
+                    d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"
+                  />
+                </svg>
+              </div>
+              <p class="feature-text">Class Based Course</p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-item" data-aos="fade-up" data-aos-duration="1600">
+            <div class="feature-background dark-purple"></div>
+            <div class="feature-content dark-purple">
+              <div class="feature-icon fi2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    fill="#704FE6"
+                    d="M14.217 3.5a5.17 5.17 0 0 0-4.434 0L5.489 5.512a2.25 2.25 0 0 1 .647 4.306l-1.076.461c-.534.23-.837.362-1.042.467l-.003.05L9.783 13.5a5.17 5.17 0 0 0 4.434 0l6.691-3.137c1.456-.682 1.456-3.044 0-3.726z"
+                  />
+                  <path
+                    fill="#704FE6"
+                    d="M5.545 8.44a.75.75 0 0 0-.59-1.38l-1.112.477c-.557.239-1.03.441-1.4.65c-.395.222-.734.482-.989.868c-.254.386-.36.8-.408 1.25C1 10.729 1 11.243 1 11.85v2.901a.75.75 0 0 0 1.5 0v-2.862c0-.656.001-1.088.037-1.421c.034-.315.093-.47.17-.586c.075-.115.195-.231.471-.387c.292-.164.689-.335 1.292-.593z"
+                  />
+                  <path
+                    fill="#704FE6"
+                    d="M5 11.258L9.783 13.5a5.17 5.17 0 0 0 4.434 0L19 11.258v5.367c0 1.008-.503 1.952-1.385 2.44C16.146 19.88 13.796 21 12 21s-4.146-1.121-5.615-1.935C5.504 18.577 5 17.633 5 16.625z"
+                    opacity="0.5"
+                  />
+                </svg>
+              </div>
+              <p class="feature-text">Chat With Your Mentor</p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-item" data-aos="fade-up" data-aos-duration="2000">
+            <div class="feature-background yellow"></div>
+            <div class="feature-content dark-purple">
+              <div class="feature-icon fi3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#704FE6"
+                    d="M15.252 10.689c-.987-1.18-1.48-1.77-2.048-1.68c-.567.091-.832.803-1.362 2.227l-.138.368c-.15.405-.226.607-.373.756c-.146.149-.348.228-.75.386l-.367.143c-1.417.555-2.126.833-2.207 1.4s.52 1.049 1.721 2.011l.31.25c.342.273.513.41.611.597c.1.187.115.404.146.837l.029.394c.11 1.523.166 2.285.683 2.545s1.154-.155 2.427-.983l.329-.215c.362-.235.543-.353.75-.387c.208-.033.42.022.841.132l.385.1c1.485.386 2.228.58 2.629.173s.193-1.144-.221-2.62l-.108-.38c-.117-.42-.176-.63-.147-.837c.03-.208.145-.39.374-.756l.21-.332c.807-1.285 1.21-1.927.94-2.438c-.269-.511-1.033-.553-2.562-.635l-.396-.022c-.434-.023-.652-.035-.841-.13c-.19-.095-.33-.263-.61-.599z"
+                  />
+                  <path
+                    fill="#704FE6"
+                    d="M10.331 4.252c1.316-1.574 1.974-2.361 2.73-2.24s1.11 1.07 1.817 2.969l.183.491c.201.54.302.81.497 1.008c.196.199.464.304 1.001.514l.489.192c1.89.74 2.835 1.11 2.942 1.866c.108.757-.693 1.398-2.294 2.682l-.414.332c-.455.365-.683.547-.815.797s-.152.538-.194 1.115l-.038.526c-.148 2.031-.222 3.047-.911 3.393c-.69.347-1.538-.206-3.236-1.311l-.439-.286c-.482-.314-.723-.47-1-.515s-.558.028-1.121.175l-.513.133c-1.98.516-2.971.773-3.505.231s-.258-1.526.295-3.492l.142-.509c.157-.559.236-.838.197-1.115c-.04-.277-.193-.52-.499-1.008l-.278-.443C4.29 8.044 3.752 7.187 4.11 6.507c.36-.682 1.379-.737 3.418-.848l.527-.028c.58-.031.869-.047 1.122-.174c.252-.127.439-.35.813-.798z"
+                    opacity="0.5"
+                  />
+                </svg>
+              </div>
+              <div class="feature-text">Certified & Expert<br />Mentors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Section -->
+      <div class="testimonials-section" id="testimonials">
+        <div class="testimonials-background"></div>
+        <div class="testimonials-container">
+          <div class="testimonials-header" >
+            <div class="hero-decoration" data-aos="fade-down" data-aos-duration="1200">
+              <svg
+                viewBox="0 0 189 43"
+                fill="none"
+                preserveAspectRatio="none"
+                style="
+                  position: absolute;
+                  inset: -15.15% -2.79%;
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                <path
+                  d="M5.00132 24.0922C7.38198 23.3686 9.20801 14.9165 10.6659 12.2325C13.6278 6.77937 16.1103 5.9575 20.8621 6.01573C35.8447 6.19934 45.6241 27.3953 58.2482 36.8126C65.7133 42.3815 71.7974 26.9648 75.2418 19.5013C79.0863 11.1709 85.7189 8.09679 92.2355 9.65014C102.254 12.0382 109.549 24.5832 119.174 27.1049C124.906 28.6067 128.222 23.6993 132.139 18.1623C134.877 14.2928 137.221 8.05456 140.636 5.63316C141.964 4.69116 144.213 5.01499 145.608 5.25059C152.424 6.40139 159.154 15.515 164.962 20.6012C168.102 23.3511 172.096 28.1978 175.756 29.209C178.368 29.9307 181.348 29.2569 184.001 29.2569"
+                  stroke="#FFD25D"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <p class="testimonials-title" data-aos="fade-down" data-aos-duration="1400">
+              Hear from Our <span class="yellow">Learners</span>,<br /><span
+                class="yellow"
+                >Stories</span
+              >
+              of Growth and Success
+            </p>
+          </div>
+
+          <div class="testimonials-list">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-item" style="width: 405px" data-aos="fade-up" data-aos-duration="1200">
+              <!-- Replace with actual image: defde21607bf12c14c9a406a2d57b2365c923b3e.png -->
+              <img
+                class="testimonial-avatar"
+                src="src/assets/image/testi-1.jpg"
+                alt="Johan Liebert"
+              />
+              <div class="testimonial-content">
+                <p class="testimonial-name">Johan Liebert</p>
+                <p class="testimonial-text">
+                  "Enrolling in this program was the best decision I've made for
+                  my career. The mentors were incredibly supportive, and the
+                  flexibility allowed me to balance work and learning
+                  seamlessly!"
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-item" style="width: 403px" data-aos="fade-up" data-aos-duration="1600">
+              <!-- Replace with actual image: 356f153e334b708883a104164ebe123de72e9a81.png -->
+              <img
+                class="testimonial-avatar"
+                src="src/assets/image/testi-2.jpg"
+                alt="Andra Divano"
+              />
+              <div class="testimonial-content">
+                <p class="testimonial-name">Andra Divano</p>
+                <p class="testimonial-text">
+                  "The combination of online courses and nearby classes made it
+                  so easy to stay motivated. I gained practical skills and
+                  landed a job within months of completing the course."
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-item" style="width: 405px" data-aos="fade-up" data-aos-duration="2000">
+              <!-- Replace with actual image: a575963361c8e11a9581f7a207547b222ad2ce1c.png -->
+              <img
+                class="testimonial-avatar"
+                src="src/assets/image/testi-3.jpg"
+                alt="Arya Chandra"
+              />
+              <div class="testimonial-content">
+                <p class="testimonial-name">Arya Chandra</p>
+                <p class="testimonial-text">
+                  "I was amazed by the personalized guidance from mentors. They
+                  didn't just teach—they genuinely cared about my success and
+                  helped me achieve my goals."
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-item" style="width: 406px" data-aos="fade-up" data-aos-duration="2400">
+              <!-- Replace with actual image: a2f4b2d95de7573847f4dd5596fd5e5ef793fc8a.png -->
+              <img
+                class="testimonial-avatar"
+                src="src/assets/image/testi-4.jpg"
+                alt="Shishi Maru"
+              />
+              <div class="testimonial-content">
+                <p class="testimonial-name">Shishi Maru</p>
+                <p class="testimonial-text">
+                  "This program gave me everything I needed to succeed, from
+                  structured lessons to real-world projects. The local classes
+                  were a huge bonus for hands-on learning!"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer-container">
+        <div class="footer-column">
+          <div class="footer-column-content">
+            <div class="footer-logo-container">
+              <div class="footer-header-logo">
+                <div class="footer-logo">
+                  <svg viewBox="0 0 66 64" fill="none">
+                    <path
+                      d="M32.6667 17C32.6667 25.2843 25.9509 32 17.6667 32H2.66667V17C2.66667 8.71572 9.38239 2 17.6667 2C25.9509 2 32.6667 8.71572 32.6667 17Z"
+                      fill="#704FE6"
+                    />
+                    <path
+                      d="M32.6667 47C32.6667 38.7157 39.3824 32 47.6667 32H62.6667V47C62.6667 55.2843 55.9509 62 47.6667 62C39.3824 62 32.6667 55.2843 32.6667 47Z"
+                      fill="#704FE6"
+                    />
+                    <path
+                      d="M2.66667 47C2.66667 55.2843 9.38239 62 17.6667 62H32.6667V47C32.6667 38.7157 25.9509 32 17.6667 32C9.38239 32 2.66667 38.7157 2.66667 47Z"
+                      fill="#704FE6"
+                    />
+                    <path
+                      d="M62.6667 17C62.6667 8.71572 55.9509 2 47.6667 2H32.6667V17C32.6667 25.2843 39.3824 32 47.6667 32C55.9509 32 62.6667 25.2843 62.6667 17Z"
+                      fill="#FFD25D"
+                    />
+                  </svg>
+                </div>
+                <p class="footer-logo-text">Koursian</p>
+              </div>
+              <p class="footer-description">
+                We help you to achive your dream. Learn now, anytime, anywhere
+              </p>
+            </div>
+            <div class="social-media">
+              <div class="social-icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="23.5"
+                    stroke="#704FE6"
+                    fill="white"
+                  />
+                  <path
+                    d="M25.0286 13.9993C25.7583 13.9965 26.488 14.0038 27.2176 14.0213L27.4116 14.0283C27.6356 14.0363 27.8566 14.0463 28.1236 14.0583C29.1876 14.1083 29.9136 14.2763 30.5506 14.5233C31.2106 14.7773 31.7666 15.1213 32.3226 15.6773C32.831 16.1769 33.2244 16.7812 33.4756 17.4483C33.7226 18.0853 33.8906 18.8123 33.9406 19.8763C33.9526 20.1423 33.9626 20.3643 33.9706 20.5883L33.9766 20.7823C33.9943 21.5115 34.002 22.2409 33.9996 22.9703L34.0006 23.7163V25.0263C34.003 25.756 33.9954 26.4858 33.9776 27.2153L33.9716 27.4093C33.9636 27.6333 33.9536 27.8543 33.9416 28.1213C33.8916 29.1853 33.7216 29.9113 33.4756 30.5483C33.2252 31.216 32.8317 31.8209 32.3226 32.3203C31.8225 32.8286 31.2179 33.222 30.5506 33.4733C29.9136 33.7203 29.1876 33.8883 28.1236 33.9383C27.8566 33.9503 27.6356 33.9603 27.4116 33.9683L27.2176 33.9743C26.4881 33.9921 25.7583 33.9997 25.0286 33.9973L24.2826 33.9983H22.9736C22.2438 34.0007 21.5141 33.9931 20.7846 33.9753L20.5906 33.9693C20.3532 33.9607 20.1159 33.9507 19.8786 33.9393C18.8146 33.8893 18.0886 33.7193 17.4506 33.4733C16.7833 33.2226 16.1788 32.8291 15.6796 32.3203C15.1706 31.8206 14.7768 31.2158 14.5256 30.5483C14.2786 29.9113 14.1106 29.1853 14.0606 28.1213C14.0494 27.884 14.0394 27.6467 14.0306 27.4093L14.0256 27.2153C14.0071 26.4858 13.9988 25.756 14.0006 25.0263V22.9703C13.9978 22.2409 14.0051 21.5115 14.0226 20.7823L14.0296 20.5883C14.0376 20.3643 14.0476 20.1423 14.0596 19.8763C14.1096 18.8113 14.2776 18.0863 14.5246 17.4483C14.7759 16.7809 15.1705 16.1767 15.6806 15.6783C16.1795 15.169 16.7835 14.7748 17.4506 14.5233C18.0886 14.2763 18.8136 14.1083 19.8786 14.0583L20.5906 14.0283L20.7846 14.0233C21.5138 14.0049 22.2432 13.9965 22.9726 13.9983L25.0286 13.9993ZM24.0006 18.9993C23.3381 18.9899 22.6803 19.1123 22.0656 19.3593C21.4508 19.6064 20.8912 19.9732 20.4194 20.4383C19.9476 20.9035 19.573 21.4578 19.3173 22.069C19.0616 22.6803 18.9299 23.3362 18.9299 23.9988C18.9299 24.6613 19.0616 25.3173 19.3173 25.9285C19.573 26.5397 19.9476 27.094 20.4194 27.5592C20.8912 28.0244 21.4508 28.3912 22.0656 28.6382C22.6803 28.8853 23.3381 29.0076 24.0006 28.9983C25.3267 28.9983 26.5984 28.4715 27.5361 27.5338C28.4738 26.5961 29.0006 25.3244 29.0006 23.9983C29.0006 22.6722 28.4738 21.4004 27.5361 20.4627C26.5984 19.5251 25.3267 18.9993 24.0006 18.9993ZM24.0006 20.9993C24.3991 20.9919 24.7951 21.0641 25.1654 21.2115C25.5357 21.3589 25.8729 21.5786 26.1574 21.8578C26.4418 22.137 26.6678 22.4701 26.822 22.8376C26.9763 23.2051 27.0558 23.5997 27.0558 23.9983C27.0559 24.3968 26.9766 24.7914 26.8224 25.159C26.6683 25.5266 26.4424 25.8597 26.1581 26.139C25.8737 26.4183 25.5366 26.6381 25.1663 26.7857C24.796 26.9332 24.4001 27.0055 24.0016 26.9983C23.2059 26.9983 22.4429 26.6822 21.8803 26.1196C21.3176 25.557 21.0016 24.7939 21.0016 23.9983C21.0016 23.2026 21.3176 22.4396 21.8803 21.877C22.4429 21.3143 23.2059 20.9983 24.0016 20.9983L24.0006 20.9993ZM29.2506 17.4993C28.928 17.5122 28.6229 17.6494 28.3992 17.8822C28.1755 18.1151 28.0506 18.4254 28.0506 18.7483C28.0506 19.0711 28.1755 19.3815 28.3992 19.6143C28.6229 19.8471 28.928 19.9844 29.2506 19.9973C29.5821 19.9973 29.9 19.8656 30.1345 19.6312C30.3689 19.3967 30.5006 19.0788 30.5006 18.7473C30.5006 18.4158 30.3689 18.0978 30.1345 17.8634C29.9 17.629 29.5821 17.4973 29.2506 17.4973V17.4993Z"
+                    fill="#704FE6"
+                  />
+                </svg>
+              </div>
+              <div class="social-icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="23.5"
+                    stroke="#704FE6"
+                    fill="white"
+                  />
+                  <path
+                    d="M34 23.998C34 18.478 29.52 13.998 24 13.998C18.48 13.998 14 18.478 14 23.998C14 28.838 17.44 32.868 22 33.798V26.998H20V23.998H22V21.498C22 19.568 23.57 17.998 25.5 17.998H28V20.998H26C25.45 20.998 25 21.448 25 21.998V23.998H28V26.998H25V33.9481C30.05 33.448 34 29.188 34 23.998Z"
+                    fill="#704FE6"
+                  />
+                </svg>
+              </div>
+              <div class="social-icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="23.5"
+                    stroke="#704FE6"
+                    fill="white"
+                  />
+                  <path
+                    d="M34.2121 17.6569C33.449 17.9945 32.6397 18.2163 31.8111 18.3149C32.6842 17.792 33.3374 16.9696 33.6491 16.0009C32.8291 16.4889 31.9301 16.8309 30.9941 17.0159C30.3647 16.3425 29.5305 15.8959 28.6211 15.7455C27.7117 15.5951 26.7781 15.7494 25.9654 16.1844C25.1527 16.6193 24.5065 17.3106 24.1272 18.1507C23.748 18.9908 23.6569 19.9327 23.8681 20.8299C22.2051 20.7467 20.5781 20.3146 19.0929 19.5618C17.6076 18.8089 16.2974 17.7521 15.2471 16.4599C14.8754 17.0984 14.6801 17.8241 14.6811 18.5629C14.6811 20.0129 15.4201 21.2939 16.5411 22.0439C15.8771 22.023 15.2278 21.8436 14.6471 21.5209V21.5719C14.6471 22.5378 14.9812 23.4739 15.5927 24.2216C16.2042 24.9692 17.0554 25.4823 18.0021 25.6739C17.3858 25.8411 16.7394 25.8657 16.1121 25.7459C16.379 26.5773 16.8993 27.3044 17.6001 27.8253C18.3009 28.3462 19.1471 28.6349 20.0201 28.6509C19.1525 29.3324 18.159 29.8361 17.0965 30.1333C16.0341 30.4305 14.9234 30.5153 13.8281 30.3829C15.7398 31.6123 17.9652 32.265 20.2381 32.2629C27.9321 32.2629 32.1381 25.8899 32.1381 20.3629C32.1381 20.1829 32.1341 20.0009 32.1261 19.8219C32.9445 19.2303 33.6509 18.4965 34.2121 17.6569Z"
+                    fill="#704FE6"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="hero-decoration" style="width: 362px">
+            <svg
+              viewBox="0 0 372 43"
+              fill="none"
+              preserveAspectRatio="none"
+              style="
+                position: absolute;
+                inset: -15.15% -1.38%;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <path
+                d="M5.00068 24.0922C9.81519 23.3686 13.5081 14.9165 16.4564 12.2325C22.4465 6.77937 27.4668 5.9575 37.0766 6.01573C67.3767 6.19934 87.154 27.3953 112.684 36.8126C127.781 42.3815 140.085 26.9648 147.051 19.5013C154.826 11.1709 168.24 8.09679 181.418 9.65014C201.679 12.0382 216.432 24.5832 235.897 27.1049C247.489 28.6067 254.196 23.6993 262.117 18.1623C267.653 14.2928 272.396 8.05456 279.301 5.63316C281.987 4.69116 286.535 5.01499 289.357 5.25059C303.14 6.40139 316.751 15.515 328.497 20.6012C334.847 23.3511 342.924 28.1978 350.326 29.209C355.609 29.9307 361.634 29.2569 367.001 29.2569"
+                stroke="#FFD25D"
+                stroke-width="10"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="footer-links-container">
+          <div class="footer-nav-column" style="width: 100px">
+            <p class="footer-column-title">Navigation</p>
+            <div class="footer-links" style="width: 87px">
+              <p>Home</p>
+              <p>class</p>
+              <p>Mentor</p>
+              <p>Community</p>
+            </div>
+          </div>
+
+          <div class="footer-nav-column" style="width: 100px">
+            <p class="footer-column-title">About Us</p>
+            <div class="footer-links" style="width: 87px">
+              <p>Company</p>
+              <p>FAQ</p>
+              <p>Jobs</p>
+              <p>Contact Us</p>
+            </div>
+          </div>
+
+          <div class="footer-nav-column">
+            <p class="footer-column-title">Company</p>
+            <div class="footer-links">
+              <p>Account</p>
+              <p>Privacy</p>
+              <p>Legal Notice</p>
+              <p>Cookie Preferences</p>
+            </div>
+          </div>
+
+          <div class="footer-nav-column">
+            <div class="footer-links">
+              <p>koursian@edu.com</p>
+              <p>1-834-974-5148</p>
+              <p style="width: 158px">973 Kaia Mission, Bismarck 05589</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
