@@ -1,28 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { auth, db, redirectBasedOnAuth } from './firebase-config.js';
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAD9PuaSWK6-rK1B0VKIrY1dgQsK6CevNk",
-  authDomain: "website-mapel-digital.firebaseapp.com",
-  projectId: "website-mapel-digital",
-  storageBucket: "website-mapel-digital.firebasestorage.app",
-  messagingSenderId: "237511903481",
-  appId: "1:237511903481:web:50105212d92efdfc6aba28",
-  measurementId: "G-TTZQ3NTRZ9"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-// // Check if user is already logged in
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     window.location.href = "index.html";
-//   }
-// });
+// Check authentication status on page load
+document.addEventListener('DOMContentLoaded', () => {
+  redirectBasedOnAuth();
+});
 
 // Get form elements
 const submit = document.getElementById('submit');
@@ -245,8 +228,8 @@ form.addEventListener('submit', async function (event) {
     // Success notification
     alert("🎉 Account created successfully!");
     
-    // Redirect to sign in page
-    window.location.href = "index.html";
+    // Redirect to setup profile to complete user profile
+    window.location.href = "setup-profile.html";
 
   } catch (error) {
     console.error("Registration error:", error);
@@ -298,53 +281,3 @@ document.getElementById('confirmpass').addEventListener('input', function() {
 
 // Initialize submit button state
 updateSubmitButton();
-
-// Test function (remove this in production)
-window.testMinimalSignup = async function() {
-  try {
-    console.log("Starting minimal signup test...");
-    
-    const testEmail = `test${Date.now()}@example.com`;
-    const testPassword = "password123";
-    const testUsername = `user${Date.now()}`;
-    
-    console.log("Step 1: Testing basic Firestore write (before auth)...");
-    try {
-      await setDoc(doc(db, "test", "testdoc"), {
-        message: "Hello World",
-        timestamp: new Date()
-      });
-      console.log("✅ Basic Firestore write successful");
-    } catch (error) {
-      console.error("❌ Basic Firestore write failed:", error);
-      return;
-    }
-    
-    console.log("Step 2: Creating user account...");
-    const userCredential = await createUserWithEmailAndPassword(auth, testEmail, testPassword);
-    const user = userCredential.user;
-    console.log("✅ User account created:", user.uid);
-    
-    console.log("Step 3: Writing user data to Firestore...");
-    await setDoc(doc(db, "users", user.uid), {
-      email: testEmail,
-      username: testUsername,
-      createdAt: new Date()
-    });
-    console.log("✅ User data written to Firestore");
-    
-    console.log("Step 4: Writing username data to Firestore...");
-    await setDoc(doc(db, "usernames", testUsername.toLowerCase()), {
-      uid: user.uid,
-      createdAt: new Date()
-    });
-    console.log("✅ Username data written to Firestore");
-    
-    console.log("🎉 All tests passed!");
-    alert("Test successful! Check console for details.");
-    
-  } catch (error) {
-    console.error("❌ Test failed at step:", error);
-    alert(`Test failed: ${error.message}`);
-  }
-};

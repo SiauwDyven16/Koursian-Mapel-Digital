@@ -1,350 +1,383 @@
-// Bootcamp Detail JavaScript
+// Import Firebase and navigation
+import { initializeAllNavigation } from './navigation.js';
+import { redirectBasedOnAuth, isUserAuthenticated, getCurrentUserData } from './firebase-config.js';
 
-const taskbtn = document.getElementById("task");
-const taskList = document.querySelector(".task-list");
+// Dashboard Details JavaScript
 
-taskbtn.addEventListener("click", () => {
-    if (taskList.style.display === "flex") {
-        taskList.style.display = "none"; // sembunyikan
-    } else {
-        taskList.style.display = "flex"; // tampilkan
-    }
-});
+// Mobile Menu Toggle
+function initMobileMenu() {
+  // Create menu toggle button
+  const menuToggle = document.createElement("button");
+  menuToggle.className = "menu-toggle";
+  menuToggle.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+    `;
+  document.body.appendChild(menuToggle);
 
+  // Create overlay
+  const overlay = document.createElement("div");
+  overlay.className = "sidebar-overlay";
+  document.body.appendChild(overlay);
 
-// Tab Switching
-function initTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all tabs
-            tabBtns.forEach(tab => tab.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            btn.classList.add('active');
-            
-            const tabName = btn.textContent.trim();
-            console.log('Tab switched to:', tabName);
-            
-            // Here you would typically show/hide content based on tab
-            // For now, we'll just log it
-        });
+  const sidebar = document.querySelector(".sidebar");
+
+  // Toggle menu
+  menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    overlay.classList.toggle("open");
+    menuToggle.classList.toggle("active");
+  });
+
+  // Close menu when clicking overlay
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("open");
+    menuToggle.classList.remove("active");
+  });
+
+  // Close menu when clicking nav item
+  const navItems = document.querySelectorAll(".nav-item");
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      if (window.innerWidth <= 360) {
+        sidebar.classList.remove("open");
+        overlay.classList.remove("open");
+        menuToggle.classList.remove("active");
+      }
     });
+  });
 }
 
-// Section Accordion
-function initAccordion() {
-    const sectionHeaders = document.querySelectorAll('.section-header');
-    
-    sectionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const section = header.closest('.content-section');
-            const wasCollapsed = section.classList.contains('collapsed');
-            
-            // Toggle collapsed state
-            section.classList.toggle('collapsed');
-            
-            // Animate content
-            const content = section.querySelector('.section-content');
-            if (content) {
-                if (wasCollapsed) {
-                    // Expanding
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    setTimeout(() => {
-                        content.style.maxHeight = 'none';
-                    }, 300);
+// Navigation Active State
+function initNavigation() {
+  const navItems = document.querySelectorAll(".nav-item");
+
+  navItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // Remove active class from all items
+      navItems.forEach((nav) => nav.classList.remove("active"));
+
+      // Add active class to clicked item
+      item.classList.add("active");
+    });
+  });
+}
+
+// Video Player Controls
+function initVideoPlayer() {
+  const videoPlayer = document.querySelector('.video-player');
+  const playButton = document.querySelector('.play-button');
+  const progressBar = document.querySelector('.progress-bar');
+  const volumeSlider = document.querySelector('.volume-slider');
+  const fullscreenButton = document.querySelector('.fullscreen-button');
+
+  if (videoPlayer && playButton) {
+    playButton.addEventListener('click', () => {
+      if (videoPlayer.paused) {
+        videoPlayer.play();
+        playButton.innerHTML = '⏸️';
                 } else {
-                    // Collapsing
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    setTimeout(() => {
-                        content.style.maxHeight = '0';
-                    }, 10);
-                }
-            }
-            
-            console.log('Section toggled:', header.querySelector('h3').textContent);
-        });
+        videoPlayer.pause();
+        playButton.innerHTML = '▶️';
+      }
     });
-}
+  }
 
-// Lesson Click Handler
-function initLessons() {
-    const lessonItems = document.querySelectorAll('.lesson-item');
-    
-    lessonItems.forEach(lesson => {
-        lesson.addEventListener('click', () => {
-            const lessonName = lesson.querySelector('.lesson-name').textContent;
-            const duration = lesson.querySelector('.lesson-duration').textContent;
-            
-            console.log('Lesson clicked:', lessonName, '-', duration);
-            
-            // Here you would typically open a video player or lesson content
-            showToast(`Opening: ${lessonName}`, 'info');
-        });
+  if (videoPlayer && progressBar) {
+    videoPlayer.addEventListener('timeupdate', () => {
+      const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+      progressBar.style.width = progress + '%';
     });
-}
 
-// Search Functionality
-function initSearch() {
-    const searchInput = document.querySelector('.search-container input');
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            console.log('Searching for:', searchTerm);
-        });
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      const clickTime = (clickX / width) * videoPlayer.duration;
+      videoPlayer.currentTime = clickTime;
+    });
+  }
 
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                console.log('Search submitted:', searchInput.value);
-                // Navigate to search results
+  if (videoPlayer && volumeSlider) {
+    volumeSlider.addEventListener('input', (e) => {
+      videoPlayer.volume = e.target.value / 100;
+    });
+  }
+
+  if (videoPlayer && fullscreenButton) {
+    fullscreenButton.addEventListener('click', () => {
+      if (videoPlayer.requestFullscreen) {
+        videoPlayer.requestFullscreen();
             }
         });
     }
 }
 
-// // Icon Button Actions
-// function initIconButtons() {
-//     const iconBtns = document.querySelectorAll('.icon-btn');
-    
-//     iconBtns.forEach((btn, index) => {
-//         btn.addEventListener('click', () => {
-//             const actions = ['Messages', 'Bookmarks', 'Notifications', 'Cart'];
-//             console.log(`${actions[index]} clicked`);
-//             showToast(`${actions[index]} opened`, 'info');
-//         });
-//     });
-// }
-
-// Profile Avatar Click
-function initAvatar() {
-    const avatar = document.querySelector('.avatar');
-    
-    if (avatar) {
-        avatar.addEventListener('click', () => {
-            console.log('Profile clicked');
-            showToast('Profile opened', 'info');
-        });
-    }
-}
-
-// Toast Notification System
-function showToast(message, type = 'info') {
-    const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.textContent = message;
-    toast.style.cssText = `
-        position: fixed;
-        top: 120px;
-        right: 32px;
-        background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#704FE6'};
-        color: white;
-        padding: 16px 24px;
-        border-radius: 8px;
-        z-index: 2000;
-        animation: slideIn 0.3s ease-out;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        font-family: 'Lufga', sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-    `;
-    
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-        toast.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
-}
-
-// Progress Tracking
+// Course Progress Tracking
 function initProgressTracking() {
-    const lessons = document.querySelectorAll('.lesson-item');
-    const completedLessons = new Set();
-    
-    lessons.forEach((lesson, index) => {
-        lesson.addEventListener('click', () => {
-            if (!completedLessons.has(index)) {
-                completedLessons.add(index);
-                lesson.style.opacity = '0.6';
-                
-                // Show progress
-                const totalLessons = lessons.length;
-                const progress = Math.round((completedLessons.size / totalLessons) * 100);
-                console.log(`Course Progress: ${progress}%`);
-            }
+  const progressItems = document.querySelectorAll('.progress-item');
+  
+  progressItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      // Mark as completed
+      item.classList.add('completed');
+      
+      // Update progress percentage
+      const completedItems = document.querySelectorAll('.progress-item.completed').length;
+      const totalItems = progressItems.length;
+      const percentage = (completedItems / totalItems) * 100;
+      
+      const progressBar = document.querySelector('.course-progress-bar');
+      if (progressBar) {
+        progressBar.style.width = percentage + '%';
+      }
+      
+      // Show completion toast
+      showToast(`Lesson ${index + 1} completed!`, 'success');
+    });
+  });
+}
+
+// Discussion/Comments System
+function initDiscussionSystem() {
+  const commentForm = document.querySelector('.comment-form');
+  const commentList = document.querySelector('.comment-list');
+  
+  if (commentForm) {
+    commentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const commentText = commentForm.querySelector('textarea').value;
+      if (commentText.trim()) {
+        addComment(commentText);
+        commentForm.querySelector('textarea').value = '';
+      }
         });
-    });
+    }
 }
 
-// Keyboard Navigation
-function initKeyboardNav() {
-    document.addEventListener('keydown', (e) => {
-        // ESC key to close modals (if any)
-        if (e.key === 'Escape') {
-            console.log('ESC pressed');
-        }
-        
-        // Arrow keys for navigation
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            const lessons = Array.from(document.querySelectorAll('.lesson-item'));
-            const focusedIndex = lessons.findIndex(lesson => 
-                lesson === document.activeElement
-            );
-            
-            if (focusedIndex !== -1) {
-                e.preventDefault();
-                const nextIndex = e.key === 'ArrowDown' 
-                    ? Math.min(focusedIndex + 1, lessons.length - 1)
-                    : Math.max(focusedIndex - 1, 0);
-                lessons[nextIndex].focus();
-            }
-        }
-    });
+function addComment(text) {
+  const commentList = document.querySelector('.comment-list');
+  if (!commentList) return;
+  
+  const userData = getCurrentUserData();
+  const userName = userData?.displayName || userData?.username || 'Anonymous';
+  
+  const commentElement = document.createElement('div');
+  commentElement.className = 'comment-item';
+  commentElement.innerHTML = `
+    <div class="comment-avatar">
+      <span>${userName.charAt(0).toUpperCase()}</span>
+    </div>
+    <div class="comment-content">
+      <div class="comment-header">
+        <span class="comment-author">${userName}</span>
+        <span class="comment-time">Just now</span>
+      </div>
+      <div class="comment-text">${text}</div>
+    </div>
+  `;
+  
+  commentList.appendChild(commentElement);
+  commentList.scrollTop = commentList.scrollHeight;
+  
+  showToast('Comment added!', 'success');
 }
 
-// Video Player (Placeholder)
-function openVideoPlayer(lessonName) {
-    console.log('Opening video player for:', lessonName);
-    
-    // Create modal overlay
-    const modal = document.createElement('div');
-    modal.className = 'video-modal';
-    modal.style.cssText = `
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 3000;
-        animation: fadeIn 0.3s ease-out;
-    `;
-    
-    const player = document.createElement('div');
-    player.style.cssText = `
-        background: white;
-        padding: 24px;
-        border-radius: 12px;
-        max-width: 800px;
-        width: 90%;
-    `;
-    
-    player.innerHTML = `
-        <h2 style="margin-bottom: 16px; font-family: 'Lufga', sans-serif;">${lessonName}</h2>
-        <div style="background: #f0f0f0; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-            <p style="font-family: 'Lufga', sans-serif; color: #666;">Video Player Placeholder</p>
-        </div>
-        <button onclick="this.closest('.video-modal').remove()" style="margin-top: 16px; padding: 12px 24px; background: #704FE6; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'Lufga', sans-serif; font-weight: 600;">Close</button>
-    `;
-    
-    modal.appendChild(player);
-    document.body.appendChild(modal);
-    
-    // Close on overlay click
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.remove();
-        }
+// Resource Downloads
+function initResourceDownloads() {
+  const downloadButtons = document.querySelectorAll('.download-btn');
+  
+  downloadButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const resourceName = btn.dataset.resource;
+      showToast(`Downloading ${resourceName}...`, 'info');
+      
+      // Simulate download
+      setTimeout(() => {
+        showToast(`${resourceName} downloaded successfully!`, 'success');
+      }, 2000);
     });
+  });
+}
+
+// Quiz/Assessment System
+function initQuizSystem() {
+  const quizForm = document.querySelector('.quiz-form');
+  const submitQuizBtn = document.querySelector('.submit-quiz-btn');
+  
+  if (quizForm && submitQuizBtn) {
+    submitQuizBtn.addEventListener('click', () => {
+      const answers = [];
+      const questions = quizForm.querySelectorAll('.quiz-question');
+      
+      questions.forEach((question, index) => {
+        const selectedAnswer = question.querySelector('input:checked');
+        if (selectedAnswer) {
+          answers.push({
+            questionIndex: index,
+            answer: selectedAnswer.value
+          });
+        }
+      });
+      
+      if (answers.length === questions.length) {
+        // Calculate score
+        const score = calculateQuizScore(answers);
+        showQuizResults(score, questions.length);
+      } else {
+        showToast('Please answer all questions!', 'error');
+      }
+    });
+  }
+}
+
+function calculateQuizScore(answers) {
+  // Simple scoring system - in real app, this would check against correct answers
+  return Math.floor(Math.random() * answers.length) + 1;
+}
+
+function showQuizResults(score, total) {
+  const percentage = (score / total) * 100;
+  let message = `Quiz completed! Score: ${score}/${total} (${percentage.toFixed(1)}%)`;
+  let type = 'success';
+  
+  if (percentage < 60) {
+    message += ' - Try again!';
+    type = 'error';
+  } else if (percentage < 80) {
+    message += ' - Good job!';
+    type = 'info';
+  } else {
+    message += ' - Excellent!';
+    type = 'success';
+  }
+  
+  showToast(message, type);
+}
+
+// Responsive Adjustments
+function handleResize() {
+  const width = window.innerWidth;
+
+  if (width <= 360) {
+    document.body.classList.add("mobile");
+  } else if (width <= 768) {
+    document.body.classList.remove("mobile");
+    document.body.classList.add("tablet");
+  } else {
+    document.body.classList.remove("mobile", "tablet");
+  }
 }
 
 // Scroll to Top
 function initScrollToTop() {
-    const scrollBtn = document.createElement('button');
-    scrollBtn.className = 'scroll-to-top';
-    scrollBtn.innerHTML = '↑';
+  const scrollBtn = document.createElement("button");
+  scrollBtn.className = "scroll-to-top";
+  scrollBtn.innerHTML = "↑";
     scrollBtn.style.cssText = `
         position: fixed;
         bottom: 32px;
         right: 32px;
-        width: 48px;
-        height: 48px;
+        width: 72px;
+        height: 72px;
         border-radius: 50%;
         background: #704FE6;
         color: white;
         border: none;
-        font-size: 24px;
+        font-size: 32px;
         cursor: pointer;
         opacity: 0;
         transition: opacity 0.3s;
         z-index: 1000;
         display: none;
-        box-shadow: 0 4px 12px rgba(112, 79, 230, 0.3);
     `;
     
     document.body.appendChild(scrollBtn);
 
-    window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
         if (window.pageYOffset > 300) {
-            scrollBtn.style.display = 'block';
-            setTimeout(() => scrollBtn.style.opacity = '1', 10);
+      scrollBtn.style.display = "block";
+      setTimeout(() => (scrollBtn.style.opacity = "1"), 10);
         } else {
-            scrollBtn.style.opacity = '0';
-            setTimeout(() => scrollBtn.style.display = 'none', 300);
+      scrollBtn.style.opacity = "0";
+      setTimeout(() => (scrollBtn.style.display = "none"), 300);
         }
     });
 
-    scrollBtn.addEventListener('click', () => {
+  scrollBtn.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
-        });
+      behavior: "smooth",
     });
+  });
 }
 
-// Responsive Adjustments
-function handleResize() {
-    const width = window.innerWidth;
-    
-    if (width <= 360) {
-        document.body.classList.add('mobile');
-        document.body.classList.remove('tablet', 'laptop');
-    } else if (width <= 768) {
-        document.body.classList.add('tablet');
-        document.body.classList.remove('mobile', 'laptop');
-    } else if (width <= 1440) {
-        document.body.classList.add('laptop');
-        document.body.classList.remove('mobile', 'tablet');
-    } else {
-        document.body.classList.remove('mobile', 'tablet', 'laptop');
-    }
+// Toast Notifications
+function showToast(message, type = "info") {
+  const toast = document.createElement("div");
+  toast.className = `toast toast-${type}`;
+  toast.textContent = message;
+  toast.style.cssText = `
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: ${
+          type === "success"
+            ? "#c7ffc9ff"
+            : type === "error"
+            ? "#f44336"
+            : "#704FE6"
+        };
+        font-size: 24px;
+        font-weight: 500;
+        color: #4caf50;
+        padding: 24px 48px;
+        border-radius: 32px;
+        z-index: 2000;
+        animation: slideIn 0.3s ease-out;
+    `;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.animation = "slideOut 0.3s ease-out";
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
 }
 
 // Add CSS animations
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
     @keyframes slideIn {
         from {
-            transform: translateX(400px);
+      top: 0px;
             opacity: 0;
         }
         to {
-            transform: translateX(0);
+      top: 80px;
             opacity: 1;
         }
     }
 
     @keyframes slideOut {
         from {
-            transform: translateX(0);
+      top: 80px;
             opacity: 1;
         }
         to {
-            transform: translateX(400px);
+      top: 0px;
             opacity: 0;
         }
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+  .scroll-to-top {
+    transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .scroll-to-top:hover {
@@ -352,89 +385,148 @@ style.textContent = `
         transform: scale(1.1);
     }
 
-    .lesson-item {
-        transition: all 0.3s;
-    }
+  .comment-item {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+  }
 
-    .lesson-item:focus {
-        outline: 2px solid #704FE6;
-        outline-offset: -2px;
-    }
+  .comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #704FE6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
 
-    .section-content {
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
+  .comment-content {
+    flex: 1;
+  }
 
-    .content-section.collapsed .section-content {
-        max-height: 0;
-    }
+  .comment-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
 
-    .tab-btn {
-        transition: all 0.3s;
+  .comment-author {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .comment-time {
+    color: #666;
+    font-size: 14px;
+  }
+
+  .comment-text {
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .progress-item.completed {
+    background: #c7ffc9;
+    border-color: #4caf50;
+  }
+
+  .progress-item.completed::before {
+    content: '✓';
+    color: #4caf50;
+    font-weight: bold;
     }
 `;
 document.head.appendChild(style);
 
-// Local Storage for Progress
-function saveProgress() {
-    const completedLessons = [];
-    document.querySelectorAll('.lesson-item').forEach((lesson, index) => {
-        if (lesson.style.opacity === '0.6') {
-            completedLessons.push(index);
-        }
-    });
-    localStorage.setItem('courseProgress', JSON.stringify(completedLessons));
-}
+// Initialize all functions when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Dashboard Details page initialized");
+  // Handle auth/redirects consistently (avoids race conditions)
+  redirectBasedOnAuth();
 
-function loadProgress() {
-    const saved = localStorage.getItem('courseProgress');
-    if (saved) {
-        const completedLessons = JSON.parse(saved);
-        document.querySelectorAll('.lesson-item').forEach((lesson, index) => {
-            if (completedLessons.includes(index)) {
-                lesson.style.opacity = '0.6';
-            }
-        });
-    }
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Bootcamp Detail Page initialized');
-    
-    initTabs();
-    initAccordion();
-    initLessons();
-    initSearch();
-    initIconButtons();
-    initAvatar();
+  // Initialize dashboard details features
+  initMobileMenu();
+  initNavigation();
+  initVideoPlayer();
     initProgressTracking();
-    initKeyboardNav();
+  initDiscussionSystem();
+  initResourceDownloads();
+  initQuizSystem();
     initScrollToTop();
+  initSectionsAccordionWithAnimation();
     
-    // Load saved progress
-    loadProgress();
-    
-    // Save progress on lesson click
-    document.querySelectorAll('.lesson-item').forEach(lesson => {
-        lesson.addEventListener('click', saveProgress);
-    });
+  // Initialize navigation and hover animations
+  initializeAllNavigation();
     
     // Handle resize
     handleResize();
-    window.addEventListener('resize', handleResize);
+  window.addEventListener("resize", handleResize);
     
-    // Show welcome message
+  // Show welcome toast with user data
+  const userData = getCurrentUserData();
+  const userName = userData?.displayName || userData?.username || 'User';
     setTimeout(() => {
-        showToast('Welcome to Matematika XI RPL 4! 📚', 'success');
+    showToast(`Welcome to Course Details, ${userName}!`, "success");
     }, 500);
 });
 
 // Export functions for potential use elsewhere
-window.bootcampDetail = {
+window.dashboardDetailsApp = {
     showToast,
-    openVideoPlayer,
-    saveProgress,
-    loadProgress
+  addComment,
+  calculateQuizScore,
 };
+
+// Accordion with smooth animation for course content sections
+function initSectionsAccordionWithAnimation() {
+  const sections = document.querySelectorAll('.content-section');
+  const contents = document.querySelectorAll('.content-section .section-content');
+
+  // Inject header animation styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .content-section .section-header {
+      transition: background-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+      will-change: background-color, box-shadow, transform;
+    }
+    .content-section .section-header.open {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transform: translateZ(0);
+    }
+  `;
+  document.head.appendChild(style);
+
+  contents.forEach(content => {
+    content.style.overflow = 'hidden';
+    content.style.maxHeight = '0px';
+    content.style.transition = 'max-height 300ms ease';
+  });
+
+  sections.forEach(section => {
+    const header = section.querySelector('.section-header');
+    const content = section.querySelector('.section-content');
+    if (!header || !content) return;
+    header.style.cursor = 'pointer';
+    header.addEventListener('click', () => {
+      const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+      // close all
+      document.querySelectorAll('.content-section .section-content').forEach(c => {
+        c.style.maxHeight = '0px';
+      });
+      document.querySelectorAll('.content-section .section-header').forEach(h => h.classList.remove('open'));
+      // toggle current
+      if (!isOpen) {
+        // set to scrollHeight for smooth open
+        content.style.maxHeight = content.scrollHeight + 'px';
+        header.classList.add('open');
+      } else {
+        content.style.maxHeight = '0px';
+        header.classList.remove('open');
+      }
+    });
+  });
+}

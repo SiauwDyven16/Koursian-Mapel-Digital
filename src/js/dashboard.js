@@ -1,3 +1,7 @@
+// Import Firebase and navigation
+import { initializeAllNavigation } from './navigation.js';
+import { redirectBasedOnAuth, isUserAuthenticated, getCurrentUserData } from './firebase-config.js';
+
 // Dashboard JavaScript
 
 const taskbtn = document.getElementById("task");
@@ -134,7 +138,8 @@ function initCourseCards() {
   courseCards.forEach((card) => {
     card.addEventListener("click", () => {
       console.log("Course clicked:", card.querySelector("h4").textContent);
-      // Here you would typically navigate to course details
+      // Navigate to course details
+      window.location.href = "dashboard-details.html";
     });
   });
 
@@ -144,6 +149,7 @@ function initCourseCards() {
     browseCard.addEventListener("click", () => {
       console.log("Browse all bootcamps clicked");
       // Navigate to browse page
+      window.location.href = "browse.html";
     });
   }
 }
@@ -153,6 +159,24 @@ function initSearch() {
   const searchInput = document.querySelector(".search-container input");
 
   if (searchInput) {
+    const toggleSearchDependentSections = (isSearching) => {
+      // Hide/Show Popular Bootcamp section
+      const popularHeader = Array.from(document.querySelectorAll('section.content-section h2'))
+        .find(h => h.textContent.trim().toLowerCase() === 'popular bootcamp');
+      const popularSection = popularHeader ? popularHeader.closest('section.content-section') : null;
+      if (popularSection) popularSection.style.display = isSearching ? 'none' : '';
+
+      // Hide/Show Recommended For You section
+      const recommendedHeader = Array.from(document.querySelectorAll('section.content-section h2'))
+        .find(h => h.textContent.trim().toLowerCase() === 'recommended for you');
+      const recommendedSection = recommendedHeader ? recommendedHeader.closest('section.content-section') : null;
+      if (recommendedSection) recommendedSection.style.display = isSearching ? 'none' : '';
+
+      // Hide/Show Browse Bootcamp card
+      const browseCard = document.querySelector('.browse-card');
+      if (browseCard) browseCard.style.display = isSearching ? 'none' : '';
+    };
+
     searchInput.addEventListener("input", (e) => {
       const searchTerm = e.target.value.toLowerCase();
       console.log("Searching for:", searchTerm);
@@ -161,6 +185,11 @@ function initSearch() {
       if (searchTerm.length > 2) {
         // Perform search
         filterCourses(searchTerm);
+        toggleSearchDependentSections(true);
+      } else {
+        // Reset sections visibility when search cleared/short
+        toggleSearchDependentSections(false);
+        filterCourses("");
       }
     });
 
@@ -169,6 +198,23 @@ function initSearch() {
         e.preventDefault();
         console.log("Search submitted:", searchInput.value);
         // Submit search
+        const isSearching = (searchInput.value || '').trim().length > 0;
+        // Keep sections hidden if still searching, otherwise show
+        const toggleSearchDependentSections = (flag) => {
+          const popularHeader = Array.from(document.querySelectorAll('section.content-section h2'))
+            .find(h => h.textContent.trim().toLowerCase() === 'popular bootcamp');
+          const popularSection = popularHeader ? popularHeader.closest('section.content-section') : null;
+          if (popularSection) popularSection.style.display = flag ? 'none' : '';
+
+          const recommendedHeader = Array.from(document.querySelectorAll('section.content-section h2'))
+            .find(h => h.textContent.trim().toLowerCase() === 'recommended for you');
+          const recommendedSection = recommendedHeader ? recommendedHeader.closest('section.content-section') : null;
+          if (recommendedSection) recommendedSection.style.display = flag ? 'none' : '';
+
+          const browseCard = document.querySelector('.browse-card');
+          if (browseCard) browseCard.style.display = flag ? 'none' : '';
+        };
+        toggleSearchDependentSections(isSearching);
       }
     });
   }
@@ -375,6 +421,12 @@ document.head.appendChild(style);
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Dashboard initialized");
 
+  // Enforce auth redirects and resolve profileComplete before initializing UI
+  redirectBasedOnAuth();
+
+  // Auth will be handled by redirectBasedOnAuth(); avoid synchronous checks here
+
+  // Initialize dashboard features
   initMobileMenu();
   initNavigation();
   initCategoryFilter();
@@ -386,13 +438,18 @@ document.addEventListener("DOMContentLoaded", () => {
   initLazyLoading();
   initScrollToTop();
 
+  // Initialize navigation and hover animations
+  initializeAllNavigation();
+
   // Handle resize
   handleResize();
   window.addEventListener("resize", handleResize);
 
-  // Show welcome toast
+  // Show welcome toast with user data
+  const userData = getCurrentUserData();
+  const userName = userData?.displayName || userData?.username || 'User';
   setTimeout(() => {
-    showToast("Welcome to Koursian Dashboard!", "success");
+    showToast(`Welcome back, ${userName}!`, "success");
   }, 500);
 });
 
