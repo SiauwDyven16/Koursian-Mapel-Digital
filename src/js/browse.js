@@ -1,15 +1,42 @@
-// Dashboard JavaScript
+function initPopups() {
+  const buttons = document.querySelectorAll(".icon-btn");
+  const popups = document.querySelectorAll(".pop-up");
 
-const taskbtn = document.getElementById("task");
-const taskList = document.querySelector(".task-list");
+  let activePopup = null; // simpan popup yang sedang terbuka
 
-taskbtn.addEventListener("click", () => {
-    if (taskList.style.display === "flex") {
-        taskList.style.display = "none"; // sembunyikan
-    } else {
-        taskList.style.display = "flex"; // tampilkan
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // jangan trigger event klik global
+
+      const popupId = btn.getAttribute("data-popup");
+      const target = document.getElementById(popupId);
+      if (!target) return;
+
+      // Jika klik tombol yang sama & popup sudah terbuka → tutup
+      if (activePopup === target && target.classList.contains("open")) {
+        target.classList.remove("open");
+        activePopup = null;
+        return;
+      }
+
+      // Tutup semua popup lain
+      popups.forEach((p) => p.classList.remove("open"));
+
+      // Buka popup yang baru diklik
+      target.classList.add("open");
+      activePopup = target;
+    });
+  });
+
+  // Tutup popup ketika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".icon-btn") && !e.target.closest(".pop-up")) {
+      popups.forEach((p) => p.classList.remove("open"));
+      activePopup = null;
     }
-});
+  });
+}
+
 
 // Mobile Menu Toggle
 function initMobileMenu() {

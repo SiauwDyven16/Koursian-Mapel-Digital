@@ -1,519 +1,1164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Koursian - Matematika XI RPL 4</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/css/video-lesson.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/video-lesson.css" />
+  </head>
+  <body>
     <div class="bootcamp-detail-container">
-        <!-- Navbar -->
-        <nav class="navbar">
-                <div class="logo-container">
-                    <div class="logo">
-                        <svg viewBox="0 0 49 48" fill="none">
-                            <path d="M24.5 12.75C24.5 18.9632 19.4632 24 13.25 24H2V12.75C2 6.53679 7.03679 1.5 13.25 1.5C19.4632 1.5 24.5 6.53679 24.5 12.75Z" fill="#704FE6"/>
-                            <path d="M24.5 35.25C24.5 29.0368 29.5368 24 35.75 24H47V35.25C47 41.4632 41.9632 46.5 35.75 46.5C29.5368 46.5 24.5 41.4632 24.5 35.25Z" fill="#704FE6"/>
-                            <path d="M2 35.25C2 41.4632 7.03679 46.5 13.25 46.5H24.5V35.25C24.5 29.0368 19.4632 24 13.25 24C7.03679 24 2 29.0368 2 35.25Z" fill="#704FE6"/>
-                            <path d="M47 12.75C47 6.53679 41.9632 1.5 35.75 1.5H24.5V12.75C24.5 18.9632 29.5368 24 35.75 24C41.9632 24 47 18.9632 47 12.75Z" fill="#FFD25D"/>
-                        </svg>
-                    </div>
-                    <span class="logo-text">Koursian</span>
-                </div>
-                
-                <div class="search-container">
-                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <g fill="none" stroke="#25252b70" stroke-width="1.5">
-                            <circle cx="11.5" cy="11.5" r="9.5" />
-                            <path stroke-linecap="round" d="M18.5 18.5L22 22" />
-                        </g>
-                    </svg>
-                    <input type="text" placeholder="Search bootcamp, mentor, question">
-                </div>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <h1 class="page-title">Dashboard</h1>
 
-                <div class="nav-actions">
-                    <button class="icon-btn">
-                        <svg viewBox="0 0 32 32" fill="none">
-                            <path d="M18.172 27.296L17.4493 28.5173C16.8053 29.6053 15.196 29.6053 14.5507 28.5173L13.828 27.296C13.268 26.3493 12.988 25.8747 12.5373 25.6133C12.0867 25.3507 11.52 25.3413 10.3867 25.3213C8.712 25.2933 7.66267 25.1907 6.78267 24.8253C5.97382 24.4903 5.23889 23.9992 4.61983 23.3802C4.00076 22.7611 3.5097 22.0262 3.17467 21.2173C2.66667 19.9933 2.66667 18.44 2.66667 15.3333V14C2.66667 9.636 2.66667 7.45333 3.64933 5.85067C4.19872 4.9536 4.9526 4.19927 5.84933 3.64933C7.45333 2.66667 9.63733 2.66667 14 2.66667H18C22.364 2.66667 24.5467 2.66667 26.1507 3.64933C27.0473 4.19889 27.8011 4.95275 28.3507 5.84933C29.3333 7.45333 29.3333 9.63733 29.3333 14V15.3333C29.3333 18.44 29.3333 19.9933 28.8267 21.2173C28.4915 22.0263 28.0002 22.7613 27.3809 23.3804C26.7616 23.9994 26.0264 24.4904 25.2173 24.8253C24.3373 25.1907 23.288 25.292 21.6133 25.3213C20.48 25.3413 19.9133 25.3507 19.4627 25.6133C19.012 25.8747 18.732 26.348 18.172 27.296Z" fill="#704FE6" opacity="0.5"/>
-                            <path d="M9.66667 12C9.66667 11.7348 9.77202 11.4804 9.95956 11.2929C10.1471 11.1054 10.4014 11 10.6667 11H21.3333C21.5985 11 21.8529 11.1054 22.0404 11.2929C22.228 11.4804 22.3333 11.7348 22.3333 12C22.3333 12.2652 22.228 12.5196 22.0404 12.7071C21.8529 12.8946 21.5985 13 21.3333 13H10.6667C10.4014 13 10.1471 12.8946 9.95956 12.7071C9.77202 12.5196 9.66667 12.2652 9.66667 12ZM9.66667 16.6667C9.66667 16.4015 9.77202 16.1471 9.95956 15.9596C10.1471 15.772 10.4014 15.6667 10.6667 15.6667H18C18.2652 15.6667 18.5196 15.772 18.7071 15.9596C18.8946 16.1471 19 16.4015 19 16.6667C19 16.9319 18.8946 17.1862 18.7071 17.3738C18.5196 17.5613 18.2652 17.6667 18 17.6667H10.6667C10.4014 17.6667 10.1471 17.5613 9.95956 17.3738C9.77202 17.1862 9.66667 16.9319 9.66667 16.6667Z" fill="#704FE6"/>
-                        </svg>
-                    </button>
-                    <button class="icon-btn">
-                        <svg viewBox="0 0 32 32" fill="none">
-                            <path d="M28 14.7973V21.4547C28 25.5827 28 27.648 27.0213 28.5493C26.5547 28.98 25.9653 29.2507 25.3373 29.3227C24.0213 29.4733 22.484 28.1133 19.4107 25.3947C18.0507 24.1933 17.372 23.592 16.5867 23.4347C16.1995 23.3556 15.8005 23.3556 15.4133 23.4347C14.6267 23.592 13.948 24.1933 12.5893 25.3947C9.516 28.1133 7.97867 29.4733 6.66267 29.3213C6.0337 29.249 5.44399 28.9787 4.97867 28.5493C4 27.648 4 25.584 4 21.4547V14.796C4 9.08 4 6.22133 5.75733 4.444C7.51467 2.66667 10.344 2.66667 16 2.66667C21.656 2.66667 24.4853 2.66667 26.2427 4.44267C28 6.21867 28 9.08 28 14.7973Z" fill="#704FE6" opacity="0.5"/>
-                            <path d="M12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8C11 8.26522 11.1054 8.51957 11.2929 8.70711C11.4804 8.89464 11.7348 9 12 9H20C20.2652 9 20.5196 8.89464 20.7071 8.70711C20.8946 8.51957 21 8.26522 21 8C21 7.73478 20.8946 7.48043 20.7071 7.29289C20.5196 7.10536 20.2652 7 20 7H12Z" fill="#704FE6"/>
-                        </svg>
-                    </button>
-                    <button class="icon-btn">
-                        <svg viewBox="0 0 32 32" fill="none">
-                            <path d="M25 12V12.9387C25 14.0653 25.32 15.1667 25.9227 16.104L27.4 18.4013C28.748 20.5 27.7187 23.352 25.3733 24.0147C19.245 25.7502 12.7551 25.7502 6.62667 24.0147C4.28133 23.352 3.252 20.5 4.6 18.4013L6.07733 16.104C6.68162 15.1589 7.00229 14.0604 7.00133 12.9387V12C7.00133 6.84533 11.0307 2.66667 16 2.66667C20.9693 2.66667 25 6.84533 25 12Z" fill="#704FE6" opacity="0.5"/>
-                            <path d="M9.65733 24.7267C10.093 26.0655 10.9412 27.2321 12.0804 28.0594C13.2196 28.8867 14.5914 29.3323 15.9993 29.3323C17.4073 29.3323 18.7791 28.8867 19.9183 28.0594C21.0575 27.2321 21.9057 26.0655 22.3413 24.7267C18.148 25.5133 13.852 25.5133 9.65733 24.7267Z" fill="#704FE6"/>
-                        </svg>
-                    </button>
-                    <button class="icon-btn" id="task">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path fill="#704FE6" fill-rule="evenodd" d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919" clip-rule="evenodd" />
-                            <path fill="#704FE6" d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73" opacity="0.5" />
-                        </svg>
-                    </button>
-                    <div class="avatar">
-                        <img src="src/assets/image/Mentor-Image-1.jpg" alt="Profile">
-                    </div>
-                </div>
-            </nav>
-
-        <!-- Main Content -->
-        
-        <div class="main-content">
-            <!-- Left Column - Course Preview -->
-            <div class="left-column">
-                <div class="course-preview">
-                    <!-- <img src="src/assets/image/math-thumbnail.jpg" alt="Course Preview"> -->
-                     <iframe src="https://www.youtube.com/embed/o-ESReWkrzw?si=dV_7Ww6yFcwi-Gnn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="course-tabs">
-                    <h1 class="course-title">Pembukaan Fungsi</h1>
-                    <p class="course-description">is a comprehensive course designed for developers looking to deepen their understanding of Vue.js. It covers advanced topics like state management with Vuex, composition API, performance optimization, testing strategies, and architectural patterns,</p>
-                    <!-- <button class="tab-btn">Tasks</button> -->
-                </div>
-            </div>
-
-            <!-- Right Column - Course Details -->
-            <div class="right-column">
-                <!-- Course Content -->
-                <div class="course-content">
-                    <!-- Section 1 - Fungsi -->
-                    <div class="content-section">
-                        <div class="section-header" data-section="1">
-                            <h3>Fungsi</h3>
-                            <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
-                        </div>
-                        <div class="section-content" id="section-1">
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Pembukaan Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">10:12</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Definisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">11:34</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">09:45</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">14:20</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Fungsi Invers</span>
-                                </div>
-                                <span class="lesson-duration">08:56</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
-                                        <path d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933" stroke="black" stroke-width="2"/>
-                                        <path d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667" stroke="black" stroke-linecap="round" stroke-width="2"/>
-                                        <path d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Ujian</span>
-                                </div>
-                                <span class="lesson-duration">12:42</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section 2 -->
-                    <div class="content-section">
-                        <div class="section-header" data-section="1">
-                            <h3>Fungsi</h3>
-                            <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
-                        </div>
-                        <div class="section-content" id="section-1">
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Pembukaan Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">10:12</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Definisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">11:34</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">09:45</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">14:20</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Fungsi Invers</span>
-                                </div>
-                                <span class="lesson-duration">08:56</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
-                                        <path d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933" stroke="black" stroke-width="2"/>
-                                        <path d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667" stroke="black" stroke-linecap="round" stroke-width="2"/>
-                                        <path d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Ujian</span>
-                                </div>
-                                <span class="lesson-duration">12:42</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section 3 -->
-                    <div class="content-section">
-                        <div class="section-header" data-section="1">
-                            <h3>Fungsi</h3>
-                            <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
-                        </div>
-                        <div class="section-content" id="section-1">
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Pembukaan Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">10:12</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Definisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">11:34</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">09:45</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">14:20</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Fungsi Invers</span>
-                                </div>
-                                <span class="lesson-duration">08:56</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
-                                        <path d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933" stroke="black" stroke-width="2"/>
-                                        <path d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667" stroke="black" stroke-linecap="round" stroke-width="2"/>
-                                        <path d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Ujian</span>
-                                </div>
-                                <span class="lesson-duration">12:42</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section 4 -->
-                    <div class="content-section">
-                        <div class="section-header" data-section="1">
-                            <h3>Fungsi</h3>
-                            <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
-                        </div>
-                        <div class="section-content" id="section-1">
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Pembukaan Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">10:12</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Definisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">11:34</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">09:45</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">14:20</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Fungsi Invers</span>
-                                </div>
-                                <span class="lesson-duration">08:56</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
-                                        <path d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933" stroke="black" stroke-width="2"/>
-                                        <path d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667" stroke="black" stroke-linecap="round" stroke-width="2"/>
-                                        <path d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Ujian</span>
-                                </div>
-                                <span class="lesson-duration">12:42</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section 5 -->
-                    <div class="content-section">
-                        <div class="section-header" data-section="1">
-                            <h3>Fungsi</h3>
-                            <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
-                        </div>
-                        <div class="section-content" id="section-1">
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Pembukaan Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">10:12</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Definisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">11:34</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">09:45</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
-                                </div>
-                                <span class="lesson-duration">14:20</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="14.3333" cy="14.3333" r="13.3333" stroke="black" stroke-width="2"/>
-                                        <path d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Fungsi Invers</span>
-                                </div>
-                                <span class="lesson-duration">08:56</span>
-                            </div>
-                            <div class="lesson-item">
-                                <div class="lesson-info">
-                                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
-                                        <path d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933" stroke="black" stroke-width="2"/>
-                                        <path d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667" stroke="black" stroke-linecap="round" stroke-width="2"/>
-                                        <path d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z" stroke="black" stroke-width="2"/>
-                                    </svg>
-                                    <span class="lesson-name">Ujian</span>
-                                </div>
-                                <span class="lesson-duration">12:42</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="search-container">
+          <svg
+            class="search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <g fill="none" stroke="#25252b70" stroke-width="1.5">
+              <circle cx="11.5" cy="11.5" r="9.5" />
+              <path stroke-linecap="round" d="M18.5 18.5L22 22" />
+            </g>
+          </svg>
+          <input type="text" placeholder="Search bootcamp, mentor, question" />
         </div>
-        
 
-        <div class="task-list">
-            <div class="task-title">
-                <div class="task-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="" fill-rule="evenodd" d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919" clip-rule="evenodd" />
-                        <path fill="" d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73" opacity="0.5" />
-                    </svg>
-                </div>
-                <h2 class="task-text">Assignment</h2>
-            </div>
-            <div class="tasks">
-                <!-- Task 1 -->
-                <div class="task-content">
-                    <div class="task-info">
-                        <div class="task-name">
-                            <h2>Membuat Website Ujian Akhir</h2><span>• RPL</span>
-                        </div>
-                        <span>Deadline on • 29-10-2025</span>
-                    </div>
-                    <button class="task-working-btn">
-                        <span class="task-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="" fill-rule="evenodd" d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z" clip-rule="evenodd" />
-                                <path fill="" d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648" opacity="0.5" />
-                            </svg>
-                        </span>
-                        <span>Start Working</span>
-                    </button>
-                </div>
-                <!-- Task 2 -->
-                <div class="task-content">
-                    <div class="task-info">
-                        <div class="task-name">
-                            <h2>Membuat Website Ujian Akhir</h2><span>• RPL</span>
-                        </div>
-                        <span>Deadline on • 29-10-2025</span>
-                    </div>
-                    <button class="task-working-btn">
-                        <span class="task-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="" fill-rule="evenodd" d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z" clip-rule="evenodd" />
-                                <path fill="" d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648" opacity="0.5" />
-                            </svg>
-                        </span>
-                        <span>Start Working</span>
-                    </button>
-                </div>
-                <!-- Task 3 -->
-                <div class="task-content">
-                    <div class="task-info">
-                        <div class="task-name">
-                            <h2>Membuat Website Ujian Akhir</h2><span>• RPL</span>
-                        </div>
-                        <span>Deadline on • 29-10-2025</span>
-                    </div>
-                    <button class="task-working-btn">
-                        <span class="task-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="" fill-rule="evenodd" d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z" clip-rule="evenodd" />
-                                <path fill="" d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648" opacity="0.5" />
-                            </svg>
-                        </span>
-                        <span>Start Working</span>
-                    </button>
-                </div>
-            </div>
+        <div class="nav-actions">
+          <button class="icon-btn" data-popup="message-list">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path
+                d="M18.172 27.296L17.4493 28.5173C16.8053 29.6053 15.196 29.6053 14.5507 28.5173L13.828 27.296C13.268 26.3493 12.988 25.8747 12.5373 25.6133C12.0867 25.3507 11.52 25.3413 10.3867 25.3213C8.712 25.2933 7.66267 25.1907 6.78267 24.8253C5.97382 24.4903 5.23889 23.9992 4.61983 23.3802C4.00076 22.7611 3.5097 22.0262 3.17467 21.2173C2.66667 19.9933 2.66667 18.44 2.66667 15.3333V14C2.66667 9.636 2.66667 7.45333 3.64933 5.85067C4.19872 4.9536 4.9526 4.19927 5.84933 3.64933C7.45333 2.66667 9.63733 2.66667 14 2.66667H18C22.364 2.66667 24.5467 2.66667 26.1507 3.64933C27.0473 4.19889 27.8011 4.95275 28.3507 5.84933C29.3333 7.45333 29.3333 9.63733 29.3333 14V15.3333C29.3333 18.44 29.3333 19.9933 28.8267 21.2173C28.4915 22.0263 28.0002 22.7613 27.3809 23.3804C26.7616 23.9994 26.0264 24.4904 25.2173 24.8253C24.3373 25.1907 23.288 25.292 21.6133 25.3213C20.48 25.3413 19.9133 25.3507 19.4627 25.6133C19.012 25.8747 18.732 26.348 18.172 27.296Z"
+                fill="#704FE6"
+                opacity="0.5"
+              />
+              <path
+                d="M9.66667 12C9.66667 11.7348 9.77202 11.4804 9.95956 11.2929C10.1471 11.1054 10.4014 11 10.6667 11H21.3333C21.5985 11 21.8529 11.1054 22.0404 11.2929C22.228 11.4804 22.3333 11.7348 22.3333 12C22.3333 12.2652 22.228 12.5196 22.0404 12.7071C21.8529 12.8946 21.5985 13 21.3333 13H10.6667C10.4014 13 10.1471 12.8946 9.95956 12.7071C9.77202 12.5196 9.66667 12.2652 9.66667 12ZM9.66667 16.6667C9.66667 16.4015 9.77202 16.1471 9.95956 15.9596C10.1471 15.772 10.4014 15.6667 10.6667 15.6667H18C18.2652 15.6667 18.5196 15.772 18.7071 15.9596C18.8946 16.1471 19 16.4015 19 16.6667C19 16.9319 18.8946 17.1862 18.7071 17.3738C18.5196 17.5613 18.2652 17.6667 18 17.6667H10.6667C10.4014 17.6667 10.1471 17.5613 9.95956 17.3738C9.77202 17.1862 9.66667 16.9319 9.66667 16.6667Z"
+                fill="#704FE6"
+              />
+            </svg>
+          </button>
+          <!-- <button class="icon-btn" data-popup="favorite-list">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M28 14.7973V21.4547C28 25.5827 28 27.648 27.0213 28.5493C26.5547 28.98 25.9653 29.2507 25.3373 29.3227C24.0213 29.4733 22.484 28.1133 19.4107 25.3947C18.0507 24.1933 17.372 23.592 16.5867 23.4347C16.1995 23.3556 15.8005 23.3556 15.4133 23.4347C14.6267 23.592 13.948 24.1933 12.5893 25.3947C9.516 28.1133 7.97867 29.4733 6.66267 29.3213C6.0337 29.249 5.44399 28.9787 4.97867 28.5493C4 27.648 4 25.584 4 21.4547V14.796C4 9.08 4 6.22133 5.75733 4.444C7.51467 2.66667 10.344 2.66667 16 2.66667C21.656 2.66667 24.4853 2.66667 26.2427 4.44267C28 6.21867 28 9.08 28 14.7973Z"
+                  fill="#704FE6"
+                  opacity="0.5"
+                />
+                <path
+                  d="M12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8C11 8.26522 11.1054 8.51957 11.2929 8.70711C11.4804 8.89464 11.7348 9 12 9H20C20.2652 9 20.5196 8.89464 20.7071 8.70711C20.8946 8.51957 21 8.26522 21 8C21 7.73478 20.8946 7.48043 20.7071 7.29289C20.5196 7.10536 20.2652 7 20 7H12Z"
+                  fill="#704FE6"
+                />
+              </svg>
+            </button> -->
+          <button class="icon-btn" data-popup="notification-list">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path
+                d="M25 12V12.9387C25 14.0653 25.32 15.1667 25.9227 16.104L27.4 18.4013C28.748 20.5 27.7187 23.352 25.3733 24.0147C19.245 25.7502 12.7551 25.7502 6.62667 24.0147C4.28133 23.352 3.252 20.5 4.6 18.4013L6.07733 16.104C6.68162 15.1589 7.00229 14.0604 7.00133 12.9387V12C7.00133 6.84533 11.0307 2.66667 16 2.66667C20.9693 2.66667 25 6.84533 25 12Z"
+                fill="#704FE6"
+                opacity="0.5"
+              />
+              <path
+                d="M9.65733 24.7267C10.093 26.0655 10.9412 27.2321 12.0804 28.0594C13.2196 28.8867 14.5914 29.3323 15.9993 29.3323C17.4073 29.3323 18.7791 28.8867 19.9183 28.0594C21.0575 27.2321 21.9057 26.0655 22.3413 24.7267C18.148 25.5133 13.852 25.5133 9.65733 24.7267Z"
+                fill="#704FE6"
+              />
+            </svg>
+          </button>
+          <button class="icon-btn" data-popup="task-list">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                fill="#704FE6"
+                fill-rule="evenodd"
+                d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919"
+                clip-rule="evenodd"
+              />
+              <path
+                fill="#704FE6"
+                d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73"
+                opacity="0.5"
+              />
+            </svg>
+          </button>
+          <div class="avatar">
+            <img src="src/assets/image/Mentor-Image-1.jpg" alt="Profile" />
+          </div>
         </div>
+      </nav>
+
+      <!-- Main Content -->
+
+      <div class="main-content">
+        <!-- Left Column - Course Preview -->
+        <div class="left-column">
+          <div class="course-preview">
+            <!-- <img src="src/assets/image/math-thumbnail.jpg" alt="Course Preview"> -->
+            <iframe
+              src="https://www.youtube.com/embed/o-ESReWkrzw?si=dV_7Ww6yFcwi-Gnn"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="course-tabs">
+            <h1 class="course-title">Pembukaan Fungsi</h1>
+            <p class="course-description">
+              is a comprehensive course designed for developers looking to
+              deepen their understanding of Vue.js. It covers advanced topics
+              like state management with Vuex, composition API, performance
+              optimization, testing strategies, and architectural patterns,
+            </p>
+            <!-- <button class="tab-btn">Tasks</button> -->
+          </div>
+        </div>
+
+        <!-- Right Column - Course Details -->
+        <div class="right-column">
+          <!-- Course Content -->
+          <div class="course-content">
+            <!-- Section 1 - Fungsi -->
+            <div class="content-section">
+              <div class="section-header" data-section="1">
+                <h3>Fungsi</h3>
+                <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
+              </div>
+              <div class="section-content" id="section-1">
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Pembukaan Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">10:12</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Definisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">11:34</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">09:45</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">14:20</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Fungsi Invers</span>
+                  </div>
+                  <span class="lesson-duration">08:56</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667"
+                        stroke="black"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Ujian</span>
+                  </div>
+                  <span class="lesson-duration">12:42</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="content-section">
+              <div class="section-header" data-section="1">
+                <h3>Fungsi</h3>
+                <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
+              </div>
+              <div class="section-content" id="section-1">
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Pembukaan Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">10:12</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Definisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">11:34</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">09:45</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">14:20</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Fungsi Invers</span>
+                  </div>
+                  <span class="lesson-duration">08:56</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667"
+                        stroke="black"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Ujian</span>
+                  </div>
+                  <span class="lesson-duration">12:42</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="content-section">
+              <div class="section-header" data-section="1">
+                <h3>Fungsi</h3>
+                <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
+              </div>
+              <div class="section-content" id="section-1">
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Pembukaan Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">10:12</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Definisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">11:34</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">09:45</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">14:20</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Fungsi Invers</span>
+                  </div>
+                  <span class="lesson-duration">08:56</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667"
+                        stroke="black"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Ujian</span>
+                  </div>
+                  <span class="lesson-duration">12:42</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="content-section">
+              <div class="section-header" data-section="1">
+                <h3>Fungsi</h3>
+                <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
+              </div>
+              <div class="section-content" id="section-1">
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Pembukaan Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">10:12</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Definisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">11:34</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">09:45</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">14:20</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Fungsi Invers</span>
+                  </div>
+                  <span class="lesson-duration">08:56</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667"
+                        stroke="black"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Ujian</span>
+                  </div>
+                  <span class="lesson-duration">12:42</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="content-section">
+              <div class="section-header" data-section="1">
+                <h3>Fungsi</h3>
+                <span class="section-info">6 Lessons, 1 hour 4 minutes</span>
+              </div>
+              <div class="section-content" id="section-1">
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Pembukaan Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">10:12</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Definisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">11:34</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">09:45</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Sifat Komposisi Fungsi</span>
+                  </div>
+                  <span class="lesson-duration">14:20</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+                      <circle
+                        cx="14.3333"
+                        cy="14.3333"
+                        r="13.3333"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M18.8853 12.9213C19.9267 13.5373 19.9267 15.1293 18.8853 15.7453L12.592 19.4613C11.5787 20.0587 10.3333 19.28 10.3333 18.048V10.6187C10.3333 9.38667 11.5787 8.60933 12.592 9.20667L18.8853 12.9213Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Fungsi Invers</span>
+                  </div>
+                  <span class="lesson-duration">08:56</span>
+                </div>
+                <div class="lesson-item">
+                  <div class="lesson-info">
+                    <svg class="exam-icon" viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M18.3333 3.66933C21.2333 3.68533 22.804 3.81467 23.828 4.83867C25 6.01067 25 7.896 25 11.6667V19.6667C25 23.4387 25 25.324 23.828 26.496C22.6573 27.6667 20.7707 27.6667 17 27.6667H9C5.22933 27.6667 3.34267 27.6667 2.172 26.496C1 25.3227 1 23.4387 1 19.6667V11.6667C1 7.896 1 6.01067 2.172 4.83867C3.196 3.81467 4.76667 3.68533 7.66667 3.66933"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M11 17H19.6667M6.33333 17H7M6.33333 12.3333H7M6.33333 21.6667H7M11 12.3333H19.6667M11 21.6667H19.6667"
+                        stroke="black"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M7.66667 3C7.66667 2.46957 7.87738 1.96086 8.25245 1.58579C8.62753 1.21071 9.13624 1 9.66667 1H16.3333C16.8638 1 17.3725 1.21071 17.7475 1.58579C18.1226 1.96086 18.3333 2.46957 18.3333 3V4.33333C18.3333 4.86377 18.1226 5.37247 17.7475 5.74755C17.3725 6.12262 16.8638 6.33333 16.3333 6.33333H9.66667C9.13624 6.33333 8.62753 6.12262 8.25245 5.74755C7.87738 5.37247 7.66667 4.86377 7.66667 4.33333V3Z"
+                        stroke="black"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    <span class="lesson-name">Ujian</span>
+                  </div>
+                  <span class="lesson-duration">12:42</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pop-up task-list" id="task-list">
+        <div class="pop-up-title">
+          <div class="pop-up-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill=""
+                fill-rule="evenodd"
+                d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919"
+                clip-rule="evenodd"
+              />
+              <path
+                fill=""
+                d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73"
+                opacity="0.5"
+              />
+            </svg>
+          </div>
+          <h2 class="pop-up-text">Assignment</h2>
+        </div>
+        <div class="tasks pop-up-container">
+          <!-- Task 1 -->
+          <div class="task-content pop-up-content">
+            <div class="task-info">
+              <div class="task-name">
+                <h2>Membuat Website Ujian Akhir</h2>
+                <span>• RPL</span>
+              </div>
+              <span>Deadline on • 29-10-2025</span>
+            </div>
+            <button class="task-working-btn">
+              <span class="task-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill=""
+                    fill-rule="evenodd"
+                    d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill=""
+                    d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648"
+                    opacity="0.5"
+                  />
+                </svg>
+              </span>
+              <span>Start Working</span>
+            </button>
+          </div>
+          <!-- Task 2 -->
+          <div class="task-content pop-up-content">
+            <div class="task-info">
+              <div class="task-name">
+                <h2>Membuat Website Ujian Akhir</h2>
+                <span>• RPL</span>
+              </div>
+              <span>Deadline on • 29-10-2025</span>
+            </div>
+            <button class="task-working-btn">
+              <span class="task-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill=""
+                    fill-rule="evenodd"
+                    d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill=""
+                    d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648"
+                    opacity="0.5"
+                  />
+                </svg>
+              </span>
+              <span>Start Working</span>
+            </button>
+          </div>
+          <!-- Task 3 -->
+          <div class="task-content pop-up-content">
+            <div class="task-info">
+              <div class="task-name">
+                <h2>Membuat Website Ujian Akhir</h2>
+                <span>• RPL</span>
+              </div>
+              <span>Deadline on • 29-10-2025</span>
+            </div>
+            <button class="task-working-btn">
+              <span class="task-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill=""
+                    fill-rule="evenodd"
+                    d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill=""
+                    d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648"
+                    opacity="0.5"
+                  />
+                </svg>
+              </span>
+              <span>Start Working</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pop-up notification-list" id="notification-list">
+        <div class="pop-up-title">
+          <div class="pop-up-icon">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path
+                d="M25 12V12.9387C25 14.0653 25.32 15.1667 25.9227 16.104L27.4 18.4013C28.748 20.5 27.7187 23.352 25.3733 24.0147C19.245 25.7502 12.7551 25.7502 6.62667 24.0147C4.28133 23.352 3.252 20.5 4.6 18.4013L6.07733 16.104C6.68162 15.1589 7.00229 14.0604 7.00133 12.9387V12C7.00133 6.84533 11.0307 2.66667 16 2.66667C20.9693 2.66667 25 6.84533 25 12Z"
+                fill="#704FE6"
+                opacity="0.5"
+              />
+              <path
+                d="M9.65733 24.7267C10.093 26.0655 10.9412 27.2321 12.0804 28.0594C13.2196 28.8867 14.5914 29.3323 15.9993 29.3323C17.4073 29.3323 18.7791 28.8867 19.9183 28.0594C21.0575 27.2321 21.9057 26.0655 22.3413 24.7267C18.148 25.5133 13.852 25.5133 9.65733 24.7267Z"
+                fill="#704FE6"
+              />
+            </svg>
+          </div>
+          <h2 class="pop-up-text">Notification</h2>
+        </div>
+        <div class="notifications pop-up-container">
+            
+          <div class="notification-content pop-up-content">
+            <div class="notification-info">
+              <div class="notification-name">
+                <h3>Ms. Linda just upload new Assignment</h3>
+              </div>
+              <span>• Matematika</span>
+            </div>
+            <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <g fill="none">
+                    <path
+                      fill="#704FE6"
+                      d="M4 11.25a.75.75 0 0 0 0 1.5zm0 1.5h16v-1.5H4z"
+                      opacity="0.5"
+                    />
+                    <path
+                      stroke="#704FE6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="m14 6l6 6l-6 6"
+                    />
+                  </g>
+                </svg>
+            <!-- <button class="task-working-btn">
+              <span class="task-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill=""
+                    fill-rule="evenodd"
+                    d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill=""
+                    d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648"
+                    opacity="0.5"
+                  />
+                </svg>
+              </span>
+              <span>Start Working</span>
+            </button> -->
+          </div>
+          <div class="notification-content pop-up-content">
+            <div class="notification-info">
+              <div class="notification-name">
+                <h3>Ms. Linda just upload new Assignment</h3>
+              </div>
+              <span>• Matematika</span>
+            </div>
+            <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <g fill="none">
+                    <path
+                      fill="#704FE6"
+                      d="M4 11.25a.75.75 0 0 0 0 1.5zm0 1.5h16v-1.5H4z"
+                      opacity="0.5"
+                    />
+                    <path
+                      stroke="#704FE6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="m14 6l6 6l-6 6"
+                    />
+                  </g>
+                </svg>
+            <!-- <button class="task-working-btn">
+              <span class="task-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill=""
+                    fill-rule="evenodd"
+                    d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill=""
+                    d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648"
+                    opacity="0.5"
+                  />
+                </svg>
+              </span>
+              <span>Start Working</span>
+            </button> -->
+          </div>
+          <div class="notification-content pop-up-content">
+            <div class="notification-info">
+              <div class="notification-name">
+                <h3>Ms. Linda just upload new Assignment</h3>
+              </div>
+              <span>• Matematika</span>
+            </div>
+            <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <g fill="none">
+                    <path
+                      fill="#704FE6"
+                      d="M4 11.25a.75.75 0 0 0 0 1.5zm0 1.5h16v-1.5H4z"
+                      opacity="0.5"
+                    />
+                    <path
+                      stroke="#704FE6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="m14 6l6 6l-6 6"
+                    />
+                  </g>
+                </svg>
+            <!-- <button class="task-working-btn">
+              <span class="task-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill=""
+                    fill-rule="evenodd"
+                    d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill=""
+                    d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648"
+                    opacity="0.5"
+                  />
+                </svg>
+              </span>
+              <span>Start Working</span>
+            </button> -->
+          </div>
+          <div class="notification-content pop-up-content">
+            <div class="notification-info">
+              <div class="notification-name">
+                <h3>Ms. Linda just upload new Assignment</h3>
+              </div>
+              <span>• Matematika</span>
+            </div>
+            <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <g fill="none">
+                    <path
+                      fill="#704FE6"
+                      d="M4 11.25a.75.75 0 0 0 0 1.5zm0 1.5h16v-1.5H4z"
+                      opacity="0.5"
+                    />
+                    <path
+                      stroke="#704FE6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="m14 6l6 6l-6 6"
+                    />
+                  </g>
+                </svg>
+            <!-- <button class="task-working-btn">
+              <span class="task-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill=""
+                    fill-rule="evenodd"
+                    d="M23 12c0-1.035-.53-2.07-1.591-2.647L8.597 2.385C6.534 1.264 4 2.724 4 5.033V12z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill=""
+                    d="m8.597 21.615l12.812-6.968A2.99 2.99 0 0 0 23 12H4v6.967c0 2.31 2.534 3.769 4.597 2.648"
+                    opacity="0.5"
+                  />
+                </svg>
+              </span>
+              <span>Start Working</span>
+            </button> -->
+          </div>
+
+        </div>
+      </div>
     </div>
 
     <script src="src/js/dashboard-details.js"></script>
-</body>
+  </body>
 </html>
