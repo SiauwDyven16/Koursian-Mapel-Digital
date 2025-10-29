@@ -100,6 +100,12 @@ body {
     color: #704FE6;
 }
 
+.nav-item:not(.active):hover svg {
+    opacity: 1;
+    fill: #704FE6;
+    color: #704FE6;
+ }
+
 /* Main Content */
 .main-content {
     flex: 1;
@@ -261,10 +267,10 @@ body {
 
 /* Category Filters */
 .category-filters {
-    padding: 0 24px 64px;
+    padding: 24px 24px 24px;
     display: flex;
     gap: 12px;
-    max-height: 120px;
+    max-height: 144px;
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -276,9 +282,9 @@ body {
 .category-btn {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
-    gap: 16px;
-    padding: 12px 24px;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px 12px 12px;
     border-radius: 64px;
     border: none;
     cursor: pointer;
@@ -286,7 +292,7 @@ body {
     font-size: 16px;
     font-weight: 500;
     transition: all 0.3s;
-    width: 220px;
+    width: 170px;
     background-color: #fff;
     color: #25252B60;
     border: 1px solid #00000015;
@@ -326,13 +332,17 @@ body {
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+    /* grid-template-columns: repeat(3, minmax(150px, 1fr)); */
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
     gap: 20px;
 }
 
 .course-card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     border-radius: 12px;
     overflow: hidden;
@@ -341,12 +351,12 @@ body {
 }
 
 .course-image {
-    width: 100%;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     overflow: hidden;
     position: relative;
     background-color: #f5f5f5;
-    border-radius: 12px;
+    border-radius: 322px;
 }
 
 .course-image img {
@@ -359,6 +369,8 @@ body {
     /* padding: 16px; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
 }
 
