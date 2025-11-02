@@ -428,7 +428,7 @@ body {
 }
 
 
-.task-list {
+.pop-up {
     position: fixed;
     z-index: 999;
     bottom:24px;
@@ -445,7 +445,12 @@ body {
     overflow-y:hidden ;
 }
 
-.task-title {
+.pop-up.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-up-title {
     display: flex;
     /* justify-content: center; */
     gap: 12px;
@@ -453,13 +458,13 @@ body {
     border-bottom: 1px solid #00000020;
 }
 
-.task-icon svg {
+.pop-up-icon svg {
     width: 36px;
     height: 36px;
     fill: #704FE6;
 }
 
-.tasks {
+.pop-up-container {
     scrollbar-color: #704fe660 #f0f0f0;
     overflow-y: scroll;
     display: flex;
@@ -471,7 +476,7 @@ body {
     border-top: none ;
 }
 
-.task-content {
+.pop-up-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -525,6 +530,29 @@ body {
     width: 16px;
     height: 16px;
 }
+
+.notification-content {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notification-name {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 12px;
+}
+
+.notification-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 
 /* Desktop - 1920x1080 (Default) */
 @media (min-width: 1441px) and (max-width: 1920px) {
