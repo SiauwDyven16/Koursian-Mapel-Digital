@@ -1,28 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { auth, db, redirectBasedOnAuth } from './firebase-config.js';
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAD9PuaSWK6-rK1B0VKIrY1dgQsK6CevNk",
-  authDomain: "website-mapel-digital.firebaseapp.com",
-  projectId: "website-mapel-digital",
-  storageBucket: "website-mapel-digital.firebasestorage.app",
-  messagingSenderId: "237511903481",
-  appId: "1:237511903481:web:50105212d92efdfc6aba28",
-  measurementId: "G-TTZQ3NTRZ9"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-// // Check if user is already logged in
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     window.location.href = "index.html";
-//   }
-// });
+// Check authentication status on page load
+document.addEventListener('DOMContentLoaded', () => {
+  redirectBasedOnAuth();
+});
 
 // Get form elements
 const submit = document.getElementById('submit');
@@ -59,14 +42,20 @@ form.addEventListener('submit', async function (event) {
 
     // Get user data from Firestore
     const userDoc = await getDoc(doc(db, "users", user.uid));
+    let profileComplete = false;
     
     if (userDoc.exists()) {
       const userData = userDoc.data();
       console.log("User logged in:", userData.username);
+      profileComplete = !!userData.profileComplete;
     }
 
-    // Redirect to main page
-    window.location.href = "index.html";
+    // Redirect based on profile completion
+    if (profileComplete) {
+      window.location.href = "dashboard.html";
+    } else {
+      window.location.href = "setup-profile.html";
+    }
 
   } catch (error) {
     console.error("Login error:", error);

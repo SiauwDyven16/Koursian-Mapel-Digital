@@ -1,3 +1,9 @@
+// Import Firebase and navigation
+import { initializeAllNavigation } from './navigation.js';
+import { redirectBasedOnAuth, isUserAuthenticated, getCurrentUserData } from './firebase-config.js';
+
+// Browse JavaScript
+
 function initPopups() {
   const buttons = document.querySelectorAll(".icon-btn");
   const popups = document.querySelectorAll(".pop-up");
@@ -113,8 +119,9 @@ function initCategoryFilter() {
       // Add active class to clicked button
       btn.classList.add("active");
 
-      // Here you would typically filter courses based on category
-      console.log("Category selected:", btn.textContent.trim());
+      // Filter courses based on category
+      const category = btn.textContent.trim();
+      filterCoursesByCategory(category);
     });
   });
 }
@@ -161,18 +168,10 @@ function initCourseCards() {
   courseCards.forEach((card) => {
     card.addEventListener("click", () => {
       console.log("Course clicked:", card.querySelector("h4").textContent);
-      // Here you would typically navigate to course details
+      // Navigate to course details
+      window.location.href = "dashboard-details.html";
     });
   });
-
-  // Browse card
-  const browseCard = document.querySelector(".browse-card");
-  if (browseCard) {
-    browseCard.addEventListener("click", () => {
-      console.log("Browse all bootcamps clicked");
-      // Navigate to browse page
-    });
-  }
 }
 
 // Search Functionality
@@ -184,10 +183,12 @@ function initSearch() {
       const searchTerm = e.target.value.toLowerCase();
       console.log("Searching for:", searchTerm);
 
-      // Here you would typically filter courses
+      // Filter courses based on search term
       if (searchTerm.length > 2) {
-        // Perform search
         filterCourses(searchTerm);
+      } else if (searchTerm.length === 0) {
+        // Show all courses when search is cleared
+        showAllCourses();
       }
     });
 
@@ -195,7 +196,6 @@ function initSearch() {
       if (e.key === "Enter") {
         e.preventDefault();
         console.log("Search submitted:", searchInput.value);
-        // Submit search
       }
     });
   }
@@ -206,14 +206,37 @@ function filterCourses(searchTerm) {
 
   courseCards.forEach((card) => {
     const title = card.querySelector("h4")?.textContent.toLowerCase() || "";
-    const meta =
-      card.querySelector(".course-meta")?.textContent.toLowerCase() || "";
+    const meta = card.querySelector(".course-meta")?.textContent.toLowerCase() || "";
 
     if (title.includes(searchTerm) || meta.includes(searchTerm)) {
       card.style.display = "";
     } else {
       card.style.display = "none";
     }
+  });
+}
+
+function filterCoursesByCategory(category) {
+  const courseCards = document.querySelectorAll(".course-card");
+
+  courseCards.forEach((card) => {
+    const cardTitle = card.querySelector("h4")?.textContent.toLowerCase();
+    const cardMeta = card.querySelector(".course-meta")?.textContent.toLowerCase();
+    
+    if (category === 'All' || 
+        cardTitle?.includes(category.toLowerCase()) || 
+        cardMeta?.includes(category.toLowerCase())) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+function showAllCourses() {
+  const courseCards = document.querySelectorAll(".course-card");
+  courseCards.forEach((card) => {
+    card.style.display = "";
   });
 }
 
@@ -226,18 +249,6 @@ function initIconButtons() {
       const actions = ["Messages", "Bookmarks", "Notifications", "Cart"];
       console.log(`${actions[index]} clicked`);
       // Handle specific action
-    });
-  });
-}
-
-// Promotion Cards
-function initPromotions() {
-  const promotionCards = document.querySelectorAll(".promotion-card");
-
-  promotionCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      console.log("Promotion clicked:", card.querySelector("h3").textContent);
-      // Navigate to promotion details
     });
   });
 }
@@ -400,8 +411,13 @@ document.head.appendChild(style);
 
 // Initialize all functions when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Dashboard initialized");
+  console.log("Browse page initialized");
 
+  // Handle auth/redirects consistently (avoids race conditions)
+  redirectBasedOnAuth();
+
+  // Initialize browse features
+  initPopups();
   initMobileMenu();
   initNavigation();
   initCategoryFilter();
@@ -409,22 +425,27 @@ document.addEventListener("DOMContentLoaded", () => {
   initCourseCards();
   initSearch();
   initIconButtons();
-  initPromotions();
   initLazyLoading();
   initScrollToTop();
+
+  // Initialize navigation and hover animations
+  initializeAllNavigation();
 
   // Handle resize
   handleResize();
   window.addEventListener("resize", handleResize);
 
-  // Show welcome toast
+  // Show welcome toast with user data
+  const userData = getCurrentUserData();
+  const userName = userData?.displayName || userData?.username || 'User';
   setTimeout(() => {
-    showToast("Welcome to Koursian Dashboard!", "success");
+    showToast(`Welcome to Browse, ${userName}!`, "success");
   }, 500);
 });
 
 // Export functions for potential use elsewhere
-window.dashboardApp = {
+window.browseApp = {
   showToast,
   filterCourses,
+  filterCoursesByCategory,
 };

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Profile</title>
+    <link rel="stylesheet" href="src/css/root.css">
+    <link rel="stylesheet" href="src/css/setup-profile.css">
+    <link href="https://fonts.cdnfonts.com/css/lufga" rel="stylesheet">
+</head>
+
+<body>
+    <div class="split left">
+        <div class="top-header">
+            <div class="header-left">
+                <img src="src/assets/icons/circles.png" alt="" class="img image-1">
+                <img src="src/assets/icons/dots.png" alt="" class="img image-3">
+                <img src="src/assets/icons/sun.png" alt="" class="img image-4">
+                <img src="src/assets/icons/cloud.png" alt="" class="img image-5">
+                <div class="header-text">
+                    <img src="src/assets/icons/yellow_wave.png" alt="" class="image-2">
+                    <p>Unlock Your Path <br class="br-mobile"> To Achieve Your <span class="blank">&nbsp;</span> <span style="color: #FFD25D;">Dream</span> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="split right">
+
+        <div class="header-signIn">
+            <div class="center">
+                <div class="header-logo">
+                    <img src="src/assets/icons/Logo.svg" alt="logo">
+                    <span>Koursian</span>
+                </div>
+                <div class="header-forgot2">
+                    <form class="form-container" id="profileForm">
+                        <div class="header-forgot">
+                            <div class="header-input">
+                                <div class="header-container">
+                                    <h2 class="header">Setup Your Profile</h2>
+                                    <p class="description">Let’s start your journey by creating your account</p>
+
+                                </div>
+
+                                <div class="input-semua">
+                                    <div class="photo-upload-container">
+                                        <div class="photo-upload" id="photoUpload">
+                                            <div class="photo-preview" id="photoPreview">
+                                                <div class="add-photo-btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024">
+                                                        <path fill="currentColor" d="M352 480h320a32 32 0 1 1 0 64H352a32 32 0 0 1 0-64" />
+                                                        <path fill="currentColor" d="M480 672V352a32 32 0 1 1 64 0v320a32 32 0 0 1-64 0" />
+                                                        <path fill="currentColor" d="M512 896a384 384 0 1 0 0-768a384 384 0 0 0 0 768m0 64a448 448 0 1 1 0-896a448 448 0 0 1 0 896" />
+                                                    </svg>
+                                                </div>
+                                                <span class="add-photo-text">Add Photo</span>
+                                            </div>
+                                            <input type="file" id="photoInput" accept="image/*" hidden>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-name">
+                                        <label for="name">Name</label>
+                                        <input type="text" placeholder="Enter Your Name" class="input-form" id="name"
+                                            required>
+                                    </div>
+
+                                    <div class="input-bio">
+                                        <div class="label-container">
+                                            <label for="bio">Bio</label>
+                                            <div class="bio-status" id="bioStatus"></div>
+                                        </div>
+                                        <textarea id="bio" class="input-form" placeholder="Enter Bio"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+
+                <button type="submit" id="submitBtn" class="sign-in">Sign Up</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="src/js/setup-profile.js"></script>
+</body>
+    
+</html>
