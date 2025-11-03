@@ -4,6 +4,8 @@
         padding: 0;
         box-sizing: border-box;
         transition: all 300ms ease-in-out;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
       }
 
       /* Font Face Declarations - Using Outfit as fallback for Lufga */
