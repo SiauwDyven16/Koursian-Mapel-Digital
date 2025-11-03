@@ -4,6 +4,171 @@ import { redirectBasedOnAuth, isUserAuthenticated, getCurrentUserData } from './
 
 // Tasks JavaScript
 
+// Popup functionality (same as browse.js)
+function initPopups() {
+  const buttons = document.querySelectorAll(".icon-btn");
+  const popups = document.querySelectorAll(".pop-up");
+
+  let activePopup = null; // simpan popup yang sedang terbuka
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // jangan trigger event klik global
+
+      const popupId = btn.getAttribute("data-popup");
+      const target = document.getElementById(popupId);
+      if (!target) return;
+
+      // Jika klik tombol yang sama & popup sudah terbuka → tutup
+      if (activePopup === target && target.classList.contains("open")) {
+        target.classList.remove("open");
+        activePopup = null;
+        return;
+      }
+
+      // Tutup semua popup lain
+      popups.forEach((p) => p.classList.remove("open"));
+
+      // Buka popup yang baru diklik
+      target.classList.add("open");
+      activePopup = target;
+    });
+  });
+
+  // Tutup popup ketika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".icon-btn") && !e.target.closest(".pop-up")) {
+      popups.forEach((p) => p.classList.remove("open"));
+      activePopup = null;
+    }
+  });
+}
+
+// Task Cards Click Handler
+function initTaskCards() {
+  const taskCards = document.querySelectorAll(".task");
+
+  taskCards.forEach((card) => {
+    card.style.cursor = "pointer";
+    card.addEventListener("click", () => {
+      const taskTitle = card.querySelector("h2")?.textContent || "Task";
+      console.log("Task clicked:", taskTitle);
+      // Navigate to task details
+      window.location.href = "task-details.html";
+    });
+  });
+}
+
+// Tab Buttons Handler
+function initTabButtons() {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Remove active class from all buttons
+      tabButtons.forEach((b) => b.classList.remove("active"));
+
+      // Add active class to clicked button
+      btn.classList.add("active");
+
+      const tabName = btn.textContent.trim();
+      console.log("Tab clicked:", tabName);
+      // Filter tasks based on tab
+      filterTasksByTab(tabName);
+    });
+  });
+}
+
+// Category Buttons Handler
+function initCategoryButtons() {
+  const categoryBtns = document.querySelectorAll(".category-btn");
+
+  categoryBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Remove active class from all buttons
+      categoryBtns.forEach((b) => b.classList.remove("active"));
+
+      // Add active class to clicked button
+      btn.classList.add("active");
+
+      const category = btn.textContent.trim();
+      console.log("Category clicked:", category);
+      
+      // Check if it's the Task button that should redirect
+      if (category === "Task" && btn.hasAttribute("onclick")) {
+        // The onclick handler will handle the redirect
+        return;
+      }
+      
+      // Filter tasks based on category
+      filterTasksByCategory(category);
+    });
+  });
+}
+
+// Filter tasks by tab
+function filterTasksByTab(tabName) {
+  const tasks = document.querySelectorAll(".task");
+  
+  tasks.forEach((task) => {
+    const badges = task.querySelectorAll(".badge");
+    let shouldShow = false;
+    
+    badges.forEach((badge) => {
+      if (badge.textContent.toLowerCase() === tabName.toLowerCase()) {
+        shouldShow = true;
+      }
+    });
+    
+    if (tabName === "Newest") {
+      // Show all tasks for newest
+      task.style.display = "";
+    } else if (tabName === "Finished") {
+      // Check if task has "Finished" badge or similar
+      task.style.display = shouldShow ? "" : "none";
+    } else if (tabName === "Unfinished") {
+      // Show tasks that don't have "Finished" badge
+      const hasFinished = Array.from(badges).some(b => 
+        b.textContent.toLowerCase().includes("finished") ||
+        b.textContent.toLowerCase().includes("completed")
+      );
+      task.style.display = hasFinished ? "none" : "";
+    }
+  });
+}
+
+// Filter tasks by category
+function filterTasksByCategory(category) {
+  const tasks = document.querySelectorAll(".task");
+  
+  tasks.forEach((task) => {
+    const badges = task.querySelectorAll(".badge");
+    const taskTitle = task.querySelector("h2")?.textContent.toLowerCase() || "";
+    const taskMeta = task.querySelector(".course-meta")?.textContent.toLowerCase() || "";
+    
+    let shouldShow = false;
+    
+    // Check badges
+    badges.forEach((badge) => {
+      if (badge.textContent.toLowerCase().includes(category.toLowerCase())) {
+        shouldShow = true;
+      }
+    });
+    
+    // Check title and meta
+    if (taskTitle.includes(category.toLowerCase()) || 
+        taskMeta.includes(category.toLowerCase())) {
+      shouldShow = true;
+    }
+    
+    if (category === "All" || category === "Task") {
+      task.style.display = "";
+    } else {
+      task.style.display = shouldShow ? "" : "none";
+    }
+  });
+}
+
 // Mobile Menu Toggle
 function initMobileMenu() {
   // Create menu toggle button
@@ -597,8 +762,12 @@ document.addEventListener("DOMContentLoaded", () => {
   redirectBasedOnAuth();
 
   // Initialize tasks features
+  initPopups(); // Add popup functionality for icon buttons
   initMobileMenu();
   initNavigation();
+  initTaskCards(); // Add click handler for task cards
+  initTabButtons(); // Add click handler for tab buttons
+  initCategoryButtons(); // Add click handler for category buttons
   initTaskManagement();
   initTaskFiltering();
   initTaskProgress();

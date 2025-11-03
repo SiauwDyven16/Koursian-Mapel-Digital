@@ -432,10 +432,6 @@ style.textContent = `
     transition: transform 0.3s ease, background 0.3s ease;
   }
 
-  .scroll-to-top:hover {
-    background: #5a3eb8 !important;
-    transform: scale(1.1);
-  }
 
   .category-filters {
     cursor: grab;
@@ -471,6 +467,125 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize navigation and hover animations
   initializeAllNavigation();
+  
+  // Disable hover effects for course-card in "On Going Bootcamp" section
+  // This must be called after initializeAllNavigation() to override its styles
+  setTimeout(() => {
+    const overrideStyle = document.createElement('style');
+    overrideStyle.id = 'disable-ongoing-hover';
+    overrideStyle.textContent = `
+      /* Disable ALL hover effects for course-card in "On Going Bootcamp" section */
+      .content-section:first-of-type .course-card,
+      .content-section:first-of-type .course-card:hover,
+      .content-section:first-of-type .course-card.hover-effect,
+      .content-section:first-of-type .course-card:active,
+      .content-section:first-of-type .course-card:focus {
+        transform: none !important;
+        translate: none !important;
+        box-shadow: none !important;
+        scale: 1 !important;
+        transition: none !important;
+        filter: none !important;
+        will-change: auto !important;
+      }
+    `;
+    document.head.appendChild(overrideStyle);
+    
+    // Prevent hover-effect class from being added to course-cards in first section
+    const firstSection = document.querySelector('.content-section:first-of-type');
+    if (firstSection) {
+      const cards = firstSection.querySelectorAll('.course-card');
+      cards.forEach(card => {
+        // Remove hover-effect class if it exists
+        card.classList.remove('hover-effect', 'click-effect');
+        
+        // Function to prevent class addition
+        const preventHoverEnter = function(e) {
+          // Stop all other event listeners from running
+          e.stopImmediatePropagation();
+          // Remove class immediately if it was added
+          this.classList.remove('hover-effect');
+        }.bind(card);
+        
+        const preventHoverLeave = function(e) {
+          e.stopImmediatePropagation();
+          this.classList.remove('hover-effect', 'click-effect');
+        }.bind(card);
+        
+        const preventMouseDown = function(e) {
+          e.stopImmediatePropagation();
+          this.classList.remove('click-effect');
+        }.bind(card);
+        
+        const preventMouseUp = function(e) {
+          e.stopImmediatePropagation();
+          this.classList.remove('click-effect');
+        }.bind(card);
+        
+        // Add prevention handlers with capture: true to run BEFORE other listeners
+        // This ensures our handler runs first and stops propagation
+        card.addEventListener('mouseenter', preventHoverEnter, { 
+          capture: true, 
+          passive: false,
+          once: false
+        });
+        
+        card.addEventListener('mouseleave', preventHoverLeave, { 
+          capture: true, 
+          passive: false,
+          once: false
+        });
+        
+        card.addEventListener('mousedown', preventMouseDown, { 
+          capture: true, 
+          passive: false,
+          once: false
+        });
+        
+        card.addEventListener('mouseup', preventMouseUp, { 
+          capture: true, 
+          passive: false,
+          once: false
+        });
+        
+        // MutationObserver as aggressive backup to remove hover-effect class
+        // This runs continuously to catch any class additions
+        const observer = new MutationObserver(() => {
+          // Immediately remove if class exists
+          if (card.classList.contains('hover-effect')) {
+            card.classList.remove('hover-effect');
+          }
+          if (card.classList.contains('click-effect')) {
+            card.classList.remove('click-effect');
+          }
+        });
+        observer.observe(card, { 
+          attributes: true, 
+          attributeFilter: ['class'],
+          attributeOldValue: false,
+          subtree: false
+        });
+        
+        // Also add a periodic check as extra safety
+        const intervalId = setInterval(() => {
+          if (card.classList.contains('hover-effect') || card.classList.contains('click-effect')) {
+            card.classList.remove('hover-effect', 'click-effect');
+          }
+        }, 50); // Check every 50ms
+        
+        // Clean up interval when card is removed
+        const disconnectObserver = () => {
+          observer.disconnect();
+          clearInterval(intervalId);
+        };
+        
+        // Store cleanup function for potential future use
+        if (!card.dataset.cleanupHover) {
+          card.dataset.cleanupHover = 'true';
+        }
+      });
+    }
+  }, 200);
 
   // Handle resize
   handleResize();

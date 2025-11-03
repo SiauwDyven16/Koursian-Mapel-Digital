@@ -341,6 +341,11 @@ body {
     cursor: pointer;
 }
 
+/* Override transition for first content-section (On Going Bootcamp) */
+.content-section:first-of-type .course-card {
+    transition: none !important;
+}
+
 .course-image {
     width: 100%;
     height: 150px;
@@ -908,4 +913,22 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(112, 79, 230, 0.5);
+}
+
+/* Disable ALL hover effects for course-card in "On Going Bootcamp" section */
+/* This must override JavaScript injected styles */
+.content-section:first-of-type .course-card,
+.content-section:first-of-type .course-card:hover,
+.content-section:first-of-type .course-card.hover-effect,
+.content-section:first-of-type .course-card:active,
+.content-section:first-of-type .course-card:focus,
+body .content-section:first-of-type .course-card:hover,
+html body .content-section:first-of-type .course-card:hover {
+    transform: none !important;
+    translate: none !important;
+    box-shadow: none !important;
+    scale: 1 !important;
+    transition: none !important;
+    filter: none !important;
+    will-change: auto !important;
 }
