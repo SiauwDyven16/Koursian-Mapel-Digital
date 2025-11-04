@@ -1097,7 +1097,6 @@ html body .content-section:first-of-type .course-card:hover {
 .message-bubble.yellow {
     background: #ffd25d;
     border-top-left-radius: 24px;
-    border-top-right: 24px;
     border-bottom-right-radius: 24px;
     border-bottom-left-radius: 0;
 }
@@ -1115,7 +1114,6 @@ html body .content-section:first-of-type .course-card:hover {
 }
 
 .message-bubble p {
-    font-family: 'Outfit', sans-serif;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: -0.64px;
