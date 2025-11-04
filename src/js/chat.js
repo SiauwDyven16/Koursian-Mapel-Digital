@@ -8,7 +8,9 @@ import {
     onSnapshot,
     serverTimestamp,
     limit,
-    where
+    where,
+    deleteDoc,
+    doc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 import { 
     formatMessageTime, 
@@ -116,6 +118,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (change.type === 'added') {
                     const messageData = change.doc.data();
                     displayMessage(messageData, change.doc.id);
+                } else if (change.type === 'removed') {
+                    // Remove message from UI when deleted
+                    const messageElement = document.querySelector(`[data-message-id="${change.doc.id}"]`);
+                    if (messageElement) {
+                        messageElement.remove();
+                    }
                 }
             });
             

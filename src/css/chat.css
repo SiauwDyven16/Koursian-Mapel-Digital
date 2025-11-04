@@ -974,10 +974,12 @@ html body .content-section:first-of-type .course-card:hover {
 .chat-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
 .chat-item {
+    display: flex;
+    justify-content: space-between;
     padding: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -1011,9 +1013,9 @@ html body .content-section:first-of-type .course-card:hover {
 }
 
 .chat-name {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
+    font-family: 'Lufga', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
     letter-spacing: -0.64px;
     color: #25252b;
     overflow: hidden;
@@ -1056,7 +1058,7 @@ html body .content-section:first-of-type .course-card:hover {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 240px);
     width: 100%;
 }
 
@@ -1101,6 +1103,7 @@ html body .content-section:first-of-type .course-card:hover {
 }
 
 .message-bubble {
+    position: relative;
     padding: 16px 24px;
     border-radius: 24px;
     max-width: 80%;
@@ -1140,6 +1143,87 @@ html body .content-section:first-of-type .course-card:hover {
 .message-bubble.purple p {
     color: #ffffff;
     text-align: right;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.back-to-dashboard-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 16px;
+    background: transparent;
+    border: 1px solid #704FE6;
+    border-radius: 12px;
+    color: #704FE6;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-to-dashboard-btn:hover {
+    background: #704FE6;
+    color: #ffffff;
+}
+
+.back-to-dashboard-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.back-to-dashboard-btn:hover svg {
+    transform: translateX(-2px);
+}
+
+/* Back button icon color transitions */
+.back-to-dashboard-btn svg path {
+    stroke: #704FE6;
+    transition: stroke 0.2s ease;
+}
+
+.back-to-dashboard-btn:hover svg path {
+    stroke: #ffffff;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #25252b;
+}
+
+.delete-message-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease;
+    color: #ffffff;
+}
+
+.message-bubble.purple:hover .delete-message-btn {
+    opacity: 1;
+}
+
+.delete-message-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
 .message-info {
@@ -1474,6 +1558,37 @@ html body .content-section:first-of-type .course-card:hover {
     .send-btn svg {
         width: 20px;
         height: 20px;
+    }
+    
+    .chat-header {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .back-to-dashboard-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .back-to-dashboard-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .chat-header h2 {
+        font-size: 18px;
+    }
+    
+    .delete-message-btn {
+        width: 24px;
+        height: 24px;
+        top: 6px;
+        right: 6px;
+    }
+    
+    .delete-message-btn svg {
+        width: 14px;
+        height: 14px;
     }
 }
 
