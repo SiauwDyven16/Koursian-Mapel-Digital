@@ -2,10 +2,10 @@ import { auth, db, redirectBasedOnAuth } from './firebase-config.js';
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// Check authentication status on page load
-document.addEventListener('DOMContentLoaded', () => {
-  redirectBasedOnAuth();
-});
+// // Check authentication status on page load
+// document.addEventListener('DOMContentLoaded', () => {
+//   redirectBasedOnAuth();
+// });
 
 // Get form elements
 const submit = document.getElementById('submit');

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Group Chat - Koursian</title>
+    <title>Global Chat - Koursian</title>
     <link rel="stylesheet" href="src/css/chat.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -69,19 +69,6 @@
             />
           </svg>
         </button>
-        <!-- <button class="icon-btn" data-popup="favorite-list">
-              <svg viewBox="0 0 32 32" fill="none">
-                <path
-                  d="M28 14.7973V21.4547C28 25.5827 28 27.648 27.0213 28.5493C26.5547 28.98 25.9653 29.2507 25.3373 29.3227C24.0213 29.4733 22.484 28.1133 19.4107 25.3947C18.0507 24.1933 17.372 23.592 16.5867 23.4347C16.1995 23.3556 15.8005 23.3556 15.4133 23.4347C14.6267 23.592 13.948 24.1933 12.5893 25.3947C9.516 28.1133 7.97867 29.4733 6.66267 29.3213C6.0337 29.249 5.44399 28.9787 4.97867 28.5493C4 27.648 4 25.584 4 21.4547V14.796C4 9.08 4 6.22133 5.75733 4.444C7.51467 2.66667 10.344 2.66667 16 2.66667C21.656 2.66667 24.4853 2.66667 26.2427 4.44267C28 6.21867 28 9.08 28 14.7973Z"
-                  fill="#704FE6"
-                  opacity="0.5"
-                />
-                <path
-                  d="M12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8C11 8.26522 11.1054 8.51957 11.2929 8.70711C11.4804 8.89464 11.7348 9 12 9H20C20.2652 9 20.5196 8.89464 20.7071 8.70711C20.8946 8.51957 21 8.26522 21 8C21 7.73478 20.8946 7.48043 20.7071 7.29289C20.5196 7.10536 20.2652 7 20 7H12Z"
-                  fill="#704FE6"
-                />
-              </svg>
-            </button> -->
         <button class="icon-btn" data-popup="notification-list">
           <svg viewBox="0 0 32 32" fill="none">
             <path
@@ -121,7 +108,7 @@
       <!-- Sidebar -->
       <aside class="sidebar">
         <div class="sidebar-header">
-          <h1>Group Chats</h1>
+          <h1>Global Chat</h1>
           <button class="category-btn">
             <span class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -154,11 +141,12 @@
               <path stroke-linecap="round" d="M18.5 18.5L22 22" />
             </g>
           </svg>
-          <input type="text" placeholder="Search bootcamp, mentor, question" />
+          <input type="text" placeholder="Search chat rooms..." />
         </div>
 
         <div class="chat-list">
-          <div class="chat-item active">
+          <!-- Global Chat Room -->
+          <div class="chat-item active" data-room-id="global-chat">
             <div class="chat-item-content">
               <div class="chat-icon">
                 <svg
@@ -181,7 +169,65 @@
                     transform="translate(4.5, 5)"
                   />
                   <path
-                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
+                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C0 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14.5, 5)"
+                  />
+                  <path
+                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(6, 13)"
+                  />
+                  <path
+                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(2, 14)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14, 14)"
+                  />
+                </svg>
+              </div>
+              <span class="chat-name">Global Chat Room</span>
+            </div>
+            <div class="chat-meta">
+              <span>Everyone</span>
+              <div class="dot"></div>
+              <span>Online</span>
+            </div>
+          </div>
+
+          <!-- Matematika | XI RPL 4 -->
+          <div class="chat-item" data-room-id="matematika-xi-rpl-4">
+            <div class="chat-item-content">
+              <div class="chat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(8.5, 4)"
+                  />
+                  <path
+                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(4.5, 5)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C0 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
                     fill="#1C274C"
                     opacity="0.24"
                     transform="translate(14.5, 5)"
@@ -214,333 +260,19 @@
               <span>36 people</span>
             </div>
           </div>
-
-          <div class="chat-item">
-            <div class="chat-item-content">
-              <div class="chat-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(8.5, 4)"
-                  />
-                  <path
-                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(4.5, 5)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14.5, 5)"
-                  />
-                  <path
-                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(6, 13)"
-                  />
-                  <path
-                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(2, 14)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14, 14)"
-                  />
-                </svg>
-              </div>
-              <span class="chat-name">Ilmu Pengetahuan Alam | XI RPL 4</span>
-            </div>
-            <div class="chat-meta">
-              <span>Mr. Tirta</span>
-              <div class="dot"></div>
-              <span>36 people</span>
-            </div>
-          </div>
-
-          <div class="chat-item">
-            <div class="chat-item-content">
-              <div class="chat-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(8.5, 4)"
-                  />
-                  <path
-                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(4.5, 5)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14.5, 5)"
-                  />
-                  <path
-                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(6, 13)"
-                  />
-                  <path
-                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(2, 14)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14, 14)"
-                  />
-                </svg>
-              </div>
-              <span class="chat-name"
-                >Dasar Pengembangan Perangkat Lunak dan Game | XI RPL 4</span
-              >
-            </div>
-            <div class="chat-meta">
-              <span>Ms. Nuri</span>
-              <div class="dot"></div>
-              <span>36 people</span>
-            </div>
-          </div>
-
-          <div class="chat-item">
-            <div class="chat-item-content">
-              <div class="chat-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(8.5, 4)"
-                  />
-                  <path
-                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(4.5, 5)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14.5, 5)"
-                  />
-                  <path
-                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(6, 13)"
-                  />
-                  <path
-                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(2, 14)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14, 14)"
-                  />
-                </svg>
-              </div>
-              <span class="chat-name">Sejarah | XI RPL 4</span>
-            </div>
-            <div class="chat-meta">
-              <span>Ms. Cok</span>
-              <div class="dot"></div>
-              <span>36 people</span>
-            </div>
-          </div>
-
-          <div class="chat-item">
-            <div class="chat-item-content">
-              <div class="chat-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(8.5, 4)"
-                  />
-                  <path
-                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(4.5, 5)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14.5, 5)"
-                  />
-                  <path
-                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
-                    fill="#1C274C"
-                    opacity="0.6"
-                    transform="translate(6, 13)"
-                  />
-                  <path
-                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(2, 14)"
-                  />
-                  <path
-                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
-                    fill="#1C274C"
-                    opacity="0.24"
-                    transform="translate(14, 14)"
-                  />
-                </svg>
-              </div>
-              <span class="chat-name">Bahasa Indonesia | XI RPL 4</span>
-            </div>
-            <div class="chat-meta">
-              <span>Ms. Rumasni</span>
-              <div class="dot"></div>
-              <span>36 people</span>
-            </div>
-          </div>
         </div>
       </aside>
 
       <!-- Chat Area -->
       <main class="chat-area">
+        <div class="chat-header">
+          <h2 id="chatTitle">Global Chat Room</h2>
+        </div>
         <div class="chat-container">
           <div class="messages-container" id="messagesContainer">
-            <!-- Message from Arya Andra -->
-            <div class="message-group left">
-              <div class="message-bubble yellow">
-                <p>Im so exited to start this bootcamp</p>
-              </div>
-              <div class="message-info">
-                <span>Arya Andra</span>
-                <div class="dot"></div>
-                <span>12:10 pm</span>
-              </div>
-            </div>
-
-            <!-- Message from Bryant Barton -->
-            <div class="message-group right">
-              <div class="message-bubble purple">
-                <p>Yeah me too, feel very exited for that</p>
-              </div>
-              <div class="message-info">
-                <span>Bryant Barton</span>
-                <div class="dot"></div>
-                <span>12:10 pm</span>
-              </div>
-            </div>
-
-            <!-- Long message from Arya Andra -->
-            <div class="message-group left">
-              <div class="message-bubble yellow large">
-                <p>
-                  Technologically follow hiring catching spaces tiger with
-                  management activities. Picture fruit donuts masking rehydrate
-                  create key masking dog. Without horse elephant 4-blocker
-                  existing.
-                </p>
-              </div>
-              <div class="message-info">
-                <span>Arya Andra</span>
-                <div class="dot"></div>
-                <span>12:10 pm</span>
-              </div>
-            </div>
-
-            <!-- Another long message from Arya Andra -->
-            <div class="message-group left">
-              <div class="message-bubble yellow large">
-                <p>
-                  Diligence ballpark guys lot standup. Better feature plan
-                  ditching paradigm banner. Business nail another have eye 2
-                  cob. They boys message leverage where expectations marketing.
-                  Low sexy right people important moments.
-                </p>
-              </div>
-              <div class="message-info">
-                <span>Arya Andra</span>
-                <div class="dot"></div>
-                <span>12:10 pm</span>
-              </div>
-            </div>
-
-            <!-- Another long message from Arya Andra -->
-            <div class="message-group left">
-              <div class="message-bubble yellow large">
-                <p>
-                  Keywords market per fruit buy-in price. Low-hanging initiative
-                  we way eco-system wiggle. Discussions what base invested win
-                  as usabiltiy. No-brainer drive offline contribution individual
-                  better left already. Please say sandwich.
-                </p>
-              </div>
-              <div class="message-info">
-                <span>Arya Andra</span>
-                <div class="dot"></div>
-                <span>12:10 pm</span>
-              </div>
-            </div>
-
-            <!-- Duplicate message -->
-            <div class="message-group left">
-              <div class="message-bubble yellow large">
-                <p>
-                  Keywords market per fruit buy-in price. Low-hanging initiative
-                  we way eco-system wiggle. Discussions what base invested win
-                  as usabiltiy. No-brainer drive offline contribution individual
-                  better left already. Please say sandwich.
-                </p>
-              </div>
-              <div class="message-info">
-                <span>Arya Andra</span>
-                <div class="dot"></div>
-                <span>12:10 pm</span>
-              </div>
+            <!-- Loading indicator -->
+            <div class="loading-messages">
+              <p>Loading messages...</p>
             </div>
           </div>
 
@@ -588,6 +320,6 @@
       </main>
     </div>
 
-    <script src="src/js/chat.js"></script>
+    <script type="module" src="src/js/chat.js"></script>
   </body>
 </html>

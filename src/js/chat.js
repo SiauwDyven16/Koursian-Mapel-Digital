@@ -1,9 +1,55 @@
-// Group Chat Functionality
+// Multi-Group Chat Functionality with Firebase
+import { db, auth } from './firebase-config.js';
+import { 
+    collection, 
+    addDoc, 
+    query, 
+    orderBy, 
+    onSnapshot,
+    serverTimestamp,
+    limit,
+    where
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { 
+    formatMessageTime, 
+    sanitizeMessage, 
+    validateMessage,
+    canSendMessage 
+} from './chat-utils.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const messageInput = document.getElementById('messageInput');
     const sendBtn = document.getElementById('sendBtn');
     const messagesContainer = document.getElementById('messagesContainer');
     const chatItems = document.querySelectorAll('.chat-item');
+    const chatTitle = document.getElementById('chatTitle');
+    
+    let currentUser = null;
+    let unsubscribeMessages = null;
+    let currentRoomId = 'global-chat'; // Default room
+    
+    // Wait for auth state
+    auth.onAuthStateChanged(async (user) => {
+        if (user) {
+            currentUser = user;
+            
+            // Get user data from localStorage
+            const storedUser = localStorage.getItem('currentUser');
+            if (storedUser) {
+                const userData = JSON.parse(storedUser);
+                currentUser.displayName = userData.displayName || userData.username || user.email;
+            }
+            
+            // Load first chat room by default
+            const firstChatItem = document.querySelector('.chat-item');
+            if (firstChatItem) {
+                firstChatItem.click();
+            }
+        } else {
+            // Redirect to login if not authenticated
+            window.location.href = 'sign-in.html';
+        }
+    });
     
     // Handle chat item clicks
     chatItems.forEach(item => {
@@ -13,6 +59,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked item
             this.classList.add('active');
             
+            // Get room info
+            const roomId = this.getAttribute('data-room-id');
+            const roomName = this.querySelector('.chat-name').textContent;
+            
+            // Update chat title
+            if (chatTitle) {
+                chatTitle.textContent = roomName;
+            }
+            
+            // Switch to this room
+            switchRoom(roomId, roomName);
+            
             // On mobile, show chat area
             if (window.innerWidth <= 480) {
                 document.querySelector('.sidebar').classList.add('chat-open');
@@ -21,36 +79,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Send message function
-    function sendMessage() {
-        const messageText = messageInput.value.trim();
+    // Switch chat room
+    function switchRoom(roomId, roomName) {
+        // Unsubscribe from previous room
+        if (unsubscribeMessages) {
+            unsubscribeMessages();
+        }
         
-        if (messageText === '') {
+        // Update current room
+        currentRoomId = roomId;
+        
+        // Clear messages
+        messagesContainer.innerHTML = '<div class="loading-messages"><p>Loading messages...</p></div>';
+        
+        // Listen to new room
+        listenToMessages(roomId);
+        
+        console.log(`Switched to room: ${roomName} (${roomId})`);
+    }
+    
+    // Listen to messages in realtime for specific room
+    function listenToMessages(roomId) {
+        const messagesRef = collection(db, 'chatRooms', roomId, 'messages');
+        const q = query(messagesRef, orderBy('timestamp', 'asc'), limit(100));
+        
+        // Clear loading indicator
+        const loadingEl = messagesContainer.querySelector('.loading-messages');
+        
+        unsubscribeMessages = onSnapshot(q, (snapshot) => {
+            // Remove loading on first load
+            if (loadingEl) {
+                loadingEl.remove();
+            }
+            
+            snapshot.docChanges().forEach((change) => {
+                if (change.type === 'added') {
+                    const messageData = change.doc.data();
+                    displayMessage(messageData, change.doc.id);
+                }
+            });
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, (error) => {
+            console.error('Error listening to messages:', error);
+            messagesContainer.innerHTML = '<div class="error-message">Failed to load messages. Please refresh the page.</div>';
+        });
+    }
+    
+    // Display message in UI
+    function displayMessage(messageData, messageId) {
+        // Check if message already exists
+        if (document.querySelector(`[data-message-id="${messageId}"]`)) {
             return;
         }
         
-        // Create new message element
+        const isCurrentUser = messageData.userId === currentUser.uid;
+        
         const messageGroup = document.createElement('div');
-        messageGroup.className = 'message-group right';
+        messageGroup.className = `message-group ${isCurrentUser ? 'right' : 'left'}`;
+        messageGroup.setAttribute('data-message-id', messageId);
         
         const messageBubble = document.createElement('div');
-        messageBubble.className = 'message-bubble purple';
+        messageBubble.className = `message-bubble ${isCurrentUser ? 'purple' : 'yellow'}`;
         
         const messageP = document.createElement('p');
-        messageP.textContent = messageText;
+        messageP.textContent = messageData.message;
         messageBubble.appendChild(messageP);
         
         const messageInfo = document.createElement('div');
         messageInfo.className = 'message-info';
         
-        const currentTime = new Date();
-        const hours = currentTime.getHours() % 12 || 12;
-        const minutes = currentTime.getMinutes().toString().padStart(2, '0');
-        const ampm = currentTime.getHours() >= 12 ? 'pm' : 'am';
-        const timeString = `${hours}:${minutes} ${ampm}`;
+        // Format timestamp using utility
+        const timeString = formatMessageTime(messageData.timestamp);
         
         messageInfo.innerHTML = `
-            <span>Bryant Barton</span>
+            <span>${sanitizeMessage(messageData.userName || 'Anonymous')}</span>
             <div class="dot"></div>
             <span>${timeString}</span>
         `;
@@ -59,12 +163,57 @@ document.addEventListener('DOMContentLoaded', function() {
         messageGroup.appendChild(messageInfo);
         
         messagesContainer.appendChild(messageGroup);
+    }
+    
+    // Send message function
+    async function sendMessage() {
+        const messageText = messageInput.value.trim();
         
-        // Clear input
-        messageInput.value = '';
+        // Validate message
+        const validation = validateMessage(messageText);
+        if (!validation.valid) {
+            if (validation.error) {
+                alert(validation.error);
+            }
+            return;
+        }
         
-        // Scroll to bottom
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        // Check rate limiting
+        if (!canSendMessage(currentUser.uid)) {
+            alert('You are sending messages too fast. Please wait a moment.');
+            return;
+        }
+        
+        if (!currentUser) {
+            alert('You must be logged in to send messages');
+            return;
+        }
+        
+        // Disable send button temporarily
+        sendBtn.disabled = true;
+        messageInput.disabled = true;
+        
+        try {
+            // Add message to Firestore in specific room
+            await addDoc(collection(db, 'chatRooms', currentRoomId, 'messages'), {
+                message: sanitizeMessage(messageText),
+                userId: currentUser.uid,
+                userName: currentUser.displayName || currentUser.email,
+                timestamp: serverTimestamp()
+            });
+            
+            // Clear input
+            messageInput.value = '';
+            
+        } catch (error) {
+            console.error('Error sending message:', error);
+            alert('Failed to send message. Please try again.');
+        } finally {
+            // Re-enable send button
+            sendBtn.disabled = false;
+            messageInput.disabled = false;
+            messageInput.focus();
+        }
     }
     
     // Send button click event
@@ -77,13 +226,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Auto-scroll to bottom on page load
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    
-    // Handle back button on mobile
+    // Handle mobile navigation
     function handleMobileNavigation() {
         if (window.innerWidth <= 480) {
-            // Add back button functionality if needed
             const chatArea = document.querySelector('.chat-area');
             if (chatArea && !document.querySelector('.back-button')) {
                 const backButton = document.createElement('button');
@@ -119,45 +264,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check for mobile on resize
     window.addEventListener('resize', handleMobileNavigation);
     
-    // Active chat indicator
-    const activeChatItem = document.querySelector('.chat-item.active .chat-name');
-    if (activeChatItem) {
-        console.log('Active chat:', activeChatItem.textContent);
-    }
-    
-    // Smooth scroll behavior for messages
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.addedNodes.length) {
-                messagesContainer.scrollTo({
-                    top: messagesContainer.scrollHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    observer.observe(messagesContainer, {
-        childList: true
-    });
-    
-    // Filter button functionality (placeholder)
-    const filterBtn = document.querySelector('.filter-btn');
-    if (filterBtn) {
-        filterBtn.addEventListener('click', function() {
-            console.log('Filter button clicked');
-            // Add filter modal/dropdown functionality here
-        });
-    }
-    
     // Search functionality
-    const searchInputs = document.querySelectorAll('.search-container input, .navbar-search input');
+    const searchInputs = document.querySelectorAll('.search-container input');
     searchInputs.forEach(input => {
         input.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             
             if (this.closest('.sidebar')) {
-                // Filter chat list
                 chatItems.forEach(item => {
                     const chatName = item.querySelector('.chat-name').textContent.toLowerCase();
                     if (chatName.includes(searchTerm)) {
@@ -170,21 +283,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Navbar action buttons functionality
-    const navActionBtns = document.querySelectorAll('.navbar-actions .icon-btn');
-    navActionBtns.forEach((btn, index) => {
-        btn.addEventListener('click', function() {
-            const actions = ['Messages', 'Bookmarks', 'Notifications', 'Cart'];
-            console.log(`${actions[index]} clicked`);
-        });
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        if (unsubscribeMessages) {
+            unsubscribeMessages();
+        }
     });
-    
-    // Profile picture click
-    const profilePic = document.querySelector('.profile-pic');
-    if (profilePic) {
-        profilePic.addEventListener('click', function() {
-            console.log('Profile clicked');
-            // Add profile menu functionality here
-        });
-    }
 });

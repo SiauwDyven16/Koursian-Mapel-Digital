@@ -9,6 +9,18 @@
 
 }
 
+.loading-messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: #25252b;
+    opacity: 0.6;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 body {
     background: #fafafa;
     color: #25252B;
