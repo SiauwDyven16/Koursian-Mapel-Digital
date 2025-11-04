@@ -309,32 +309,19 @@ function addHoverCSS() {
       transform: translateX(4px);
     }
     
-    .course-card:hover,
-    .browse-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    .category-btn:hover {
+      background-color: #DEC8FE;
+      color: #704FE6;
     }
     
-    .category-btn:hover {
-      background-color: #704FE6;
-      color: white;
-      transform: scale(1.05);
+    .category-btn:hover svg  {
+      fill: #704FE6;
     }
     
     .task-working-btn:hover {
-      background-color: #5a3eb8;
+      background-color: #704FE6;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(112, 79, 230, 0.3);
-    }
-    
-    .icon-btn:hover {
-      background-color: rgba(112, 79, 230, 0.1);
-      transform: scale(1.1);
-    }
-    
-    .promotion-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
     
     /* Click effects */
@@ -351,8 +338,7 @@ function addHoverCSS() {
     /* Focus states for accessibility */
     button:focus,
     .btn:focus,
-    .nav-link:focus,
-    .nav-item:focus {
+    .nav-link:focus, {
       outline: 2px solid #704FE6;
       outline-offset: 2px;
     }

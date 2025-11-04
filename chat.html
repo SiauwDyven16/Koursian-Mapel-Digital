@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Chat - Koursian</title>
+    <link rel="stylesheet" href="src/css/chat.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-container">
+        <div class="logo">
+          <svg viewBox="0 0 49 48" fill="none">
+            <path
+              d="M24.5 12.75C24.5 18.9632 19.4632 24 13.25 24H2V12.75C2 6.53679 7.03679 1.5 13.25 1.5C19.4632 1.5 24.5 6.53679 24.5 12.75Z"
+              fill="#704FE6"
+            />
+            <path
+              d="M24.5 35.25C24.5 29.0368 29.5368 24 35.75 24H47V35.25C47 41.4632 41.9632 46.5 35.75 46.5C29.5368 46.5 24.5 41.4632 24.5 35.25Z"
+              fill="#704FE6"
+            />
+            <path
+              d="M2 35.25C2 41.4632 7.03679 46.5 13.25 46.5H24.5V35.25C24.5 29.0368 19.4632 24 13.25 24C7.03679 24 2 29.0368 2 35.25Z"
+              fill="#704FE6"
+            />
+            <path
+              d="M47 12.75C47 6.53679 41.9632 1.5 35.75 1.5H24.5V12.75C24.5 18.9632 29.5368 24 35.75 24C41.9632 24 47 18.9632 47 12.75Z"
+              fill="#FFD25D"
+            />
+          </svg>
+        </div>
+        <span class="logo-text">Koursian</span>
+      </div>
+
+      <div class="search-container">
+        <svg
+          class="search-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <g fill="none" stroke="#25252b70" stroke-width="1.5">
+            <circle cx="11.5" cy="11.5" r="9.5" />
+            <path stroke-linecap="round" d="M18.5 18.5L22 22" />
+          </g>
+        </svg>
+        <input type="text" placeholder="Search bootcamp, mentor, question" />
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" data-popup="message-list">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path
+              d="M18.172 27.296L17.4493 28.5173C16.8053 29.6053 15.196 29.6053 14.5507 28.5173L13.828 27.296C13.268 26.3493 12.988 25.8747 12.5373 25.6133C12.0867 25.3507 11.52 25.3413 10.3867 25.3213C8.712 25.2933 7.66267 25.1907 6.78267 24.8253C5.97382 24.4903 5.23889 23.9992 4.61983 23.3802C4.00076 22.7611 3.5097 22.0262 3.17467 21.2173C2.66667 19.9933 2.66667 18.44 2.66667 15.3333V14C2.66667 9.636 2.66667 7.45333 3.64933 5.85067C4.19872 4.9536 4.9526 4.19927 5.84933 3.64933C7.45333 2.66667 9.63733 2.66667 14 2.66667H18C22.364 2.66667 24.5467 2.66667 26.1507 3.64933C27.0473 4.19889 27.8011 4.95275 28.3507 5.84933C29.3333 7.45333 29.3333 9.63733 29.3333 14V15.3333C29.3333 18.44 29.3333 19.9933 28.8267 21.2173C28.4915 22.0263 28.0002 22.7613 27.3809 23.3804C26.7616 23.9994 26.0264 24.4904 25.2173 24.8253C24.3373 25.1907 23.288 25.292 21.6133 25.3213C20.48 25.3413 19.9133 25.3507 19.4627 25.6133C19.012 25.8747 18.732 26.348 18.172 27.296Z"
+              fill="#704FE6"
+              opacity="0.5"
+            />
+            <path
+              d="M9.66667 12C9.66667 11.7348 9.77202 11.4804 9.95956 11.2929C10.1471 11.1054 10.4014 11 10.6667 11H21.3333C21.5985 11 21.8529 11.1054 22.0404 11.2929C22.228 11.4804 22.3333 11.7348 22.3333 12C22.3333 12.2652 22.228 12.5196 22.0404 12.7071C21.8529 12.8946 21.5985 13 21.3333 13H10.6667C10.4014 13 10.1471 12.8946 9.95956 12.7071C9.77202 12.5196 9.66667 12.2652 9.66667 12ZM9.66667 16.6667C9.66667 16.4015 9.77202 16.1471 9.95956 15.9596C10.1471 15.772 10.4014 15.6667 10.6667 15.6667H18C18.2652 15.6667 18.5196 15.772 18.7071 15.9596C18.8946 16.1471 19 16.4015 19 16.6667C19 16.9319 18.8946 17.1862 18.7071 17.3738C18.5196 17.5613 18.2652 17.6667 18 17.6667H10.6667C10.4014 17.6667 10.1471 17.5613 9.95956 17.3738C9.77202 17.1862 9.66667 16.9319 9.66667 16.6667Z"
+              fill="#704FE6"
+            />
+          </svg>
+        </button>
+        <!-- <button class="icon-btn" data-popup="favorite-list">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M28 14.7973V21.4547C28 25.5827 28 27.648 27.0213 28.5493C26.5547 28.98 25.9653 29.2507 25.3373 29.3227C24.0213 29.4733 22.484 28.1133 19.4107 25.3947C18.0507 24.1933 17.372 23.592 16.5867 23.4347C16.1995 23.3556 15.8005 23.3556 15.4133 23.4347C14.6267 23.592 13.948 24.1933 12.5893 25.3947C9.516 28.1133 7.97867 29.4733 6.66267 29.3213C6.0337 29.249 5.44399 28.9787 4.97867 28.5493C4 27.648 4 25.584 4 21.4547V14.796C4 9.08 4 6.22133 5.75733 4.444C7.51467 2.66667 10.344 2.66667 16 2.66667C21.656 2.66667 24.4853 2.66667 26.2427 4.44267C28 6.21867 28 9.08 28 14.7973Z"
+                  fill="#704FE6"
+                  opacity="0.5"
+                />
+                <path
+                  d="M12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8C11 8.26522 11.1054 8.51957 11.2929 8.70711C11.4804 8.89464 11.7348 9 12 9H20C20.2652 9 20.5196 8.89464 20.7071 8.70711C20.8946 8.51957 21 8.26522 21 8C21 7.73478 20.8946 7.48043 20.7071 7.29289C20.5196 7.10536 20.2652 7 20 7H12Z"
+                  fill="#704FE6"
+                />
+              </svg>
+            </button> -->
+        <button class="icon-btn" data-popup="notification-list">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path
+              d="M25 12V12.9387C25 14.0653 25.32 15.1667 25.9227 16.104L27.4 18.4013C28.748 20.5 27.7187 23.352 25.3733 24.0147C19.245 25.7502 12.7551 25.7502 6.62667 24.0147C4.28133 23.352 3.252 20.5 4.6 18.4013L6.07733 16.104C6.68162 15.1589 7.00229 14.0604 7.00133 12.9387V12C7.00133 6.84533 11.0307 2.66667 16 2.66667C20.9693 2.66667 25 6.84533 25 12Z"
+              fill="#704FE6"
+              opacity="0.5"
+            />
+            <path
+              d="M9.65733 24.7267C10.093 26.0655 10.9412 27.2321 12.0804 28.0594C13.2196 28.8867 14.5914 29.3323 15.9993 29.3323C17.4073 29.3323 18.7791 28.8867 19.9183 28.0594C21.0575 27.2321 21.9057 26.0655 22.3413 24.7267C18.148 25.5133 13.852 25.5133 9.65733 24.7267Z"
+              fill="#704FE6"
+            />
+          </svg>
+        </button>
+        <button class="icon-btn" data-popup="task-list">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="#704FE6"
+              fill-rule="evenodd"
+              d="m20.83 10.715l-.518 1.932c-.605 2.255-.907 3.383-1.592 4.114a4 4 0 0 1-2.01 1.161q-.145.034-.295.052c-.915.113-2.032-.186-4.064-.73c-2.255-.605-3.383-.907-4.114-1.592a4 4 0 0 1-1.161-2.011c-.228-.976.074-2.103.679-4.358l.517-1.932l.244-.905c.455-1.666.761-2.583 1.348-3.21a4 4 0 0 1 2.01-1.16c.976-.228 2.104.074 4.36.679c2.254.604 3.382.906 4.113 1.59a4 4 0 0 1 1.161 2.012c.228.976-.075 2.103-.679 4.358m-9.778-.91a.75.75 0 0 1 .919-.53l4.83 1.295a.75.75 0 1 1-.389 1.448l-4.83-1.294a.75.75 0 0 1-.53-.918m-.776 2.898a.75.75 0 0 1 .918-.53l2.898.777a.75.75 0 1 1-.388 1.448l-2.898-.776a.75.75 0 0 1-.53-.919"
+              clip-rule="evenodd"
+            />
+            <path
+              fill="#704FE6"
+              d="M16.415 17.975a4 4 0 0 1-1.068 1.677c-.731.685-1.859.987-4.114 1.591s-3.383.907-4.358.679a4 4 0 0 1-2.011-1.161c-.685-.731-.988-1.859-1.592-4.114l-.517-1.932c-.605-2.255-.907-3.383-.68-4.358a4 4 0 0 1 1.162-2.011c.731-.685 1.859-.987 4.114-1.592q.638-.172 1.165-.309l-.244.906l-.517 1.932c-.605 2.255-.907 3.382-.68 4.358a4 4 0 0 0 1.162 2.011c.731.685 1.859.987 4.114 1.592c2.032.544 3.149.843 4.064.73"
+              opacity="0.5"
+            />
+          </svg>
+        </button>
+        <div class="avatar">
+          <img src="src/assets/image/Mentor-Image-1.jpg" alt="Profile" />
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>Group Chats</h1>
+          <button class="category-btn">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="#704FE6"
+                  fill-rule="evenodd"
+                  d="M5 3h14L8.816 13.184a2.7 2.7 0 0 0-.778-1.086c-.228-.198-.547-.377-1.183-.736l-2.913-1.64c-.949-.533-1.423-.8-1.682-1.23C2 8.061 2 7.541 2 6.503v-.69c0-1.326 0-1.99.44-2.402C2.878 3 3.585 3 5 3"
+                  clip-rule="evenodd"
+                />
+                <path
+                  fill="#704FE6"
+                  d="M22 6.504v-.69c0-1.326 0-1.99-.44-2.402C21.122 3 20.415 3 19 3L8.815 13.184q.075.193.121.403c.064.285.064.619.064 1.286v2.67c0 .909 0 1.364.252 1.718c.252.355.7.53 1.594.88c1.879.734 2.818 1.101 3.486.683S15 19.452 15 17.542v-2.67c0-.666 0-1 .063-1.285a2.68 2.68 0 0 1 .9-1.49c.227-.197.545-.376 1.182-.735l2.913-1.64c.948-.533 1.423-.8 1.682-1.23c.26-.43.26-.95.26-1.988"
+                  opacity="0.5"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="search-container">
+          <svg
+            class="search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <g fill="none" stroke="#25252b70" stroke-width="1.5">
+              <circle cx="11.5" cy="11.5" r="9.5" />
+              <path stroke-linecap="round" d="M18.5 18.5L22 22" />
+            </g>
+          </svg>
+          <input type="text" placeholder="Search bootcamp, mentor, question" />
+        </div>
+
+        <div class="chat-list">
+          <div class="chat-item active">
+            <div class="chat-item-content">
+              <div class="chat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(8.5, 4)"
+                  />
+                  <path
+                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(4.5, 5)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14.5, 5)"
+                  />
+                  <path
+                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(6, 13)"
+                  />
+                  <path
+                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(2, 14)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14, 14)"
+                  />
+                </svg>
+              </div>
+              <span class="chat-name">Matematika | XI RPL 4</span>
+            </div>
+            <div class="chat-meta">
+              <span>Ms. Linda</span>
+              <div class="dot"></div>
+              <span>36 people</span>
+            </div>
+          </div>
+
+          <div class="chat-item">
+            <div class="chat-item-content">
+              <div class="chat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(8.5, 4)"
+                  />
+                  <path
+                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(4.5, 5)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14.5, 5)"
+                  />
+                  <path
+                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(6, 13)"
+                  />
+                  <path
+                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(2, 14)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14, 14)"
+                  />
+                </svg>
+              </div>
+              <span class="chat-name">Ilmu Pengetahuan Alam | XI RPL 4</span>
+            </div>
+            <div class="chat-meta">
+              <span>Mr. Tirta</span>
+              <div class="dot"></div>
+              <span>36 people</span>
+            </div>
+          </div>
+
+          <div class="chat-item">
+            <div class="chat-item-content">
+              <div class="chat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(8.5, 4)"
+                  />
+                  <path
+                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(4.5, 5)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14.5, 5)"
+                  />
+                  <path
+                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(6, 13)"
+                  />
+                  <path
+                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(2, 14)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14, 14)"
+                  />
+                </svg>
+              </div>
+              <span class="chat-name"
+                >Dasar Pengembangan Perangkat Lunak dan Game | XI RPL 4</span
+              >
+            </div>
+            <div class="chat-meta">
+              <span>Ms. Nuri</span>
+              <div class="dot"></div>
+              <span>36 people</span>
+            </div>
+          </div>
+
+          <div class="chat-item">
+            <div class="chat-item-content">
+              <div class="chat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(8.5, 4)"
+                  />
+                  <path
+                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(4.5, 5)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14.5, 5)"
+                  />
+                  <path
+                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(6, 13)"
+                  />
+                  <path
+                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(2, 14)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14, 14)"
+                  />
+                </svg>
+              </div>
+              <span class="chat-name">Sejarah | XI RPL 4</span>
+            </div>
+            <div class="chat-meta">
+              <span>Ms. Cok</span>
+              <div class="dot"></div>
+              <span>36 people</span>
+            </div>
+          </div>
+
+          <div class="chat-item">
+            <div class="chat-item-content">
+              <div class="chat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 3.5C7 5.433 5.433 7 3.5 7C1.567 7 0 5.433 0 3.5C0 1.567 1.567 0 3.5 0C5.433 0 7 1.567 7 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(8.5, 4)"
+                  />
+                  <path
+                    d="M5 2.5C5 3.88071 3.8807 5 2.5 5C1.1193 5 0 3.88071 0 2.5C0 1.11929 1.1193 0 2.5 0C3.8807 0 5 1.11929 5 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(4.5, 5)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.88071 1.11929 5 2.5 5C3.88071 5 5 3.88071 5 2.5C5 1.11929 3.88071 0 2.5 0C1.11929 0 0 1.11929 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14.5, 5)"
+                  />
+                  <path
+                    d="M12 3.5C12 5.433 9.3137 7 6 7C2.68629 7 0 5.433 0 3.5C0 1.567 2.68629 0 6 0C9.3137 0 12 1.567 12 3.5Z"
+                    fill="#1C274C"
+                    opacity="0.6"
+                    transform="translate(6, 13)"
+                  />
+                  <path
+                    d="M8 2.5C8 3.8807 6.2091 5 4 5C1.7909 5 0 3.8807 0 2.5C0 1.1193 1.7909 0 4 0C6.2091 0 8 1.1193 8 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(2, 14)"
+                  />
+                  <path
+                    d="M0 2.5C0 3.8807 1.79086 5 4 5C6.20914 5 8 3.8807 8 2.5C8 1.1193 6.20914 0 4 0C1.79086 0 0 1.1193 0 2.5Z"
+                    fill="#1C274C"
+                    opacity="0.24"
+                    transform="translate(14, 14)"
+                  />
+                </svg>
+              </div>
+              <span class="chat-name">Bahasa Indonesia | XI RPL 4</span>
+            </div>
+            <div class="chat-meta">
+              <span>Ms. Rumasni</span>
+              <div class="dot"></div>
+              <span>36 people</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Chat Area -->
+      <main class="chat-area">
+        <div class="chat-container">
+          <div class="messages-container" id="messagesContainer">
+            <!-- Message from Arya Andra -->
+            <div class="message-group left">
+              <div class="message-bubble yellow">
+                <p>Im so exited to start this bootcamp</p>
+              </div>
+              <div class="message-info">
+                <span>Arya Andra</span>
+                <div class="dot"></div>
+                <span>12:10 pm</span>
+              </div>
+            </div>
+
+            <!-- Message from Bryant Barton -->
+            <div class="message-group right">
+              <div class="message-bubble purple">
+                <p>Yeah me too, feel very exited for that</p>
+              </div>
+              <div class="message-info">
+                <span>Bryant Barton</span>
+                <div class="dot"></div>
+                <span>12:10 pm</span>
+              </div>
+            </div>
+
+            <!-- Long message from Arya Andra -->
+            <div class="message-group left">
+              <div class="message-bubble yellow large">
+                <p>
+                  Technologically follow hiring catching spaces tiger with
+                  management activities. Picture fruit donuts masking rehydrate
+                  create key masking dog. Without horse elephant 4-blocker
+                  existing.
+                </p>
+              </div>
+              <div class="message-info">
+                <span>Arya Andra</span>
+                <div class="dot"></div>
+                <span>12:10 pm</span>
+              </div>
+            </div>
+
+            <!-- Another long message from Arya Andra -->
+            <div class="message-group left">
+              <div class="message-bubble yellow large">
+                <p>
+                  Diligence ballpark guys lot standup. Better feature plan
+                  ditching paradigm banner. Business nail another have eye 2
+                  cob. They boys message leverage where expectations marketing.
+                  Low sexy right people important moments.
+                </p>
+              </div>
+              <div class="message-info">
+                <span>Arya Andra</span>
+                <div class="dot"></div>
+                <span>12:10 pm</span>
+              </div>
+            </div>
+
+            <!-- Another long message from Arya Andra -->
+            <div class="message-group left">
+              <div class="message-bubble yellow large">
+                <p>
+                  Keywords market per fruit buy-in price. Low-hanging initiative
+                  we way eco-system wiggle. Discussions what base invested win
+                  as usabiltiy. No-brainer drive offline contribution individual
+                  better left already. Please say sandwich.
+                </p>
+              </div>
+              <div class="message-info">
+                <span>Arya Andra</span>
+                <div class="dot"></div>
+                <span>12:10 pm</span>
+              </div>
+            </div>
+
+            <!-- Duplicate message -->
+            <div class="message-group left">
+              <div class="message-bubble yellow large">
+                <p>
+                  Keywords market per fruit buy-in price. Low-hanging initiative
+                  we way eco-system wiggle. Discussions what base invested win
+                  as usabiltiy. No-brainer drive offline contribution individual
+                  better left already. Please say sandwich.
+                </p>
+              </div>
+              <div class="message-info">
+                <span>Arya Andra</span>
+                <div class="dot"></div>
+                <span>12:10 pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message Input -->
+          <div class="message-input-container">
+            <div class="input-left">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11.244 1.955C12.944 1.015 15.034 1.015 16.734 1.955C17.364 2.303 17.952 2.865 18.907 3.78L19 3.87L19.098 3.963C20.048 4.873 20.638 5.438 21.004 6.044C21.4926 6.84834 21.751 7.77139 21.751 8.7125C21.751 9.65361 21.4926 10.5767 21.004 11.381C20.638 11.988 20.049 12.551 19.098 13.461L19 13.556L11.543 20.696C11.013 21.202 10.583 21.616 10.203 21.922C9.81 22.238 9.423 22.483 8.968 22.614C8.33519 22.7962 7.66381 22.7962 7.031 22.614C6.577 22.484 6.19 22.238 5.797 21.922C5.417 21.615 4.986 21.202 4.457 20.696L4.409 20.65C3.88 20.143 3.449 19.73 3.129 19.367C2.799 18.991 2.537 18.614 2.396 18.166C2.20219 17.5451 2.20219 16.8799 2.396 16.259C2.536 15.811 2.798 15.434 3.129 15.059C3.449 14.695 3.88 14.282 4.409 13.775L11.759 6.737L11.838 6.662C12.207 6.308 12.518 6.008 12.879 5.842C13.1937 5.69714 13.5361 5.62213 13.8825 5.62213C14.2289 5.62213 14.5713 5.69714 14.886 5.842C15.246 6.008 15.558 6.308 15.927 6.662L16.006 6.737L16.086 6.815C16.453 7.165 16.769 7.466 16.946 7.818C17.1023 8.12712 17.1837 8.46863 17.1837 8.815C17.1837 9.16137 17.1023 9.50288 16.946 9.812C16.8424 10.0093 16.7107 10.1906 16.555 10.35C16.413 10.502 16.232 10.676 16.02 10.879L8.626 17.959C8.48239 18.0966 8.28997 18.1716 8.09109 18.1674C7.89221 18.1632 7.70315 18.0801 7.5655 17.9365C7.42785 17.7929 7.35289 17.6005 7.35711 17.4016C7.36133 17.2027 7.44438 17.0136 7.588 16.876L14.968 9.809C15.198 9.589 15.348 9.445 15.456 9.329C15.5136 9.27166 15.5639 9.20752 15.606 9.138C15.6571 9.03799 15.6837 8.9273 15.6837 8.815C15.6837 8.7027 15.6571 8.592 15.606 8.492C15.562 8.404 15.463 8.294 14.968 7.821C14.476 7.35 14.358 7.251 14.258 7.204C14.1403 7.15007 14.0124 7.12215 13.883 7.12215C13.7536 7.12215 13.6257 7.15007 13.508 7.204C13.407 7.251 13.288 7.35 12.797 7.821L5.47 14.836C4.912 15.371 4.527 15.74 4.255 16.049C3.988 16.353 3.879 16.545 3.827 16.709C3.72509 17.0373 3.72509 17.3887 3.827 17.717C3.879 17.88 3.987 18.072 4.255 18.376C4.527 18.686 4.912 19.054 5.47 19.589C6.03 20.124 6.415 20.493 6.739 20.754C7.055 21.009 7.262 21.119 7.446 21.172C7.807 21.276 8.193 21.276 8.554 21.172C8.738 21.119 8.945 21.009 9.261 20.754C9.585 20.493 9.971 20.124 10.53 19.589L17.963 12.472C19.043 11.438 19.47 11.019 19.719 10.606C20.0654 10.0352 20.2486 9.38022 20.2486 8.7125C20.2486 8.04478 20.0654 7.38985 19.719 6.819C19.47 6.406 19.043 5.987 17.963 4.953C16.884 3.921 16.445 3.509 16.009 3.268C15.39 2.92855 14.6955 2.75061 13.9895 2.75061C13.2835 2.75061 12.589 2.92855 11.97 3.268C11.533 3.508 11.094 3.921 10.016 4.953L4.026 10.688C3.88074 10.8159 3.69164 10.8827 3.49825 10.8745C3.30486 10.8662 3.12216 10.7835 2.98836 10.6436C2.85455 10.5037 2.78001 10.3175 2.78032 10.124C2.78062 9.9304 2.85576 9.74445 2.99 9.605L8.98 3.87L9.073 3.78C10.028 2.866 10.615 2.303 11.244 1.955Z"
+                  fill="black"
+                />
+              </svg>
+              <input
+                type="text"
+                placeholder="Type a message"
+                id="messageInput"
+              />
+            </div>
+            <button class="send-btn" id="sendBtn">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M1.987 2.953C2.35561 2.60218 2.82075 2.36967 3.32259 2.28538C3.82442 2.20109 4.34 2.26887 4.803 2.48L21.313 9.843C21.7387 10.0207 22.1023 10.3204 22.358 10.7043C22.6137 11.0882 22.7502 11.5392 22.7502 12.0005C22.7502 12.4618 22.6137 12.9128 22.358 13.2967C22.1023 13.6806 21.7387 13.9803 21.313 14.158L4.802 21.52C4.339 21.7311 3.82342 21.7989 3.32159 21.7146C2.81975 21.6303 2.35461 21.3978 1.986 21.047C1.296 20.388 0.977 19.312 1.528 18.28L4.68 12.376C4.74249 12.2605 4.77522 12.1313 4.77522 12C4.77522 11.8687 4.74249 11.7395 4.68 11.624L1.53 5.72C0.98 4.689 1.298 3.612 1.988 2.953M3.024 4.038C2.75 4.3 2.664 4.658 2.854 5.014L2.192 5.367L2.853 5.014L6.006 10.918C6.369 11.598 6.369 12.403 6.006 13.083L2.853 18.987C2.663 19.343 2.75 19.701 3.024 19.963C3.304 20.23 3.744 20.35 4.193 20.15L20.703 12.788C21.433 12.462 21.433 11.538 20.703 11.213L4.192 3.85C4.00085 3.76011 3.78703 3.72997 3.57847 3.76351C3.36992 3.79705 3.17733 3.89271 3.024 4.038Z"
+                  fill="black"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="src/js/chat.js"></script>
+  </body>
+</html>
